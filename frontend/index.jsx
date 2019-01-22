@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import root from './components/root';
 import configureStore from './store/store';
-// import Root from './components/root';
+import Root from './components/root';
+import { login, receiveCurrentUser, signup } from './actions/session_actions'; ///for testing
+
 
 // document.addEventListener('DOMContentLoaded', () => {
 //    const root = document.getElementById('root');

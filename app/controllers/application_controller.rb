@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
   
-  def require_logged_out
-    redirect_to api_user_url(current_user) if logged_in?
-  end
+  # def require_logged_out
+  #   redirect_to api_user_url(current_user) if logged_in?
+  # end
 
   def require_logged_in
     redirect_to api_session_url unless logged_in?
