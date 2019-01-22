@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
-   // debugger
    const personalGreeting = () => (
       <nav>
          <h2>hi {currentUser.username}</h2>
