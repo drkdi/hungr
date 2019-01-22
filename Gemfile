@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
 gem 'jquery-rails'
 
 # Use ActiveStorage variant
@@ -43,6 +42,8 @@ gem 'capybara', '~> 2.13'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_bot_rails'
+  gem 'annotate'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
