@@ -8,10 +8,10 @@ import Greeting from './greeting';
 //state.entities.users[state.session.id]
 // {state} to msp
 
-const mapStateToProps = ({ session, entities }) => {
+const mapStateToProps = ({ session, entities: {users} }) => {
 
    return {
-      currentUser: entities.users[session.id]
+      currentUser: users[session.id]
       ////////????????? => find users matching id by session.id, using entities
    }
 }
