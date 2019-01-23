@@ -29,11 +29,15 @@ const Splash = (props) => {
 
          <p>Come for what you love.</p>
          <p>Stay for what you discover.</p>
-      
+         
 
 
          {signup}
          {login}
+
+         <Route path="/signup" component={SignUpFormContainer} />
+         <Route path='/login' component={LoginFormContainer} />
+
 
 
          <button onClick={props.demo} className="demo_login">Demo Login</button>

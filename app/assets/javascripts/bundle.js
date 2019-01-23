@@ -182,13 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: "/login",
-    component: _session_form_login_form_container_jsx__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: "/signup",
-    component: _session_form_signup_form_container_jsx__WEBPACK_IMPORTED_MODULE_3__["default"]
-  })));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -613,7 +607,13 @@ var Splash = function Splash(props) {
     className: "logo",
     src: "https://i.imgur.com/RjrJpb7.png",
     alt: "hungr_logo"
-  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Come for what you love."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Stay for what you discover."), signup, login, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Come for what you love."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Stay for what you discover."), signup, login, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/signup",
+    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/login",
+    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
     onClick: props.demo,
     className: "demo_login"
   }, "Demo Login"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
