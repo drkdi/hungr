@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 class SessionForm extends React.Component {
 
    constructor(props) {
@@ -40,10 +38,12 @@ class SessionForm extends React.Component {
          <div className="session_form_container">
             <form onSubmit={this.handleSubmit}>
                Please {this.props.formType} or {this.props.navLink}
-               {this.renderErrors()}
+               
+               <br/>
+               
                <label>
                   Username:
-            <input type="text"
+                    <input type="text"
                      value={this.state.username}
                      onChange={this.update('username')}
                   />
@@ -61,6 +61,9 @@ class SessionForm extends React.Component {
 
                <input type="submit" value={this.props.formType} />
             </form>
+         
+         {this.renderErrors()}
+
          </div>)
 
 

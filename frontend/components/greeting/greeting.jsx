@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
    
-   
    const handleLogout = (e) => {
       e.stopPropagation();
       return logout();

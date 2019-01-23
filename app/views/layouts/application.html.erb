@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <nav>
-      <a href="#/">Logo goes here</a>
-      <a href="https://github.com/drkdi">Git</a>
-      <a href="https://www.linkedin.com/in/daiderek/">LinkedIn</a>
-    </nav>
+    <%= favicon_link_tag asset_path("favicon.png") %>
+    <a href="#/" class="rainbow">h</a>
+
+  
 
     <title>Hungr</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
   </head>
