@@ -176,7 +176,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hungr"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    class: "form"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "logo1"
+  }, "Hungr"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "greeting_container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/login",
     component: _session_form_login_form_container_jsx__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -208,9 +214,14 @@ var Greeting = function Greeting(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout;
 
+  var handleLogout = function handleLogout(e) {
+    e.stopPropagation();
+    return logout();
+  };
+
   var personalGreeting = function personalGreeting() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "hi ", currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: logout
+      onClick: handleLogout
     }, "Log Out"));
   };
 
@@ -426,7 +437,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session_form_container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, "Please ", this.props.formType, " or ", this.props.navLink, this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -547,14 +560,13 @@ document.addEventListener('DOMContentLoaded', function () {
     delete window.currentUser;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  }
+  } // window.getState = store.getState;
+  // window.dispatch = store.dispatch; // just for testing!
+  // window.login = login;
+  // window.signup = signup;
+  // window.receiveCurrentUser = receiveCurrentUser;
 
-  window.getState = store.getState;
-  window.dispatch = store.dispatch; // just for testing!
 
-  window.login = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["login"];
-  window.signup = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["signup"];
-  window.receiveCurrentUser = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["receiveCurrentUser"];
   var root = document.getElementById('root'); // ReactDOM.render(<h1>Welcome to hungr</h1>, root);
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {

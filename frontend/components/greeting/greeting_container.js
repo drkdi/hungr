@@ -9,15 +9,16 @@ import Greeting from './greeting';
 // {state} to msp
 
 const mapStateToProps = ({ session, entities: {users} }) => {
-
    return {
+   
       currentUser: users[session.id]
       ////////????????? => find users matching id by session.id, using entities
    }
 }
 
-const mapDispatchToProps = dispatch => ({
-   logout: () => dispatch(logout())
-})
+const mapDispatchToProps = dispatch => {
+   
+   return {logout: () => dispatch(logout())}
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Greeting);

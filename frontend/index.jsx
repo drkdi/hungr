@@ -35,14 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
    } else {
       store = configureStore();
    }
-
-
-
-   window.getState = store.getState;
-   window.dispatch = store.dispatch; // just for testing!
-   window.login = login;
-   window.signup = signup;
-   window.receiveCurrentUser = receiveCurrentUser;
+   // window.getState = store.getState;
+   // window.dispatch = store.dispatch; // just for testing!
+   // window.login = login;
+   // window.signup = signup;
+   // window.receiveCurrentUser = receiveCurrentUser;
    
    const root = document.getElementById('root');
    // ReactDOM.render(<h1>Welcome to hungr</h1>, root);

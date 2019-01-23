@@ -15,9 +15,10 @@ export const login = (user) => {
 };
 
 export const logout = () => {
+   
    return $.ajax({
       method: "DELETE",
-      url: "/api/session"
+      url: `/api/session`
    });
 };
 

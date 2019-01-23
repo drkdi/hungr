@@ -37,11 +37,10 @@ class SessionForm extends React.Component {
 
    render() {
       return (
-         <div>
+         <div className="session_form_container">
             <form onSubmit={this.handleSubmit}>
                Please {this.props.formType} or {this.props.navLink}
                {this.renderErrors()}
-
                <label>
                   Username:
             <input type="text"
