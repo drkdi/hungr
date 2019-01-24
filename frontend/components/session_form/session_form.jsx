@@ -20,6 +20,8 @@ class SessionForm extends React.Component {
       });
    }
 
+   
+
    renderErrors() {
       return (
          <ul>
@@ -34,11 +36,25 @@ class SessionForm extends React.Component {
 
 
    render() {
+      
+     
+
+
       return (
+         
          <div className="session_form">
+             <a href="#/" className="rainbow">h</a>
+         
+            {this.props.logo}
+
+            {/* button opposite of whatever form you're in */}
+            <div className="anti_button">
+               {this.props.navLink}
+            </div>
+
+
             <form onSubmit={this.handleSubmit}>
                {/* Please {this.props.formType} or {this.props.navLink} */}
-               
                <br/>
                
                {/* <label>
@@ -48,11 +64,15 @@ class SessionForm extends React.Component {
                      onChange={this.update('username')}
                   />
                </label> */}
-               <label htmlFor="username" />
-               <input onChange={this.update('username')} type="text" placeholder="username" id="email" value={this.state.username}
-/>
 
-               <br />
+                  <label htmlFor="username" />
+                     <input onChange={this.update('username')} 
+                        type="text" 
+                        placeholder="username" 
+                        id="email" 
+                        value={this.state.username}
+                        className="username_input"/>
+                  <br />
 
                {/* <label>
                   Password:
@@ -61,17 +81,25 @@ class SessionForm extends React.Component {
                      onChange={this.update('password')}
                   />
                </label> */}
+
                   <label htmlFor="password" />
-                  <input onChange={this.update('password')} type="password" placeholder="password" id="password" value={this.state.password}
-/> 
-
-
-               <input className="login_button" type="submit" value={this.props.formType} />
+                   <input onChange={this.update('password')} 
+                     type="password" 
+                     placeholder="password" 
+                     id="password" 
+                     value={this.state.password}
+                     className="password_input"/>
+                  
+                  <div/>
+    {/* button in actual page to sign up, log in*/}
+               <input className="login_signup_button" type="submit" value={this.props.formType} />
+            
             </form>
          
          {this.renderErrors()}
 
-         </div>)
+         </div>
+         )
 
 
    }

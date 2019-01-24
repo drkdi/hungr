@@ -10,10 +10,15 @@ import {ProtectedRoute, AuthRoute} from '../util/route_util.jsx';
 const App = () => (
    <>
    <div>
-      
+
+
       {/* <Route path="/splash" component={SplashContainer} /> */}
       <Switch>
+
+         <Route exact path="/login" component={LogInFormContainer} />
+         <Route exact path="/dashboard" component={NavContainer} />
          <AuthRoute path="/" component={SplashContainer} />
+
       </Switch>
       {/* <GreetingContainer/> */}
       {/* <Route path="/login" component={LogInFormContainer} />
