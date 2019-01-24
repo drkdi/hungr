@@ -23,25 +23,39 @@ const Splash = (props) => {
          </Link >
    )
 
+   handleGuest(e) {
+        e.preventDefault();
+        this.demoLogin("username", "SerenaWilliams", (
+            () => this.demoLogin("password", 'hopetheyhireme', (
+                () => this.props.processForm(this.state)
+            ))
+        ));
+    }
+
+
    return (
       <div className="splash_form">
          <img className="logo" src="https://i.imgur.com/RjrJpb7.png" alt="hungr_logo"/>
 
-         <p>Come for what you love.</p>
-         <p>Stay for what you discover.</p>
+         <p>Come for what you crave.</p>
+         <p>Stay for what you make.</p>
          
 
-
+         {/* buttons to log in */}
          {signup}
          {login}
 
+         {/* show actual components */}
          <Route path="/signup" component={SignUpFormContainer} />
          <Route path='/login' component={LoginFormContainer} />
 
 
 
-         <button onClick={props.demo} className="demo_login">Demo Login</button>
-      
+         {/* <button onClick={props.demo} className="demo_login">Demo Login</button> */}
+         {/* <button onClick={(e) => this.handleGuest(e)}>Try a Demo</button> */}
+         
+         
+         <br/>
          <a href="https://github.com/drkdi">Git</a>
          <a href="https://www.linkedin.com/in/daiderek/">LinkedIn</a>
       

@@ -182,7 +182,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
+    path: "/",
+    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -397,10 +400,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: "login",
-    navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      to: "/signup"
-    }, "sign up instead")
+    formType: "login" // navLink: <Link to="/signup">sign up instead</Link>
+
   };
 };
 
@@ -481,7 +482,7 @@ function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this2.setState(_defineProperty({}, field, e.target.value));
       };
     }
   }, {
@@ -497,18 +498,27 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "session_form_container"
+        className: "session_form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, "Please ", this.props.formType, " or ", this.props.navLink, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "username"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.update('username'),
         type: "text",
-        value: this.state.username,
-        onChange: this.update('username')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "username",
+        id: "email",
+        value: this.state.username
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "password"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.update('password'),
         type: "password",
-        value: this.state.password,
-        onChange: this.update('password')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "password",
+        id: "password",
+        value: this.state.password
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "login_button",
         type: "submit",
         value: this.props.formType
       })), this.renderErrors());
@@ -547,10 +557,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: "signup",
-    navLink: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      to: "/login"
-    }, "log in instead")
+    formType: "signup" // navLink: <Link to="/login">log in instead</Link>
+
   };
 };
 
@@ -571,59 +579,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   !*** ./frontend/components/splash/splash.jsx ***!
   \***********************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vm */ "./node_modules/vm-browserify/index.js");
-/* harmony import */ var vm__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vm__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
-
-
-
-
-
-
-
-var Splash = function Splash(props) {
-  var signup = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "/signup"
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-    className: "signup"
-  }, "Get Started"));
-  var login = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "/login"
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-    className: "login"
-  }, "Log In"));
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-    className: "splash_form"
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
-    className: "logo",
-    src: "https://i.imgur.com/RjrJpb7.png",
-    alt: "hungr_logo"
-  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Come for what you love."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Stay for what you discover."), signup, login, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "/signup",
-    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "/login",
-    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-    onClick: props.demo,
-    className: "demo_login"
-  }, "Demo Login"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
-    href: "https://github.com/drkdi"
-  }, "Git"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
-    href: "https://www.linkedin.com/in/daiderek/"
-  }, "LinkedIn"));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Splash);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/d/Desktop/appacademy/hungr/frontend/components/splash/splash.jsx: Unexpected token, expected \";\" (26:18)\n\n\u001b[0m \u001b[90m 24 | \u001b[39m   )\u001b[0m\n\u001b[0m \u001b[90m 25 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 | \u001b[39m   handleGuest(e) {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 27 | \u001b[39m        e\u001b[33m.\u001b[39mpreventDefault()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 28 | \u001b[39m        \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mdemoLogin(\u001b[32m\"username\"\u001b[39m\u001b[33m,\u001b[39m \u001b[32m\"SerenaWilliams\"\u001b[39m\u001b[33m,\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m 29 | \u001b[39m            () \u001b[33m=>\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mdemoLogin(\u001b[32m\"password\"\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'hopetheyhireme'\u001b[39m\u001b[33m,\u001b[39m (\u001b[0m\n    at Object.raise (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:3834:17)\n    at Object.unexpected (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:5142:16)\n    at Object.semicolon (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:5130:40)\n    at Object.parseExpressionStatement (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7726:10)\n    at Object.parseStatementContent (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7326:19)\n    at Object.parseStatement (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7199:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7757:25)\n    at Object.parseBlockBody (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7744:10)\n    at Object.parseBlock (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7733:10)\n    at Object.parseFunctionBody (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:6865:24)\n    at Object.parseArrowExpression (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:6818:10)\n    at Object.parseParenAndDistinguishExpression (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:6448:12)\n    at Object.parseExprAtom (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:6211:21)\n    at Object.parseExprAtom (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:3547:20)\n    at Object.parseExprSubscripts (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:5848:23)\n    at Object.parseMaybeUnary (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:5828:21)\n    at Object.parseExprOps (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:5717:23)\n    at Object.parseMaybeConditional (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:5690:23)\n    at Object.parseMaybeAssign (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:5635:21)\n    at Object.parseVar (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7827:26)\n    at Object.parseVarStatement (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7656:10)\n    at Object.parseStatementContent (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7253:21)\n    at Object.parseStatement (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7199:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7757:25)\n    at Object.parseBlockBody (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7744:10)\n    at Object.parseTopLevel (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:7164:10)\n    at Object.parse (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:8565:17)\n    at parse (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/parser/lib/index.js:10537:38)\n    at parser (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/Users/d/Desktop/appacademy/hungr/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)");
 
 /***/ }),
 
@@ -2460,26 +2418,6 @@ function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
 
 module.exports = hoistNonReactStatics;
 
-
-/***/ }),
-
-/***/ "./node_modules/indexof/index.js":
-/*!***************************************!*\
-  !*** ./node_modules/indexof/index.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-var indexOf = [].indexOf;
-
-module.exports = function(arr, obj){
-  if (indexOf) return arr.indexOf(obj);
-  for (var i = 0; i < arr.length; ++i) {
-    if (arr[i] === obj) return i;
-  }
-  return -1;
-};
 
 /***/ }),
 
@@ -34376,155 +34314,6 @@ function valueEqual(a, b) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (valueEqual);
-
-/***/ }),
-
-/***/ "./node_modules/vm-browserify/index.js":
-/*!*********************************************!*\
-  !*** ./node_modules/vm-browserify/index.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var indexOf = __webpack_require__(/*! indexof */ "./node_modules/indexof/index.js");
-
-var Object_keys = function (obj) {
-    if (Object.keys) return Object.keys(obj)
-    else {
-        var res = [];
-        for (var key in obj) res.push(key)
-        return res;
-    }
-};
-
-var forEach = function (xs, fn) {
-    if (xs.forEach) return xs.forEach(fn)
-    else for (var i = 0; i < xs.length; i++) {
-        fn(xs[i], i, xs);
-    }
-};
-
-var defineProp = (function() {
-    try {
-        Object.defineProperty({}, '_', {});
-        return function(obj, name, value) {
-            Object.defineProperty(obj, name, {
-                writable: true,
-                enumerable: false,
-                configurable: true,
-                value: value
-            })
-        };
-    } catch(e) {
-        return function(obj, name, value) {
-            obj[name] = value;
-        };
-    }
-}());
-
-var globals = ['Array', 'Boolean', 'Date', 'Error', 'EvalError', 'Function',
-'Infinity', 'JSON', 'Math', 'NaN', 'Number', 'Object', 'RangeError',
-'ReferenceError', 'RegExp', 'String', 'SyntaxError', 'TypeError', 'URIError',
-'decodeURI', 'decodeURIComponent', 'encodeURI', 'encodeURIComponent', 'escape',
-'eval', 'isFinite', 'isNaN', 'parseFloat', 'parseInt', 'undefined', 'unescape'];
-
-function Context() {}
-Context.prototype = {};
-
-var Script = exports.Script = function NodeScript (code) {
-    if (!(this instanceof Script)) return new Script(code);
-    this.code = code;
-};
-
-Script.prototype.runInContext = function (context) {
-    if (!(context instanceof Context)) {
-        throw new TypeError("needs a 'context' argument.");
-    }
-    
-    var iframe = document.createElement('iframe');
-    if (!iframe.style) iframe.style = {};
-    iframe.style.display = 'none';
-    
-    document.body.appendChild(iframe);
-    
-    var win = iframe.contentWindow;
-    var wEval = win.eval, wExecScript = win.execScript;
-
-    if (!wEval && wExecScript) {
-        // win.eval() magically appears when this is called in IE:
-        wExecScript.call(win, 'null');
-        wEval = win.eval;
-    }
-    
-    forEach(Object_keys(context), function (key) {
-        win[key] = context[key];
-    });
-    forEach(globals, function (key) {
-        if (context[key]) {
-            win[key] = context[key];
-        }
-    });
-    
-    var winKeys = Object_keys(win);
-
-    var res = wEval.call(win, this.code);
-    
-    forEach(Object_keys(win), function (key) {
-        // Avoid copying circular objects like `top` and `window` by only
-        // updating existing context properties or new properties in the `win`
-        // that was only introduced after the eval.
-        if (key in context || indexOf(winKeys, key) === -1) {
-            context[key] = win[key];
-        }
-    });
-
-    forEach(globals, function (key) {
-        if (!(key in context)) {
-            defineProp(context, key, win[key]);
-        }
-    });
-    
-    document.body.removeChild(iframe);
-    
-    return res;
-};
-
-Script.prototype.runInThisContext = function () {
-    return eval(this.code); // maybe...
-};
-
-Script.prototype.runInNewContext = function (context) {
-    var ctx = Script.createContext(context);
-    var res = this.runInContext(ctx);
-
-    forEach(Object_keys(ctx), function (key) {
-        context[key] = ctx[key];
-    });
-
-    return res;
-};
-
-forEach(Object_keys(Script.prototype), function (name) {
-    exports[name] = Script[name] = function (code) {
-        var s = Script(code);
-        return s[name].apply(s, [].slice.call(arguments, 1));
-    };
-});
-
-exports.createScript = function (code) {
-    return exports.Script(code);
-};
-
-exports.createContext = Script.createContext = function (context) {
-    var copy = new Context();
-    if(typeof context === 'object') {
-        forEach(Object_keys(context), function (key) {
-            copy[key] = context[key];
-        });
-    }
-    return copy;
-};
-
 
 /***/ }),
 

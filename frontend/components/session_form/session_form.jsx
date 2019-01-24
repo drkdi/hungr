@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
 
    update(field) {
       return e => this.setState({
-         [field]: e.currentTarget.value
+         [field]: e.target.value
       });
    }
 
@@ -35,31 +35,38 @@ class SessionForm extends React.Component {
 
    render() {
       return (
-         <div className="session_form_container">
+         <div className="session_form">
             <form onSubmit={this.handleSubmit}>
-               Please {this.props.formType} or {this.props.navLink}
+               {/* Please {this.props.formType} or {this.props.navLink} */}
                
                <br/>
                
-               <label>
+               {/* <label>
                   Username:
                     <input type="text"
                      value={this.state.username}
                      onChange={this.update('username')}
                   />
-               </label>
+               </label> */}
+               <label htmlFor="username" />
+               <input onChange={this.update('username')} type="text" placeholder="username" id="email" value={this.state.username}
+/>
 
                <br />
 
-               <label>
+               {/* <label>
                   Password:
-              <input type="password"
+                     <input type="password"
                      value={this.state.password}
                      onChange={this.update('password')}
                   />
-               </label>
+               </label> */}
+                  <label htmlFor="password" />
+                  <input onChange={this.update('password')} type="password" placeholder="password" id="password" value={this.state.password}
+/> 
 
-               <input type="submit" value={this.props.formType} />
+
+               <input className="login_button" type="submit" value={this.props.formType} />
             </form>
          
          {this.renderErrors()}
