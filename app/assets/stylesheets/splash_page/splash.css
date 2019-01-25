@@ -28,26 +28,19 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  transition: 1s;
   border: none;
+  border-radius: 2px;
   border-bottom: 1px solid #ccc;
   height: 45px;
   width: 280px;
-  margin: 0;
   font-size: 16px;
   padding: 0 10px;
-
-
-
-
-
 
 }
 .password_input {
    display: flex;
   flex-flow: column;
   align-items: center;
-  transition: 1s;
   border: none;
   border-bottom: 1px solid #ccc;
   height: 45px;
@@ -107,6 +100,20 @@
 }
 
 /* session */
+
+/* go back and fix */
+.session_errors {
+    margin: 32px 0 0 0;
+   width: 300px;
+   height: 46px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   font-weight: 700;
+   padding-top: 3px;
+   background: rgba(10, 10, 10, 0.3);
+   border: none;
+   border-radius: 2px;
+}
 
 .anti_button {
    position: fixed;
@@ -173,26 +180,14 @@
    font-size: 14px;
    font-weight: 700;
    padding-top: 5px;
-   color: #444444;
-   background-color: #white;
-   border: none;
-   border-radius: 2px;
-}
-
-
-.demo_button {
-    margin: 12px 0 0 0;
-   width: 300px;
-   height: 43px;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   font-weight: 700;
-   padding-top: 5px;
    color: white;
-   background-color: #444444;
+   background-color: #349ecf;
    border: none;
    border-radius: 2px;
 }
+
+
+
 
 .profile_links {
    display: flex;

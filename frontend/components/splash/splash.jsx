@@ -10,10 +10,8 @@ import SignUpFormContainer from '../session_form/signup_form_container';
 class Splash extends React.Component {
    constructor(props) {
       super(props);
-      this.handleGuest = this.handleGuest.bind(this)
-      // this.loginSpeed = 80;
       this.handleChange = this.handleChange.bind(this);
-              this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
 
 
 
@@ -25,14 +23,6 @@ class Splash extends React.Component {
         });
     }
 
-      handleGuest(e) {
-         e.preventDefault();
-         this.demoLogin("username", "Guy Fieri", (
-               () => this.demoLogin("password", 'flavortown', (
-                  () => this.props.processForm(this.state)
-               ))
-         ));
-      }
 
       handleSubmit(e) {
       e.preventDefault();
@@ -41,19 +31,7 @@ class Splash extends React.Component {
    }
 
 
-      demoLogin(field, DemoUser, cb) {
-      let textToType = "";
-      const typing = () => {
-         textToType = DemoUser.substring(0, textToType.length + 1);
-         this.setState({ [field]: textToType });
-         if (textToType.length === DemoUser.length) {
-               setTimeout(() => cb(), this.loginSpeed);
-         } else {
-               setTimeout(() => typing(), this.loginSpeed);
-         }
-      };
-      typing();
-   }
+     
 
 
    render() {
@@ -95,7 +73,6 @@ class Splash extends React.Component {
 
          {/* <button onClick={props.demo} className="demo_login">Demo Login</button> */}
 
-         <button class="demo_button" onClick={(e) => this.handleGuest(e)}>Try a Demo</button>
 
          
          <br/>

@@ -6,17 +6,19 @@ import LogInFormContainer from './session_form/login_form_container.jsx';
 import NavContainer from './nav/nav_container';
 import SplashContainer from './splash/splash_container';
 import {ProtectedRoute, AuthRoute} from '../util/route_util.jsx';
+import Dashboard from './dashboard/dashboard';
 
 const App = () => (
    <>
    <div>
+      
+      <Route exact path="/dashboard" component={NavContainer} />
 
 
       {/* <Route path="/splash" component={SplashContainer} /> */}
       <Switch>
-
+         <ProtectedRoute path="/dashboard" component={Dashboard} />
          <Route exact path="/login" component={LogInFormContainer} />
-         <Route exact path="/dashboard" component={NavContainer} />
          <AuthRoute path="/" component={SplashContainer} />
 
       </Switch>

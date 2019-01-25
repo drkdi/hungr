@@ -1,1 +1,11 @@
-ap
+
+.nav_components {
+
+   display: inline;
+   position: absolute;
+   top: 0;
+   justify-content: space-between;
+   height: 54px;
+   width: auto;
+   background-color: blue;
+}

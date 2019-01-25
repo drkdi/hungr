@@ -6,13 +6,47 @@ class SessionForm extends React.Component {
       super(props);
       this.state = { username: "", password: "" };
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.demoLogin = this.demoLogin.bind(this);
+      this.demoLoginHelper = this.demoLoginHelper.bind(this);
+
    }
 
    handleSubmit(e) {
       e.preventDefault();
       const user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      this.props.processForm(user).then(() => this.props.history.push('/dashboard'));
    }
+
+   demoLogin() {
+      const usernameArr = "guyf13r1@flavor.com".split("");
+      const passwordArr = "password".split("");
+      const button = document.getElementById('login_signup_button');
+      this.setState({username:'', password:''}, () => 
+         this.demoLoginHelper(usernameArr, passwordArr, button))
+   }
+
+   demoLoginHelper(usernameArr, passwordArr, button) {
+      if (usernameArr.length > 0) {
+         this.setState(
+            { username: this.state.username + usernameArr.shift()}, () => {
+               window.setTimeout( () =>
+               this.demoLoginHelper(usernameArr, passwordArr, button), 10);
+            }
+         );
+      }
+      else if (passwordArr.length > 0) {
+         this.setState(
+            { password: this.state.password + passwordArr.shift()}, () => {
+               window.setTimeout( () => 
+               this.demoLoginHelper(usernameArr, passwordArr, button), 10);
+            }
+         );
+      }
+      else {
+         button.click();
+      }
+   }
+
 
    update(field) {
       return e => this.setState({
@@ -36,10 +70,12 @@ class SessionForm extends React.Component {
 
 
    render() {
-      
-     
-
-
+   
+   let demoUserButton;
+   if (this.props.formType === "Log in") {
+      demoUserButton = <button onClick={this.demoLogin} className="demo_button">Enter Flavortown without a ticket</button>
+   }
+   
       return (
          
          <div className="session_form">
@@ -56,14 +92,6 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
                {/* Please {this.props.formType} or {this.props.navLink} */}
                <br/>
-               
-               {/* <label>
-                  Username:
-                    <input type="text"
-                     value={this.state.username}
-                     onChange={this.update('username')}
-                  />
-               </label> */}
 
                   <label htmlFor="username" />
                      <input onChange={this.update('username')} 
@@ -72,15 +100,6 @@ class SessionForm extends React.Component {
                         id="email" 
                         value={this.state.username}
                         className="username_input"/>
-                  <br />
-
-               {/* <label>
-                  Password:
-                     <input type="password"
-                     value={this.state.password}
-                     onChange={this.update('password')}
-                  />
-               </label> */}
 
                   <label htmlFor="password" />
                    <input onChange={this.update('password')} 
@@ -92,13 +111,16 @@ class SessionForm extends React.Component {
                   
                   <div/>
     {/* button in actual page to sign up, log in*/}
-               <input className="login_signup_button" type="submit" value={this.props.formType} />
+               <input className="login_signup_button" type="submit" value={this.props.formType} id="login_signup_button"/>
             
             </form>
-         
-         {this.renderErrors()}
+
+            {/* after forms, need to be in same class */}
+            {this.renderErrors()}
+            { demoUserButton }
 
          </div>
+
          )
 
 

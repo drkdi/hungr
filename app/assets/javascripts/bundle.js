@@ -172,6 +172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nav_nav_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./nav/nav_container */ "./frontend/components/nav/nav_container.js");
 /* harmony import */ var _splash_splash_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./splash/splash_container */ "./frontend/components/splash/splash_container.js");
 /* harmony import */ var _util_route_util_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/route_util.jsx */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard/dashboard */ "./frontend/components/dashboard/dashboard.jsx");
+
 
 
 
@@ -182,14 +184,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    exact: true,
-    path: "/login",
-    component: _session_form_login_form_container_jsx__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/dashboard",
     component: _nav_nav_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
+    path: "/dashboard",
+    component: _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/login",
+    component: _session_form_login_form_container_jsx__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     path: "/",
     component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -197,6 +202,65 @@ var App = function App() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./frontend/components/dashboard/dashboard.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/dashboard/dashboard.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Dashboard =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Dashboard, _React$Component);
+
+  function Dashboard() {
+    _classCallCheck(this, Dashboard);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).apply(this, arguments));
+  }
+
+  _createClass(Dashboard, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " I'm the dash "));
+    }
+  }]);
+
+  return Dashboard;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (Dashboard);
 
 /***/ }),
 
@@ -338,9 +402,34 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "main_nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#/",
+        href: "#/dashboard",
         className: "rainbow"
-      }, "h"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " I'm the nav ")); // if this.props.location.pathname === "/"
+      }, "h"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav_components"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "I'm the nav?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search_bar"
+      }, "search bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "icons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-utensils"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "fas fa-compass"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "far fa-envelope"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "far fa-smile-wink"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "far fa-poo-storm"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "far fa-knife-kitchen"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "fas fa-glass-cheers"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        class: "far fa-utensils"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.props.logout,
+        className: "Logout"
+      }, "Logout"))); // if this.props.location.pathname === "/"
       // else if this.props.location.pathname === "/login"
       // else if this.props.location.pathname === "/signup"
       // else if this.props.location.pathname === "/dashboard"
@@ -511,23 +600,69 @@ function (_React$Component) {
       password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.demoLogin = _this.demoLogin.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.demoLoginHelper = _this.demoLoginHelper.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(SessionForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      this.props.processForm(user).then(function () {
+        return _this2.props.history.push('/dashboard');
+      });
+    }
+  }, {
+    key: "demoLogin",
+    value: function demoLogin() {
+      var _this3 = this;
+
+      var usernameArr = "guyf13r1@flavor.com".split("");
+      var passwordArr = "password".split("");
+      var button = document.getElementById('login_signup_button');
+      this.setState({
+        username: '',
+        password: ''
+      }, function () {
+        return _this3.demoLoginHelper(usernameArr, passwordArr, button);
+      });
+    }
+  }, {
+    key: "demoLoginHelper",
+    value: function demoLoginHelper(usernameArr, passwordArr, button) {
+      var _this4 = this;
+
+      if (usernameArr.length > 0) {
+        this.setState({
+          username: this.state.username + usernameArr.shift()
+        }, function () {
+          window.setTimeout(function () {
+            return _this4.demoLoginHelper(usernameArr, passwordArr, button);
+          }, 10);
+        });
+      } else if (passwordArr.length > 0) {
+        this.setState({
+          password: this.state.password + passwordArr.shift()
+        }, function () {
+          window.setTimeout(function () {
+            return _this4.demoLoginHelper(usernameArr, passwordArr, button);
+          }, 10);
+        });
+      } else {
+        button.click();
+      }
     }
   }, {
     key: "update",
     value: function update(field) {
-      var _this2 = this;
+      var _this5 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.target.value));
+        return _this5.setState(_defineProperty({}, field, e.target.value));
       };
     }
   }, {
@@ -542,6 +677,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var demoUserButton;
+
+      if (this.props.formType === "Log in") {
+        demoUserButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.demoLogin,
+          className: "demo_button"
+        }, "Enter Flavortown without a ticket");
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session_form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -560,7 +704,7 @@ function (_React$Component) {
         id: "email",
         value: this.state.username,
         className: "username_input"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "password"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('password'),
@@ -572,8 +716,9 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "login_signup_button",
         type: "submit",
-        value: this.props.formType
-      })), this.renderErrors());
+        value: this.props.formType,
+        id: "login_signup_button"
+      })), this.renderErrors(), demoUserButton);
     }
   }]);
 
@@ -681,8 +826,6 @@ function (_React$Component) {
     _classCallCheck(this, Splash);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Splash).call(this, props));
-    _this.handleGuest = _this.handleGuest.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this.loginSpeed = 80;
-
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
@@ -694,18 +837,6 @@ function (_React$Component) {
       this.setState(_defineProperty({}, type, e.target.value));
     }
   }, {
-    key: "handleGuest",
-    value: function handleGuest(e) {
-      var _this2 = this;
-
-      e.preventDefault();
-      this.demoLogin("username", "Guy Fieri", function () {
-        return _this2.demoLogin("password", 'flavortown', function () {
-          return _this2.props.processForm(_this2.state);
-        });
-      });
-    }
-  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -713,39 +844,14 @@ function (_React$Component) {
       this.props.processForm(user);
     }
   }, {
-    key: "demoLogin",
-    value: function demoLogin(field, DemoUser, cb) {
-      var _this3 = this;
-
-      var textToType = "";
-
-      var typing = function typing() {
-        textToType = DemoUser.substring(0, textToType.length + 1);
-
-        _this3.setState(_defineProperty({}, field, textToType));
-
-        if (textToType.length === DemoUser.length) {
-          setTimeout(function () {
-            return cb();
-          }, _this3.loginSpeed);
-        } else {
-          setTimeout(function () {
-            return typing();
-          }, _this3.loginSpeed);
-        }
-      };
-
-      typing();
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "splash_form",
         onSubmit: function onSubmit(e) {
-          return _this4.handleSubmit(e);
+          return _this2.handleSubmit(e);
         }
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
         href: "#/",
@@ -769,12 +875,7 @@ function (_React$Component) {
         to: "/login"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         className: "login_button"
-      }, "Log In")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-        class: "demo_button",
-        onClick: function onClick(e) {
-          return _this4.handleGuest(e);
-        }
-      }, "Try a Demo"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      }, "Log In")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "profile_links"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
         href: "https://github.com/drkdi"
