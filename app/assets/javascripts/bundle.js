@@ -184,9 +184,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    exact: true,
-    path: "/dashboard",
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
+    path: "/",
     component: _nav_nav_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_7__["ProtectedRoute"], {
     path: "/dashboard",
@@ -252,7 +251,9 @@ function (_React$Component) {
   _createClass(Dashboard, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " I'm the dash "));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main_dashboard"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " I'm the dash "));
     }
   }]);
 
@@ -402,33 +403,35 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "main_nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#/dashboard",
+        href: "#/",
         className: "rainbow"
       }, "h"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav_components"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "I'm the nav?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "search_bar"
-      }, "search bar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "search_bar",
+        value: "search"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-utensils"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "fas fa-compass"
+        className: "fas fa-compass"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "far fa-envelope"
+        className: "far fa-envelope"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "far fa-smile-wink"
+        className: "far fa-smile-wink"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "far fa-poo-storm"
+        className: "far fa-poo-storm"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "far fa-knife-kitchen"
+        className: "far fa-knife-kitchen"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "fas fa-glass-cheers"
+        className: "fas fa-glass-cheers"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        class: "far fa-utensils"
+        className: "far fa-utensils"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logout,
-        className: "Logout"
+        className: "logout"
       }, "Logout"))); // if this.props.location.pathname === "/"
       // else if this.props.location.pathname === "/login"
       // else if this.props.location.pathname === "/signup"

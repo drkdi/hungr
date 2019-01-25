@@ -1,11 +1,46 @@
 
 .nav_components {
-
-   display: inline;
-   position: absolute;
+   position: sticky;
    top: 0;
-   justify-content: space-between;
+   left: 0;
+   justify-content: center;
    height: 54px;
-   width: auto;
-   background-color: blue;
+   padding: 0px 0px 0px 0px;
+   width: 100%;
+   background-color: transparent;
+   background-image: none;
+   border-bottom: 1px solid rgb(255, 255, 255, 0.6);
+}
+
+
+.search_bar {
+   position:absolute;
+   top: 10px;
+   width: 30%;
+   height: 33px;
+   background-color: white;
+   opacity: 0.5;
+   left: 60px;
+   vertical-align: middle;
+}
+
+.icons {
+   display: flex;
+   position: absolute;
+   top: 15px;
+   right: 10%;
+   word-spacing: 10px;
+}
+
+.icons > i {
+   padding-left: 10px;
+   size: 200%;
+}
+
+.logout {
+   position: absolute;
+   height: 10px;
+   top: 15px;
+   right: 10%;
+
 }

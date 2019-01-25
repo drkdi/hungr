@@ -12,7 +12,7 @@ const App = () => (
    <>
    <div>
       
-      <Route exact path="/dashboard" component={NavContainer} />
+      <ProtectedRoute path="/" component={NavContainer} />
 
 
       {/* <Route path="/splash" component={SplashContainer} /> */}
