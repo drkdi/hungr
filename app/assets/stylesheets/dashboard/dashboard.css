@@ -5,3 +5,17 @@
    background-image: none;
    padding: none;
 }
+
+.posts_index {
+   width: 625px;
+   height:auto;
+   left: 10px;
+   border: 5px solid white;
+}
+
+.individual_post {
+   width: 540px;
+   height:auto;
+   left: 10px;
+   border: 5px solid white;
+}

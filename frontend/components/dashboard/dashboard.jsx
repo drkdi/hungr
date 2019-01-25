@@ -1,11 +1,18 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {Link, NavLink, Route} from 'react-router-dom';
+import PostIndexContainer from '../posts/post_index_container';
 
 const Dashboard = props => {
 
-   return(
-      <p>???</p>
-      
+
+
+   return (
+
+      <>
+         <p>dash</p>
+         <style>{'body { background: #35465C; }'}</style>
+         < PostIndexContainer />  
+      </>
    )
 
 }
