@@ -50,10 +50,6 @@
   padding: 0 10px;
 }
 
-    /* flex-direction: column; */
-
-
-
  .greetingLinks {
     margin-top: 140px;
  }
@@ -74,10 +70,7 @@
 }
 
 /* keep */
-/* @font-face {
-  font-family: "HelveticaNeue-LightExt";
-  src: url(/assets/HelveticaNeueLight.ttf) format('truetype');
-}  */
+
 
 
 .splash_form p {
