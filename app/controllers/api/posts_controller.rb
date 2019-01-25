@@ -33,7 +33,7 @@ class Api::PostsController < ApplicationController
    end 
 
    def update
-      @post = Post.find(params[:id]).where(author_id: current_user:id)
+      @post = Post.find(params[:id]).where(author_id: current_user.id)
       if @post && @post.update(post_params)
          render 'api/posts/show'
       else
