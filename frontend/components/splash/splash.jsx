@@ -32,12 +32,13 @@ class Splash extends React.Component {
 
 
    render() {
-
+      
       const LoginOrSignup = this.props.location.pathname;
 
-      
    return (
-
+     
+         
+      
       <div className="splash_form" onSubmit={(e) => this.handleSubmit(e)}>
 
          <a href="#/" className="rainbow">h</a>
@@ -88,7 +89,6 @@ class Splash extends React.Component {
          </div>
       
       </div>
-
    )
    }
 

@@ -4,6 +4,7 @@ class Api::PostsController < ApplicationController
    def index
       # come back and filter when you have friends :(
       @posts = Post.all
+      # debugger
    end
 
    def show 

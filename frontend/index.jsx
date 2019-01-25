@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
    }
 
    window.getState = store.getState;
-
+ 
    // window.dispatch = store.dispatch; // just for testing!
    // window.login = login;
    // window.signup = signup;

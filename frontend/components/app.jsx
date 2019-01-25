@@ -11,16 +11,16 @@ import Dashboard from './dashboard/dashboard';
 const App = () => (
    <>
    <div>
-      
-      <ProtectedRoute path="/" component={NavContainer} />
 
+      <ProtectedRoute path="/" component={NavContainer} />
+        
 
       {/* <Route path="/splash" component={SplashContainer} /> */}
       <Switch>
          <ProtectedRoute path="/dashboard" component={Dashboard} />
-         <AuthRoute exact path="/login" component={LogInFormContainer} />
 
-         <AuthRoute path="/" component={SplashContainer} />
+            <AuthRoute exact path="/login" component={LogInFormContainer} />
+            <AuthRoute path="/" component={SplashContainer} />
 
       </Switch>
       {/* <GreetingContainer/> */}

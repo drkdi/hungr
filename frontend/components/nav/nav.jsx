@@ -22,7 +22,7 @@ class Nav extends React.Component {
          {/* home, compass, mail, smiley/follows, lightning, person, compose*/}
          {/* botton line */}
 
-            <input type="text" className="search_bar" value="search"/>
+            <input type="text" className="search_bar"/>
          
          <div className="nav_buttons">
             <button className="icons"><i className="fas fa-utensils"></i></button>
