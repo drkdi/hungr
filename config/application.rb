@@ -13,6 +13,8 @@ module Hungr
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf|otf)$/
     config.assets.paths << Rails.root.join("app", "assets", "img")
+    config.assets.initialize_on_precompile = false
+
 
 
 
