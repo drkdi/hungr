@@ -70,12 +70,15 @@
 }
 
 /* keep */
-
+ @font-face {
+  font-family: 'HelveticaNeue-LightExt';
+  src: url('assets/HelveticaNeue-LightExt.otf');
+}
 
 
 .splash_form p {
    display: block;
-   font-family: HelveticaNeue-LightExt;
+   font-family: 'HelveticaNeue-LightExt';
    font-size: 14px;
    font-weight: 400;
    letter-spacing: 0.5px;

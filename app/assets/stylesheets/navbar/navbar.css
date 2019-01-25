@@ -25,16 +25,28 @@
 }
 
 .icons {
-   display: flex;
+      width: 45px;
+      height: 45px;
+      font-size: 25px;
+      word-spacing: 10px;
+      background-color: transparent;
+      border: none;
+      }
+
+.nav_buttons {
    position: absolute;
-   top: 15px;
    right: 10%;
-   word-spacing: 10px;
 }
 
-.icons > i {
+   /* display: flex;
+   position: absolute;
+   top: 15px;
+   right: 10%; */
+
+
+i {
    padding-left: 10px;
-   size: 200%;
+   height:30px;
 }
 
 .logout {

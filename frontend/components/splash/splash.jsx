@@ -13,8 +13,6 @@ class Splash extends React.Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
 
-
-
    }
 
       handleChange(e, type) {
@@ -30,18 +28,17 @@ class Splash extends React.Component {
       this.props.processForm(user);
    }
 
-
-     
+  
 
 
    render() {
+
+      const LoginOrSignup = this.props.location.pathname;
+
       
    return (
 
-
       <div className="splash_form" onSubmit={(e) => this.handleSubmit(e)}>
-
-
 
          <a href="#/" className="rainbow">h</a>
 
@@ -53,21 +50,26 @@ class Splash extends React.Component {
          <Route path="/signup" component={SignUpFormContainer} />
          <br/>
 
-
          {/* dont need cause login redirects to login page */}
          {/* <Route path='/login' component={LoginFormContainer} /> */}
-            <Link to="/signup">
-               <button className="signup_button">Get Started</button>
-            </Link>
 
+         {(LoginOrSignup === "/" || LoginOrSignup === "/login" ) ?
+         (
+         <ul>
+         <Link to="/signup">
+            <button className="signup_button">Get Started</button>
+         </Link>
+         <br/>
 
-            <Link to="/login" >
-               <button className="login_button">Log In</button>
-            </Link >
-
-
+         <Link to="/login" >
+            <button className="login_button">Log In</button>
+         </Link >
+         
+         </ul>
+         ) : null
+         }
+         
          {/* show actual components */}
-
 
 
 

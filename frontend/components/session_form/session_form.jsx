@@ -25,6 +25,10 @@ class SessionForm extends React.Component {
          this.demoLoginHelper(usernameArr, passwordArr, button))
    }
 
+   componentWillUnmount() {
+      this.props.clearErrors();
+   }
+
    demoLoginHelper(usernameArr, passwordArr, button) {
       if (usernameArr.length > 0) {
          this.setState(

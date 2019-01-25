@@ -1,16 +1,12 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 
-class Dashboard extends React.Component {
+const Dashboard = props => {
 
-   render() {
-      return (
-         <div className="main_dashboard">
+   return(
+      <p>???</p>
+      
+   )
 
-            <p> I'm the dash </p>
-         </div>
-      )
-   };
-};
-
+}
 export default Dashboard;

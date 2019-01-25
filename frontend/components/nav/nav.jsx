@@ -22,29 +22,20 @@ class Nav extends React.Component {
          {/* home, compass, mail, smiley/follows, lightning, person, compose*/}
          {/* botton line */}
 
-               <input type="text" className="search_bar" value="search"/>
+            <input type="text" className="search_bar" value="search"/>
          
-         <div className="icons">
-            <i className="fas fa-utensils"></i>
-            <i className="fas fa-compass"></i>
-            <i className="far fa-envelope"></i>
-            <i className="far fa-smile-wink"></i>
-            <i className="far fa-poo-storm"></i>
-            <i className="far fa-knife-kitchen"></i>
-            <i className="fas fa-glass-cheers"></i>
-            <i className="far fa-utensils"></i>
-         </div>   
-               
+         <div className="nav_buttons">
+            <button className="icons"><i className="fas fa-utensils"></i></button>
+            <button className="icons"><i className="far fa-envelope"></i></button>
+            <button className="icons"><i className="fas fa-compass"></i></button>
+            <button className="icons"><i className="far fa-envelope"></i></button>
+            <button className="icons"><i className="far fa-smile-wink"></i></button>
+            <button className="icons"><i className="far fa-poo-storm"></i></button>
+            <button className="icons"><i className="far fa-knife-kitchen"></i></button>
+            <button className="icons"><i className="fas fa-glass-cheers"></i></button>
+         </div>
 
          <button onClick={this.props.logout} className="logout">Logout</button>
-
-
-
-
-
-         
-         
-         
          </div>
       </nav>)
 
