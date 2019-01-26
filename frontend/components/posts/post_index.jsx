@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from './post';
-
+import Card from './card'
 
 // shows all posts
 class PostIndex extends React.Component {
@@ -17,11 +17,17 @@ class PostIndex extends React.Component {
          return <Post key={post.id} post={post} />
       });
 
+      let cards = this.props.posts.map(card => {
+         // return <Card key={post.id} post={post} />
+         return < Card key={card.id} card={card}/>
+      });
+
       return (
          <>
 
             <div className="posts_index">
                {posts}
+               {/* {cards} */}
             </div>
          </>
       )

@@ -12,6 +12,7 @@ const Dashboard = props => {
          <p>dash</p>
          <style>{'body { background: #35465C; }'}</style>
          < PostIndexContainer />  
+
       </>
    )
 
