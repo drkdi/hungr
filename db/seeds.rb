@@ -19,7 +19,7 @@ Post.destroy_all
 
 user1 = User.create!({
    id: 1,
-   username: "Guy F13R1",
+   username: "guyf13r1@flavor.com",
    password: "password"
    # authoredComments: [4,7],
    # likedPostIds: [4,7],
