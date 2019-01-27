@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link, NavLink, Route} from 'react-router-dom';
 import PostIndexContainer from '../posts/post_index_container';
 
-const Dashboard = props => {
-
-
+const Dashboard = props => { 
 
    return (
 

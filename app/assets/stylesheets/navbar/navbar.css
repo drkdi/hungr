@@ -1,15 +1,23 @@
 
 .nav_components {
-   position: sticky;
+   display: flex;
+   justify-content: space-between;
+   /* position: fixed; */
+   top: 0;
+   left: 0;
+   z-index: 1;
+   width: 100%;
+   background-color:  #36465d;
+   /* position: sticky;
    top: 0;
    left: 0;
    justify-content: center;
-   height: 54px;
    padding: 0px 0px 0px 0px;
    width: 100%;
    background-color: transparent;
-   background-image: none;
-   border-bottom: 1px solid rgb(255, 255, 255, 0.6);
+   background-image: none;*/
+   height: 54px;
+   border-bottom: 1px solid rgb(255, 255, 255, 0.15); 
 }
 
 .search_bar:active {
@@ -28,20 +36,80 @@
    border: none;
 }
 
+.nav_buttons {
+   width: 14%;
+}
+
+.account_menu {
+   position: relative;
+   top: 50px;
+}
+
+
+.account_div:hover{
+   background-color: transparent;
+}
+
+
+
+Button:hover {
+   /* background-color: blue; */
+}
+
+/* have to use this because of material ui's styling? */
+/* .fa-user-alt {
+   height: 45px;
+   width: 34px;
+  font-size: 19px; 
+  color: #9AA2AE;
+  background-color: transparent;
+  border: none;
+}
+
+.fa-user-alt:hover {
+   background-color: transparent;
+} */
 
 
 .icons {
-      width: 45px;
+      /* width: 45px;
       height: 45px;
       font-size: 25px;
       word-spacing: 10px;
       background-color: transparent;
-      border: none;
-      }
+      border: none; */
+   height: 45px;
+   width: 34px;
+  font-size: 21px; 
+  color: #9AA2AE;
+  background-color: transparent;
+  border: none;
+  margin: 8px 0 5px 20px;
+
+}
+.fa-home {
+   position: relative;
+   color: white;
+   top: -1px;
+}
+
+
+.createPost {
+   position: relative;
+  width: 45px;
+  height: 32px;
+  font-size: 22px;
+  color: #36455D;
+  background-color:  #559DCC;
+  border: 0px solid #559DCC;
+  border-radius: 2px;
+  margin: 11px 0 18px 16px;
+}
 
 .nav_buttons {
+   display: flex;
    position: absolute;
-   right: 10%;
+   right: 5px;
 }
 
    /* display: flex;
@@ -49,16 +117,15 @@
    top: 15px;
    right: 10%; */
 
-
+/* 
 i {
    padding-left: 10px;
    height:30px;
-}
+} */
 
 .logout {
    position: absolute;
-   height: 10px;
-   top: 15px;
-   right: 10%;
+   height: 40px;
+   right: 50%;
 
 }

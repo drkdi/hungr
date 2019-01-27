@@ -23,6 +23,9 @@
 html, div {
    color: white;
    font-family: Arial, Helvetica, sans-serif;
+   margin: 0;
+      padding: 0;
+
 }
 
 /* move to splash page */
@@ -30,6 +33,8 @@ body {
    background-image: url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
    background-repeat: no-repeat;
    background-size: cover;
+   margin: 0;
+   padding: 0;
   }
 
 
@@ -73,6 +78,7 @@ ul {
   position: fixed;
   top: 8px;
   left: 20px;
+  z-index: 5;
 
 }
 .rainbow:hover {

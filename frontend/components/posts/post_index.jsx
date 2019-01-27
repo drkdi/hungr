@@ -9,7 +9,6 @@ class PostIndex extends React.Component {
    }
    componentDidMount() {
       this.props.fetchPosts();
-      
    }
 
    render() {
@@ -24,10 +23,8 @@ class PostIndex extends React.Component {
 
       return (
          <>
-
             <div className="posts_index">
-               {posts}
-               {/* {cards} */}
+               {cards}
             </div>
          </>
       )

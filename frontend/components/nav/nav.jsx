@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import Account from './account';
 //import other nav stuff upon login
 
 class Nav extends React.Component {
@@ -10,7 +11,7 @@ class Nav extends React.Component {
    render() {
       return (
       <nav className="main_nav">
-         <a href="#/" className="rainbow">h</a>
+         <a href="/#/dashboard" className="rainbow">h</a>
 
          <div className="nav_components">
                 
@@ -21,21 +22,29 @@ class Nav extends React.Component {
          {/* icons */}
          {/* home, compass, mail, smiley/follows, lightning, person, compose*/}
          {/* botton line */}
+               {/* <p>{console.log(this.props)} nav</p> */}
 
             <input type="text" className="search_bar"/>
-         
+               {/* <button onClick={this.props.logout}>LOOOG OUT</button> */}
+
          <div className="nav_buttons">
-            <button className="icons"><i className="fas fa-utensils"></i></button>
-            <button className="icons"><i className="far fa-envelope"></i></button>
-            <button className="icons"><i className="fas fa-compass"></i></button>
-            <button className="icons"><i className="far fa-envelope"></i></button>
-            <button className="icons"><i className="far fa-smile-wink"></i></button>
-            <button className="icons"><i className="far fa-poo-storm"></i></button>
-            <button className="icons"><i className="far fa-knife-kitchen"></i></button>
-            <button className="icons"><i className="fas fa-glass-cheers"></i></button>
+                  <button className="icons"><i className="fas fa-home"></i></button>
+
+                  {/* dropdown */}
+                  < Account props={this.props}/>
+
+                  {/* <button className="icons"><i className="fas fa-user-alt"></i></button> */}
+
+                  {/* on click activate modal */}
+                  <button className="createPost"><i className="fas fa-pencil-alt"></i></button>
+                        
+
+                    
+
+
+   
          </div>
 
-         <button onClick={this.props.logout} className="logout">Logout</button>
          </div>
       </nav>)
 
