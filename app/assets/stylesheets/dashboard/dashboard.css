@@ -6,6 +6,11 @@
    padding: none;
 }
 
+.dashboard_posts {
+   position: relative;
+   left: 22%;
+}
+
 /* .posts_index {
    width: 625px;
    height:auto;

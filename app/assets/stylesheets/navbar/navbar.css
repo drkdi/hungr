@@ -50,10 +50,18 @@
    background-color: transparent;
 }
 
+.nav_div:hover{
+   background-color: transparent;
+}
+.nav_div{
+   background-color: transparent;
+}
 
+.mui-ripple-circle {display: none;
+}
 
 Button:hover {
-   /* background-color: blue; */
+   /* background-color: transparent; */
 }
 
 /* have to use this because of material ui's styling? */
