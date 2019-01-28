@@ -10,17 +10,17 @@
 #
 
 class Post < ApplicationRecord
-   validates :body, presence: true
-   validate :post_too_long
+   # validates :body, presence: true
+   # validate :post_too_long
    
-   belongs_to :author,
+   belongs_to :user,
       primary_key: :id,
       foreign_key: :author_id,
       class_name: :User
 
-   def post_too_long
-      if body.length > 140
-         errors[:body] << "too long"
-      end
-   end
+   # def post_too_long
+   #    if body.splilength > 140
+   #       errors[:body] << "too long"
+   #    end
+   # end
 end

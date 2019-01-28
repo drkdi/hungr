@@ -1,6 +1,6 @@
 
 .nav_components {
-   display: flex;
+   position: fixed;
    justify-content: space-between;
    /* position: fixed; */
    top: 0;

@@ -28,7 +28,7 @@ class Nav extends React.Component {
             <input type="text" className="search_bar"/>
                {/* <button onClick={this.props.logout}>LOOOG OUT</button> */}
 
-         <div className="nav_buttons">
+               <div className="nav_buttons">
                   <button className="icons"><i className="fas fa-home"></i></button>
 
                   {/* dropdown */}
@@ -37,7 +37,7 @@ class Nav extends React.Component {
                   {/* <button className="icons"><i className="fas fa-user-alt"></i></button> */}
 
                   {/* on click activate modal */}
-                  <button className="createPost"><i className="fas fa-pencil-alt"></i></button>
+                  {/* <button className="createPost"><i className="fas fa-pencil-alt"></i></button> */}
                         
 
                     

@@ -12,19 +12,16 @@ class PostIndex extends React.Component {
    }
 
    render() {
-      let posts = this.props.posts.map(post => {
-         return <Post key={post.id} post={post} />
-      });
 
       let cards = this.props.posts.map(card => {
          // return <Card key={post.id} post={post} />
-         return < Card key={card.id} card={card}/>
+         return < Card key={card.id} card={card} className="post" />
       });
-
+      // debugger
       return (
          <>
             <div className="posts_index">
-               {cards}
+               {cards.reverse()}
             </div>
          </>
       )

@@ -37,24 +37,40 @@ p1 = Post.create!({
    # likerIds:[2,3],
    #commentIds:[2,3]
 })
-p2 = Post.create!(
-   id: 2,
-   #body: 'image_url'
-   title: "Title2",
-   body: "these cheese fries are bomb",
-   author_id: 1,
-   # likerIds:[],
-   #commentIds:[]
-)
-p3 = Post.create!(
-   id: 3,
-   #body: 'image_url'
-   title: "Title3",
-   body: "these pretzels are making me thirsty",
-   author_id: 1,
-   # likerIds:[],
-   #commentIds:[]
-)
+# p2 = Post.create!(
+#    id: 2,
+#    #body: 'image_url'
+#    title: "Title2",
+#    body: "these cheese fries are bomb",
+#    author_id: 1,
+#    # likerIds:[],
+#    #commentIds:[]
+# )
+# p3 = Post.create!(
+#    id: 3,
+#    #body: 'image_url'
+#    title: "Title3",
+#    body: "these pretzels are making me thirsty",
+#    author_id: 1,
+#    # likerIds:[],
+#    #commentIds:[]
+# )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # #gordon ramsay's posts
 # Post.create!(

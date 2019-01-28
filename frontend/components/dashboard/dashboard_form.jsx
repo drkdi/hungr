@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const DashLinks = () => {
    return (
-      <section className="dash-links">
+      <section className="dashboard_buttons">
          <div className="icon-wrapper">
             <Link to="/dashboard/new/text" className="text pop-up">Aa</Link>
             <span className="sm-gray-text">Text</span>

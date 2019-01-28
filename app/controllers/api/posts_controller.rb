@@ -15,6 +15,7 @@ class Api::PostsController < ApplicationController
       @post.author_id = current_user.id
       if @post.save
          #change to show later
+         # debugger
          render 'api/posts/show'
       else
          render json: @post.errors.full_messages, status: 400
@@ -26,7 +27,7 @@ class Api::PostsController < ApplicationController
       if @post
          @post.destroy!
        #change to show later
-         render 'api/posts/index'
+            render 'api/posts/index'
       else
          render json: ['not your post'], status: 422
       end
