@@ -43,9 +43,9 @@ class SimpleMenu extends React.Component {
                aria-haspopup="true"
                onClick={this.handleClick}
                style={style}
-            ><button className="icons">
+            ><div className="icons">
                   <i className="fas fa-user-alt"></i>
-               </button></Button>
+               </div></Button>
             <Menu
                id="simple-menu"
                anchorEl={anchorEl}

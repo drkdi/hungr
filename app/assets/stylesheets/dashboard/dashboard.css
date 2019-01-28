@@ -17,9 +17,8 @@
 
 
 .dashboard_general {
-
    position: relative;
-   left: 22%;
+   left: 24%;
 }
 
 /* .modal {
@@ -45,14 +44,14 @@
 .dashboard_buttons {
    position: relative;
    display: inline-flex;
-   justify-content: space-between;
-   top: auto;
+   justify-content: space-evenly;
    top: 90px;
 
    width: 542px;
    height: 101px;
   font-size: 40px;
    background-color: white;
+   border-radius: 3px;
 }
 
 .dashboard_icon_box {
@@ -60,10 +59,10 @@
    flex-flow: column;
    /* display: inline-block; */
    align-items: center;
-   vertical-align: center;
-   height: 99px;
+   padding-top: 20px;
+   height: 40px;
    width: 76px;
-   color: black
+   color: black;
 }
 
 
@@ -83,7 +82,7 @@
    height: 291px;
    background-color: white;
    position: relative;
-   top: 100px;;
+   top: 100px;
    margin-bottom: 21px;
 }
 
@@ -92,6 +91,7 @@
    height: 47px;
    font-size: 27pt;
 }
+
 .create_text_text {
    font-size: 30;
    height: 80px;
@@ -117,24 +117,37 @@
    background-color: white;
    color: black;
    margin-bottom: 21px;
-
+   border-radius: 3px;
 }
 
 .post_image {
    width: 540px;
+      border-radius: 3px;
+
 }
 
+.dashboard_nav_text {
+     font-weight: 650;
+  color: #525252;
+}
 
-/* .posts_index {
-   width: 625px;
-   height:auto;
-   left: 10px;
-   border: 5px solid white;
-} */
+.fa-camera-retro {
+   color: #DA6A54;
+}
 
-/* .individual_post {
-   width: 540px;
-   height:auto;
-   left: 10px;
-   border: 5px solid white;
-} */
+.fa-quote-left {
+   color: #F1A344;
+}
+
+.fa-link {
+   color: #6CC595;
+}
+
+.fa-headphones-alt {
+   color: #AF86C8;
+}
+
+.fa-video {
+   color: #838C94;
+}
+

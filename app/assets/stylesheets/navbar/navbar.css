@@ -101,6 +101,11 @@ Button:hover {
    top: -1px;
 }
 
+.fa-user-alt {
+   position: relative;
+   top:4px;
+}
+
 
 .createPost {
    position: relative;

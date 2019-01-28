@@ -7,7 +7,7 @@ const DashLinks = () => {
 
          <div className="dashboard_icon_box">
             <Link to="/dashboard/new/text" className="dashboard_icon">
-            Aa
+               <span className="dashboard_nav_text">Aa</span>
             </Link>
             
             <label className="dashboard_text_label">Text</label>

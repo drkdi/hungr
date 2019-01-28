@@ -28,8 +28,8 @@ import { merge } from 'lodash';
             return (
                   <form className="create_text" onSubmit={this.handleSubmit}>
 
-                        <input type="text" className="create_text_text" placeholder="Your text here"></input>
                         <input
+                              className="title_input"
                               onChange={this.update('title')}
                               value={this.state.title}
                               id="title"
@@ -38,15 +38,17 @@ import { merge } from 'lodash';
 
                         <label htmlFor="body"></label>
                         <textarea
+                              className="body_input"
                               onChange={this.update('body')}
                               value={this.state.body}
                               id="body"
                               placeholder={"Your text here"}>
                         </textarea>
 
-                        <button className="text_form_post">Post</button>
-
-                        <a href="#/" className="create_text_cancel">Cancel</a>
+                        <div className="form_buttons">
+                              <button className="text_form_button">Post</button>
+                              <a href="#/" className="create_text_cancel">Cancel</a>
+                        </div>
                   </form>
             )
             };

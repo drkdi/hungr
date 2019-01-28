@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import Account from './account';
-// import CreateDialog from './create_dialog';
+import CreateDialog from './create_dialog';
 //import other nav stuff upon login
 
 class Nav extends React.Component {
@@ -29,12 +29,12 @@ class Nav extends React.Component {
                {/* <button onClick={this.props.logout}>LOOOG OUT</button> */}
 
                <div className="nav_buttons">
-                  <button className="icons"><i className="fas fa-home"></i></button>
-
+                  {/* <button className="icons"><i className="fas fa-home"></i></button> */}
+                  <a href="#/dashboard" className="icons"><i className="fas fa-home"></i></a>
                   {/* dropdown */}
-                  {/* < Account props={this.props}/> */}
-                  {/* < CreateDialog props={this.props}/> */}
+                  < Account props={this.props}/>
                   {/* <button className="icons"><i className="fas fa-user-alt"></i></button> */}
+                  < CreateDialog props={this.props}/>
 
                   {/* on click activate modal */}
                   {/* <button className="createPost"><i className="fas fa-pencil-alt"></i></button> */}

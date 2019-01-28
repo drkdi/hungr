@@ -15,7 +15,6 @@ class Api::PostsController < ApplicationController
       @post.author_id = current_user.id
       if @post.save
          #change to show later
-         # debugger
          render 'api/posts/show'
       else
          render json: @post.errors.full_messages, status: 400
