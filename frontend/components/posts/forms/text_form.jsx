@@ -2,7 +2,7 @@ import React from 'react';
 import {Component} from 'react';
 import { merge } from 'lodash';
 
- class TextForm extends Component {
+ class TextForm extends React.Component {
    
       constructor(props) {
             super(props);
@@ -14,9 +14,9 @@ import { merge } from 'lodash';
       handleSubmit(e) {
             e.preventDefault();
             let post = merge({}, this.state);
-            this.props.processForm(post);
+            this.props.processForm(post)
             // .then(this.setState({ body: '', title: '', tag: '' }))
-            // .then(this.props.history.push('/dashboard'));
+            .then(this.props.history.push('/dashboard'));
        }
 
        update(field) {
@@ -27,7 +27,6 @@ import { merge } from 'lodash';
             
             return (
                   <form className="create_text" onSubmit={this.handleSubmit}>
-                        <input type="text" className="create_text_title" placeholder="Title"></input>
 
                         <input type="text" className="create_text_text" placeholder="Your text here"></input>
                         <input

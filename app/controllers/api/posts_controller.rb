@@ -27,7 +27,8 @@ class Api::PostsController < ApplicationController
       if @post
          @post.destroy!
        #change to show later
-            render 'api/posts/index'
+            render json: {}
+            # render 'api/posts/index'
       else
          render json: ['not your post'], status: 422
       end

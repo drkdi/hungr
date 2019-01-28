@@ -47,8 +47,8 @@ function MediaCard(props) {
             <Button size="small" color="primary">
                Learn More
         </Button>
-
-         <Button size="small" color="primary">
+ 
+         <Button size="small" color="primary" onClick={deletePost(props.card.id)}>
             delete
          </Button>
 

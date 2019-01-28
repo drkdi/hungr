@@ -9,7 +9,7 @@ const Dashboard = props => {
 
       
    return (
-      <div className="dashboard_posts">
+      <div className="dashboard_general">
 
 
       {/* <Route path='/dashboard/new/text' component={TextForm} />*/}
