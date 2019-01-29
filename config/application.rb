@@ -16,7 +16,8 @@ module Hungr
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
  
 
-
+    #rng 1-5
+    # 1 image -> url 
 
 
 

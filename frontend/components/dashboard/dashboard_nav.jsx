@@ -14,7 +14,7 @@ const DashLinks = () => {
          </div>
 
          <div className="dashboard_icon_box">
-            <Link to="/dashboard/new/photo" className="dashboard_icon">
+            <Link to="/dashboard/new/image" className="dashboard_icon">
                <i className="fas fa-camera-retro"></i>
             </Link>
 

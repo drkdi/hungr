@@ -37,6 +37,20 @@ p1 = Post.create!({
    # likerIds:[2,3],
    #commentIds:[2,3]
 })
+
+p1 = Post.create!({
+   id: 1,
+   #body: 'image_url'
+   body: "Welcome to Flavortown",
+   title: "Title1",
+   author_id: 1,
+   media: "https://media0.giphy.com/media/m0MfjLtKOgTPG/200.webp?cid=3640f6095c50c994684a644a2eab1ae8",
+   # likerIds:[2,3],
+   #commentIds:[2,3]
+})
+
+
+
 # p2 = Post.create!(
 #    id: 2,
 #    #body: 'image_url'

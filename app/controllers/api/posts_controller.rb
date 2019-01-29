@@ -13,6 +13,9 @@ class Api::PostsController < ApplicationController
    def create
       @post = Post.new(post_params)
       @post.author_id = current_user.id
+     
+      # debugger
+
       if @post.save
          #change to show later
          render 'api/posts/show'
@@ -43,7 +46,7 @@ class Api::PostsController < ApplicationController
    end
 
    def post_params
-      params.require(:post).permit(:body, :title, :author_id)
+      params.require(:post).permit(:body, :title, :author_id, :media)
    end
 
 end

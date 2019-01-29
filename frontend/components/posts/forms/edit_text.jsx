@@ -13,7 +13,6 @@ const mapDispatchToProps = dispatch => ({
 class EditText extends React.Component {
 
    constructor(props) {
-      debugger
       super(props);
       this.state = { body: post.body, title: post.title, author_id: this.props.currentUser.id };
       this.handleSubmit = this.handleSubmit.bind(this);

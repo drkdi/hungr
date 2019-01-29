@@ -62,13 +62,16 @@
    padding-top: 20px;
    height: 40px;
    width: 76px;
-   color: black;
 }
 
 
 .dashboard_text_label {
-   font-size: 12px;
+   font-size: 15px;
    position: relative;
+   top: 2px;
+   color: #696969;
+   font-weight: 200;
+   font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -120,11 +123,36 @@
    border-radius: 3px;
 }
 
+.user_icon {
+   width: 66px;
+   height: 66px;
+   border-radius: 3px;
+   position: relative;
+   left: -86px;
+}
+
 .post_image {
    width: 540px;
       border-radius: 3px;
-
 }
+
+.create_media {
+   position: relative;
+   top: 100px;
+   width: 540px;
+   height: auto;
+}
+
+.preview {
+   width: 540px;
+}
+
+.index_image_post {
+   width: 540px;
+}
+
+
+
 
 .dashboard_nav_text {
      font-weight: 650;

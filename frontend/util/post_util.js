@@ -13,10 +13,15 @@ export const fetchPost = (id) => {
 };
 
 export const createPost = (post) => {
+   // debugger
    return $.ajax({
+      method: "POST",
       url: "api/posts",
-      method: "post",
-      data: {post}
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: post,
+      
    });
 }
 
@@ -24,7 +29,7 @@ export const updatePost = (post) => {
    return $.ajax({
       url: `api/posts/${post.id}`,
       method: "patch",
-      data: { post }
+      data: { post },
    });
 }
 

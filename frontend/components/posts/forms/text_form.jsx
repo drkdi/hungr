@@ -13,11 +13,21 @@ import { merge } from 'lodash';
 
       handleSubmit(e) {
             e.preventDefault();
-            let post = merge({}, this.state);
-            this.props.processForm(post)
-            // .then(this.setState({ body: '', title: '', tag: '' }))
-            .then(this.props.history.push('/dashboard'));
-       }
+            // let post = merge({}, this.state);
+            // debugger
+            // this.props.processForm(post)
+            // // this.props.processForm(this.state)
+            // // .then(this.setState({ body: '', title: '', tag: '' }))
+            // .then(this.props.history.push('/dashboard'));
+       
+            const formData = new FormData();
+            formData.append('post[body]', this.state.body);
+            formData.append('post[author_id]', this.state.author_id);
+            formData.append('post[title]', this.state.title);
+            this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+
+      
+      }
 
        update(field) {
              return (e) => this.setState({[field]: e.target.value})

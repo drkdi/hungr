@@ -12,7 +12,12 @@
 class Post < ApplicationRecord
    # validates :body, presence: true
    # validate :post_too_long
-   
+
+   # media validation???
+      
+   has_one_attached :media
+
+
    belongs_to :user,
       primary_key: :id,
       foreign_key: :author_id,
