@@ -346,6 +346,14 @@ var Dashboard = function Dashboard(props) {
     component: _posts_forms_media_form__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
+    path: "/dashboard/new/video",
+    component: _posts_forms_media_form__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/dashboard/new/audio",
+    component: _posts_forms_media_form__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
     path: "/dashboard/new/quote",
     component: _posts_forms_quote_form__WEBPACK_IMPORTED_MODULE_5__["default"]
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", null, 'body { background: #35465C; }'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_post_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
@@ -1078,13 +1086,23 @@ function (_React$Component) {
     _this.state = props.post;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    var banana;
+
+    if (props.location.pathname === "/dashboard/new/image") {
+      banana = 'image';
+    } else if (props.location.pathname === "/dashboard/new/video") {
+      banana = 'video';
+    } else {
+      banana = 'audio';
+    }
+
     _this.state = {
       body: '',
-      title: 'image',
       author_id: _this.props.currentUser.id,
       mediaFile: null,
-      mediaUrl: null // for image preview
-
+      mediaUrl: null,
+      // for image preview
+      title: banana
     };
     return _this;
   }
@@ -1136,22 +1154,39 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var media = this.state.fileUrl || this.state.media; // let preview = <image src={media} className="preview" />
+      var media = this.state.fileUrl || this.state.media;
+      var preview;
 
-      var preview = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
-        className: "post-media",
-        controls: true,
-        width: "510px"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("source", {
-        src: media
-      })); // let fileInput = <>
+      if (this.state.title === "image") {
+        preview = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "index_image_post",
+          src: media
+        });
+      } else if (this.state.title === "video") {
+        preview = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
+          className: "index_video_post",
+          src: media,
+          controls: true
+        });
+      } else {
+        preview = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
+          className: "index_audio_post",
+          src: media,
+          controls: true
+        });
+      } // let preview = <image src={media} className="preview" />
+      // debugger
+      // if title="video", preview source, button (className=video_submit_button)
+      // if title="image"
+      // let fileInput = <>
       //    <input onChange={this.handleFile} id="media-input" type="file" />
       // </>
+
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create_media",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Image Preview"), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Image Preview"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "body_input",
         onChange: this.update('body'),
         value: this.state.body,
@@ -1161,7 +1196,7 @@ function (_React$Component) {
         type: "file",
         placeholder: "image",
         onChange: this.handleFile
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "media_form_button"
@@ -1509,6 +1544,31 @@ var mdp = function mdp(dispatch) {
 
 var Post = function Post(props) {
   // debugger
+  // if title="video"
+  // if title="image"
+  // else -> {props.post.title} {props.post.body}
+  var content;
+
+  if (props.post.title === "image") {
+    content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "index_image_post",
+      src: props.post.media
+    });
+  } else if (props.post.title === "video") {
+    content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
+      controls: true,
+      className: "index_video_post",
+      src: props.post.media
+    });
+  } else if (props.post.title === "audio") {
+    content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
+      controls: true,
+      className: "index_audio_post",
+      src: props.post.media
+    });
+  } // debugger
+
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "individual_post"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1519,12 +1579,7 @@ var Post = function Post(props) {
     className: "post_image",
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT91eBclh2ZWqgAd6yp_f1gk_pWG8GN6Pnn-a4S26fPSTx3QLibKg",
     alt: "placeholder"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.post.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.post.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
-    controls: true,
-    autoplay: true,
-    className: "index_image_post",
-    src: props.post.media
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.post.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.post.body), content, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: function onClick() {
       props.deletePost(props.post.id);
     },

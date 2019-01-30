@@ -25,6 +25,8 @@ const Dashboard = props => {
             <Route exact path='/dashboard/' component={DashboardNav} />
             <Route exact path='/dashboard/new/text' component={TextForm} />
             <Route exact path='/dashboard/new/image' component={MediaForm} />
+            <Route exact path='/dashboard/new/video' component={MediaForm} />
+            <Route exact path='/dashboard/new/audio' component={MediaForm} />
             <Route exact path='/dashboard/new/quote' component={QuoteForm} />
             {/* <Route exact path='/dashboard/edit' component={EditText} props={props} /> */}
             {/* <Route path='/dashboard/new/quote' component={TextForm} />

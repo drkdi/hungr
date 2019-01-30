@@ -15,19 +15,37 @@ import { createPost } from '../../../actions/post_actions';
 
    
 
+
+
+
    class MediaForm extends React.Component {
       constructor(props) {
          super(props);
          this.state = props.post;
          this.handleSubmit = this.handleSubmit.bind(this);
          this.handleFile = this.handleFile.bind(this);
+         
+       
+         let banana;
+         if (props.location.pathname === "/dashboard/new/image") {
+            banana = 'image';
+         }
+
+         else if (props.location.pathname === "/dashboard/new/video") {
+            banana = 'video';
+         }
+         else {
+            banana = 'audio';
+         }
+
          this.state = {
             body: '',
-            title: 'image',
             author_id: this.props.currentUser.id,
             mediaFile: null,
             mediaUrl: null, // for image preview
+            title: banana,
          };
+
       }
 
       handleSubmit(e) {
@@ -68,14 +86,38 @@ import { createPost } from '../../../actions/post_actions';
       render() {
 
          let media = this.state.fileUrl || this.state.media;
+
+
+
+          
+         let preview;
+         if (this.state.title === "image") {
+             preview = (
+               <img className="index_image_post" src={media} />
+            )
+
+         }
+         else if (this.state.title === "video") {
+            preview = (
+               <video className="index_video_post" src={media} controls />
+            )
+         }
+         else {
+            preview = (
+               <audio className="index_audio_post" src={media} controls />
+            )
+         }
+
+
+
          // let preview = <image src={media} className="preview" />
-         let preview = (<video className="post-media" controls width="510px">
-               <source src={media} />
-            </video> )
 
 
 
-
+   // debugger
+   // if title="video", preview source, button (className=video_submit_button)
+   // if title="image"
+         
 
 
 
@@ -90,7 +132,6 @@ import { createPost } from '../../../actions/post_actions';
             <form className="create_media" onSubmit={this.handleSubmit}>
                
                <p> Image Preview</p>
-               {preview}
 
 
                <textarea
@@ -107,6 +148,7 @@ import { createPost } from '../../../actions/post_actions';
                    />
 
 
+               {preview}
 
                <div className="form_buttons">
                   <button className="media_form_button">Post</button>

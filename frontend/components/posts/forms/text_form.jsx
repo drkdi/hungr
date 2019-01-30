@@ -24,7 +24,9 @@ import { merge } from 'lodash';
             formData.append('post[body]', this.state.body);
             formData.append('post[author_id]', this.state.author_id);
             formData.append('post[title]', this.state.title);
-            this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+            this.props.processForm(formData)
+           
+            .then(this.props.history.push('/dashboard'));
 
       
       }
