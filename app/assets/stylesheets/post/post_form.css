@@ -1,0 +1,200 @@
+.post_form_username {
+   font-size: 14px;
+   font-weight: 800;
+   color: rgba(68, 68, 68);
+   position: relative;
+   top: 15px;
+   left: 20px; 
+}
+
+::placeholder {
+   color: rgba(120, 120, 120, 0.75);
+}
+
+
+/* media form inputs */
+
+.media-form input, textarea {
+  margin: 0 20px 5px;
+  width: 450px;
+  border: none;
+  padding: 5px;
+}
+
+.media-form textarea {
+  font-size: 18px;
+  height: 60px;
+}
+
+
+/* buttons */
+.form_buttons {
+
+     display: flex;
+  /* justify-content: space-between; */
+    padding: 20px 20px 0;
+   border-radius: 3px;
+    
+}
+
+.form_cancel_button {
+   color: white;
+   width: 52px;
+   height: 30px;
+   position: absolute;
+   left: 15px;
+   bottom: 15px;
+   background-color: rgb(157, 166, 175);
+      border-radius: 3px;
+         border: none;
+
+      font-size: 13px;
+   font-weight: 600;
+
+}
+
+.form_post_button {
+   position: absolute;
+   bottom: 15px;
+   right: 15px;
+   width: 75px;
+   height: 30px;
+  background-color: #559DCC;
+  color: #fff;
+   border-radius: 3px;
+   border: none;
+      font-size: 13px;
+   font-weight: 600;
+}
+
+
+/* create text */
+
+
+.create_text {
+   width: 542px;
+   height: 291px;
+   background-color: white;
+   position: relative;
+   border-radius: 3px;
+   top: 100px;
+   margin-bottom: 21px;
+   z-index: 2;
+}
+
+.title_input {
+   position: relative;
+   top: 11px;
+   font-size: 35px;
+   font-weight: 400;
+}
+
+.body_input {
+   resize: none;
+   width: 500px;
+   height: 84px;
+   position: relative;
+   top: 15px;
+   border: none;
+
+}
+
+.body_input:focus {
+   border: none;
+   outline: none;
+}
+
+.create_text input, textarea {
+  margin: 0 20px 5px;
+  width: 450px;
+  border: none;
+  padding: 5px;
+}
+
+.create_text textarea {
+  font-size: 14px;
+  border: none;
+}
+
+.create_text label {
+  height: 0;
+}
+
+
+
+/* quote */
+
+.quote_title_input {
+   position: relative;
+   top: 8px;
+   font-size: 50px;
+   font-weight: 400;
+}
+
+
+/* media */
+
+
+.create_media {
+   position: relative;
+   top: 100px;
+   width: 540px;
+   background: white;
+   height: auto;
+   z-index: 2;
+}
+
+.create_media textarea {
+   height: 
+}
+
+
+
+
+.index_image_post {
+   position: relative;
+   width: 540px;
+}
+
+.index_video_post {
+   position: relative;
+   width: 540px;
+}
+
+.index_audio_post {
+   position: relative;
+   width: 540px;
+}
+
+.preview_image_post{
+   position: absolute;
+   width: 540px;
+   /* top: 20px; */
+}
+
+.preview_video_post{
+   position: relative;
+   width: 540px;
+}
+.preview_audio_post{
+   position: relative;
+   width: 540px;
+}
+
+.fileInput {
+   z-index: -1;
+
+}
+
+
+.create_media input[type='file'] {
+   cursor: pointer;
+   width: 100%;
+   height: 200px;
+   background-color: #eee;
+   position: relative;
+   top: 15px;
+   border-top: 2px dashed rgb(187, 187, 187);
+   border-bottom: 2px dashed rgb(187, 187, 187);
+   z-index: 100;
+}

@@ -24,7 +24,6 @@ class PostIndex extends React.Component {
       return (
          <>
             <div className="posts_index">
-
                {posts.reverse()}
             </div>
          </>

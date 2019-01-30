@@ -36,32 +36,39 @@ import { merge } from 'lodash';
        }
 
        render() {
-            
+                  //  debugger
+
+
             return (
-                  <form className="create_text" onSubmit={this.handleSubmit}>
+                  <div>
+                        <div className="glass_active"></div>
+                        <form className="create_text" onSubmit={this.handleSubmit}>
 
-                        <input
-                              className="title_input"
-                              onChange={this.update('title')}
-                              value={this.state.title}
-                              id="title"
-                              type="text"
-                              placeholder={"title"} />
+                        <p className="post_form_username">{this.props.currentUser.username}</p>
+            
+                              <input
+                                    className="title_input"
+                                    onChange={this.update('title')}
+                                    value={this.state.title}
+                                    id="title"
+                                    type="text"
+                                    placeholder={"Title"} />
 
-                        <label htmlFor="body"></label>
-                        <textarea
-                              className="body_input"
-                              onChange={this.update('body')}
-                              value={this.state.body}
-                              id="body"
-                              placeholder={"Your text here"}>
-                        </textarea>
 
-                        <div className="form_buttons">
-                              <button className="text_form_button">Post</button>
-                              <a href="#/" className="create_text_cancel">Cancel</a>
-                        </div>
-                  </form>
+                              <textarea
+                                    className="body_input"
+                                    onChange={this.update('body')}
+                                    value={this.state.body}
+                                    id="body"
+                                    placeholder={"Your text here"}>
+                              </textarea>
+
+                              <div className="form_buttons">
+                                    <button className="form_cancel_button"><a href="#/" >Close</a></button>
+                                    <button className="form_post_button">Post</button>
+                              </div>
+                        </form>
+                  </div>
             )
             };
             }

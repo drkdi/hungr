@@ -40,29 +40,34 @@ class QuoteForm extends React.Component {
    render() {
 
       return (
+         <>
+         <div className="glass_active"></div>
+
          <form className="create_text" onSubmit={this.handleSubmit}>
+            <p className="post_form_username">{this.props.currentUser.username}</p>
 
             <input
-               className="title_input"
+               className="quote_title_input"
                onChange={this.update('title')}
                value={this.state.title}
                id="title"
                type="text"
-               placeholder={"Quote"} />
-
+               placeholder={`"Quote"`} />
+            -
             <textarea
-               className="quote_input_body"
+               className="body_input"
                onChange={this.update('body')}
                value={this.state.body}
                id="body"
-               placeholder={"Author"}>
+               placeholder={"- Source"}>
             </textarea>
 
             <div className="form_buttons">
-               <button className="text_form_button">Post</button>
-               <a href="#/" className="create_text_cancel">Cancel</a>
+               <button className="form_cancel_button"><a href="#/" >Close</a></button>
+               <button className="form_post_button">Post</button>
             </div>
          </form>
+         </>
       )
    };
 }

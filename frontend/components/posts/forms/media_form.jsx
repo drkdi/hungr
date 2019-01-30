@@ -86,28 +86,62 @@ import { createPost } from '../../../actions/post_actions';
       render() {
 
          let media = this.state.fileUrl || this.state.media;
+         
+         
+         let fileInput = (< input type = "file"
+            placeholder = { "image"}
+            onChange = { this.handleFile } 
+            className="fileInput"
+            />)
 
+         
 
 
           
          let preview;
+         let icon; 
+
          if (this.state.title === "image") {
+
+            icon = (
+               <i className="fas fa-camera-retro"></i>
+
+            )
+
              preview = (
-               <img className="index_image_post" src={media} />
+               <img className="preview_image_post" src={media} />
             )
 
          }
          else if (this.state.title === "video") {
+
+            icon = (
+               <i className="fas fa-headphones-alt"></i>
+
+            )
             preview = (
-               <video className="index_video_post" src={media} controls />
+               <video className="preview_video_post" src={media} controls />
             )
          }
          else {
+
+            icon = (
+               <i className="fas fa-video"></i>
+            )
             preview = (
-               <audio className="index_audio_post" src={media} controls />
+               <audio className="preview_audio_post" src={media} controls />
             )
          }
 
+
+         
+         if (media) {
+            fileInput = null;
+            icon = null;
+         }
+         else {
+            preview = null;
+         }
 
 
          // let preview = <image src={media} className="preview" />
@@ -129,9 +163,18 @@ import { createPost } from '../../../actions/post_actions';
          
 
          return (
+            <>
+            <div className="glass_active"></div>
+
             <form className="create_media" onSubmit={this.handleSubmit}>
-               
-               <p> Image Preview</p>
+               <p className="post_form_username">{this.props.currentUser.username}</p>
+
+   
+               {preview}
+               {icon}
+               {fileInput}
+                  
+
 
 
                <textarea
@@ -139,25 +182,22 @@ import { createPost } from '../../../actions/post_actions';
                   onChange={this.update('body')}
                   value={this.state.body}
                   id="body"
-                  placeholder={"Your text here"}>
+                  placeholder={"Add a caption, if you like"}>
                </textarea>
 
-               <input type="file"
-                  placeholder={"image"}
-                  onChange={this.handleFile}
-                   />
+                  
 
 
-               {preview}
 
                <div className="form_buttons">
-                  <button className="media_form_button">Post</button>
-                  <a href="#/" className="create_text_cancel">Cancel</a>
+                  <button className="form_cancel_button"><a href="#/" >Close</a></button>
+                  <button className="form_post_button">Post</button>
                </div>
 
 
 
             </form>
+            </>
          )
       }
    }

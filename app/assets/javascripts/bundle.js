@@ -1155,25 +1155,48 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var media = this.state.fileUrl || this.state.media;
+      var fileInput = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        placeholder: "image",
+        onChange: this.handleFile,
+        className: "fileInput"
+      });
       var preview;
+      var icon;
 
       if (this.state.title === "image") {
+        icon = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-camera-retro"
+        });
         preview = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          className: "index_image_post",
+          className: "preview_image_post",
           src: media
         });
       } else if (this.state.title === "video") {
+        icon = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-headphones-alt"
+        });
         preview = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
-          className: "index_video_post",
+          className: "preview_video_post",
           src: media,
           controls: true
         });
       } else {
+        icon = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-video"
+        });
         preview = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
-          className: "index_audio_post",
+          className: "preview_audio_post",
           src: media,
           controls: true
         });
+      }
+
+      if (media) {
+        fileInput = null;
+        icon = null;
+      } else {
+        preview = null;
       } // let preview = <image src={media} className="preview" />
       // debugger
       // if title="video", preview source, button (className=video_submit_button)
@@ -1183,27 +1206,28 @@ function (_React$Component) {
       // </>
 
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass_active"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create_media",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Image Preview"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "post_form_username"
+      }, this.props.currentUser.username), preview, icon, fileInput, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "body_input",
         onChange: this.update('body'),
         value: this.state.body,
         id: "body",
-        placeholder: "Your text here"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "file",
-        placeholder: "image",
-        onChange: this.handleFile
-      }), preview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        placeholder: "Add a caption, if you like"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "media_form_button"
-      }, "Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#/",
-        className: "create_text_cancel"
-      }, "Cancel")));
+        className: "form_cancel_button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#/"
+      }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "form_post_button"
+      }, "Post"))));
     }
   }]);
 
@@ -1313,30 +1337,35 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "glass_active"
+      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
         className: "create_text",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
-        className: "title_input",
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+        className: "post_form_username"
+      }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
+        className: "quote_title_input",
         onChange: this.update('title'),
         value: this.state.title,
         id: "title",
         type: "text",
-        placeholder: "Quote"
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
-        className: "quote_input_body",
+        placeholder: "\"Quote\""
+      }), "-", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
+        className: "body_input",
         onChange: this.update('body'),
         value: this.state.body,
         id: "body",
-        placeholder: "Author"
+        placeholder: "- Source"
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "form_buttons"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-        className: "text_form_button"
-      }, "Post"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
-        href: "#/",
-        className: "create_text_cancel"
-      }, "Cancel")));
+        className: "form_cancel_button"
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+        href: "#/"
+      }, "Close")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+        className: "form_post_button"
+      }, "Post"))));
     }
   }]);
 
@@ -1432,18 +1461,21 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      //  debugger
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass_active"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create_text",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "post_form_username"
+      }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "title_input",
         onChange: this.update('title'),
         value: this.state.title,
         id: "title",
         type: "text",
-        placeholder: "title"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "body"
+        placeholder: "Title"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "body_input",
         onChange: this.update('body'),
@@ -1453,11 +1485,12 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "text_form_button"
-      }, "Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#/",
-        className: "create_text_cancel"
-      }, "Cancel")));
+        className: "form_cancel_button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#/"
+      }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "form_post_button"
+      }, "Post"))));
     }
   }]);
 
@@ -1566,27 +1599,29 @@ var Post = function Post(props) {
       className: "index_audio_post",
       src: props.post.media
     });
+  } else {
+    content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "quote_post_title"
+    }, props.post.title);
   } // debugger
 
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "individual_post"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "post_body"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "user_icon",
     src: "https://yt3.ggpht.com/a-/AAuE7mD6DYZhbyoY6NJ2eV-lkxkG3KEgAfD8uC2f4w=s900-mo-c-c0xffffffff-rj-k-no",
     alt: "user_icon"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "post_image",
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT91eBclh2ZWqgAd6yp_f1gk_pWG8GN6Pnn-a4S26fPSTx3QLibKg",
-    alt: "placeholder"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.post.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.post.body), content, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.post.body), content, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: function onClick() {
       props.deletePost(props.post.id);
     },
     className: "text_delete_button"
   }, "Delete"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: _posts_forms_edit_text__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }, "Update")));
+  }, "Update"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(msp, mdp)(Post));

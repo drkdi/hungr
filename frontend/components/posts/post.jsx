@@ -40,19 +40,25 @@ const Post = (props) => {
          <audio controls className="index_audio_post" src={props.post.media} />       
       )
     }
-         
-         // debugger
+
+   else { 
+      content = (
+         <p className="quote_post_title">{props.post.title}</p>
+      )
+   }
+
+   // debugger
+
+
    return (
       <> 
-      
          <div className="individual_post" >
 
+         <div className="post_body">
             <img className="user_icon" src="https://yt3.ggpht.com/a-/AAuE7mD6DYZhbyoY6NJ2eV-lkxkG3KEgAfD8uC2f4w=s900-mo-c-c0xffffffff-rj-k-no" alt="user_icon"/>
 
-            <img className="post_image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT91eBclh2ZWqgAd6yp_f1gk_pWG8GN6Pnn-a4S26fPSTx3QLibKg" alt="placeholder"/>
 
 
-            <p>{props.post.title}</p>
             <p>{props.post.body}</p>
 
 
@@ -68,7 +74,7 @@ const Post = (props) => {
             <button onClick={EditText}>Update</button>
 
             
-
+            </div>
          </div>
             
       </>
