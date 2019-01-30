@@ -19,6 +19,7 @@
   width: 450px;
   border: none;
   padding: 5px;
+  position: relative;
 }
 
 .media-form textarea {
@@ -35,6 +36,11 @@
     padding: 20px 20px 0;
    border-radius: 3px;
     
+}
+
+.post_gear {
+   position: relative;
+   left: 50%;
 }
 
 .form_cancel_button {
@@ -132,6 +138,10 @@
 }
 
 
+/* link */
+
+
+
 /* media */
 
 
@@ -144,9 +154,9 @@
    z-index: 2;
 }
 
-.create_media textarea {
+/* .create_media textarea {
    height: 
-}
+} */
 
 
 
@@ -167,27 +177,27 @@
 }
 
 .preview_image_post{
-   position: absolute;
+   position: relative;
+   top: 15px;
    width: 540px;
    /* top: 20px; */
 }
 
 .preview_video_post{
    position: relative;
+   top: 15px;
    width: 540px;
 }
+
 .preview_audio_post{
    position: relative;
+   top: 15px;
    width: 540px;
-}
-
-.fileInput {
-   z-index: -1;
-
 }
 
 
 .create_media input[type='file'] {
+   display: hidden;
    cursor: pointer;
    width: 100%;
    height: 200px;
@@ -196,5 +206,31 @@
    top: 15px;
    border-top: 2px dashed rgb(187, 187, 187);
    border-bottom: 2px dashed rgb(187, 187, 187);
-   z-index: 100;
+}
+
+.create_media .fa-camera-retro {
+   font-size: 50px;
+   color: gray;
+   position: absolute;
+   right: 50%;
+   bottom: 60%;
+   z-index: 3;
+}
+
+.create_media .fa-headphones-alt {
+   font-size: 50px;
+   color: gray;
+   position: absolute;
+   right: 50%;
+   bottom: 60%;
+   z-index: 3;
+}
+
+.create_media .fa-video {
+   font-size: 50px;
+   color: gray;
+   position: absolute;
+   right: 50%;
+   bottom: 60%;
+   z-index: 3;
 }

@@ -5,6 +5,7 @@ import DashboardNav from './dashboard_nav';
 import TextForm from '../posts/forms/text_form_container';
 import QuoteForm from '../posts/forms/quote_form';
 import MediaForm from '../posts/forms/media_form';
+import LinkForm from '../posts/forms/link_form';
 import EditText from '../posts/forms/edit_text';
 
 const Dashboard = props => { 
@@ -28,9 +29,10 @@ const Dashboard = props => {
             <Route exact path='/dashboard/new/video' component={MediaForm} />
             <Route exact path='/dashboard/new/audio' component={MediaForm} />
             <Route exact path='/dashboard/new/quote' component={QuoteForm} />
+            <Route exact path='/dashboard/new/link' component={LinkForm} />
+            <Route path='/' />
             {/* <Route exact path='/dashboard/edit' component={EditText} props={props} /> */}
             {/* <Route path='/dashboard/new/quote' component={TextForm} />
-            <Route path='/dashboard/new/link' component={TextForm} />
             <Route path='/dashboard/new' component={MediaForm} /> */}
          </Switch>
 

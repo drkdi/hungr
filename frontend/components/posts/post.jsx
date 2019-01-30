@@ -4,8 +4,14 @@ import {connect} from 'react-redux';
 import {updatePost, deletePost} from '../../actions/post_actions';
 import EditText from '../posts/forms/edit_text';
 
-const msp = (state) => {
-   return {}
+
+
+
+
+const msp = ({entities, session}) => {
+   const currentUserID = session[Object.keys(session)[0]];
+   const currentUser = entities.users[currentUserID];
+   return { currentUser };
 };
 
 const mdp = dispatch => {
@@ -18,6 +24,8 @@ const mdp = dispatch => {
 
 const Post = (props) => {
    // debugger
+
+
    // if title="video"
    // if title="image"
    // else -> {props.post.title} {props.post.body}
@@ -47,33 +55,39 @@ const Post = (props) => {
       )
    }
 
-   // debugger
 
-
+   
    return (
       <> 
          <div className="individual_post" >
+            <p className="post_form_username">{props.currentUser.username}</p>
 
-         <div className="post_body">
+         <div className="post_wrapper">
             <img className="user_icon" src="https://yt3.ggpht.com/a-/AAuE7mD6DYZhbyoY6NJ2eV-lkxkG3KEgAfD8uC2f4w=s900-mo-c-c0xffffffff-rj-k-no" alt="user_icon"/>
-
-
-
-            <p>{props.post.body}</p>
-
 
             {content}
 
+               <p className="post_body">{props.post.body}</p>
+
+
             
-            <button onClick={() => { props.deletePost(props.post.id) }} className="text_delete_button">Delete</button>
             
             {/* <button onClick={(post) => {props.updatePost(post)}} className="text_update_button">Update</button> */}
            
            
             {/* FIX THIS */}
-            <button onClick={EditText}>Update</button>
+           
+               <div className="form_buttons">
+               <button className="post_gear"><i className="fas fa-cog"></i></button>
+         
+                  <button onClick={EditText} className="form_cancel_button">Edit</button>
 
-            
+                  <button onClick={() => { props.deletePost(props.post.id) }} className="form_post_button">Delete</button>
+               </div>
+               
+               
+               
+               
             </div>
          </div>
             

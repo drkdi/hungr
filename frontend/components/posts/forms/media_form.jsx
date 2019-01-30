@@ -88,11 +88,19 @@ import { createPost } from '../../../actions/post_actions';
          let media = this.state.fileUrl || this.state.media;
          
          
-         let fileInput = (< input type = "file"
+         let fileInput = (
+            <input type="file"
+            id="media_uploads"
+            name="media_uploads"
             placeholder = { "image"}
             onChange = { this.handleFile } 
-            className="fileInput"
-            />)
+            // tab-index="-1"
+            multiple
+            />
+            )
+
+         // <style>input.style.opacity = 0</style>
+
 
          
 
@@ -105,9 +113,7 @@ import { createPost } from '../../../actions/post_actions';
 
             icon = (
                <i className="fas fa-camera-retro"></i>
-
             )
-
              preview = (
                <img className="preview_image_post" src={media} />
             )
@@ -116,17 +122,16 @@ import { createPost } from '../../../actions/post_actions';
          else if (this.state.title === "video") {
 
             icon = (
-               <i className="fas fa-headphones-alt"></i>
-
+               <i className="fas fa-video"></i>
             )
             preview = (
-               <video className="preview_video_post" src={media} controls />
+               <video onClick="" className="preview_video_post" src={media} controls />
             )
          }
          else {
 
             icon = (
-               <i className="fas fa-video"></i>
+               <i className="fas fa-headphones-alt"></i>
             )
             preview = (
                <audio className="preview_audio_post" src={media} controls />
@@ -134,7 +139,7 @@ import { createPost } from '../../../actions/post_actions';
          }
 
 
-         
+
          if (media) {
             fileInput = null;
             icon = null;
@@ -171,9 +176,10 @@ import { createPost } from '../../../actions/post_actions';
 
    
                {preview}
-               {icon}
+               
+
                {fileInput}
-                  
+                  {icon}
 
 
 
