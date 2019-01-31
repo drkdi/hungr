@@ -9,6 +9,7 @@ import { createLike, removeLike} from '../../actions/like_actions';
 const msp = ({entities, session}, ownProps) => {
    const currentUserID = ownProps.post.author_id;
    const currentUser = entities.users[currentUserID] || {username: ""};
+
    const post = ownProps.post;
    return { currentUser, post};
 
@@ -32,6 +33,7 @@ const mdp = dispatch => {
 class Post extends Component {
 
    constructor(props) {
+      
       super(props);
       this.state = {
          like: "",
@@ -43,7 +45,7 @@ class Post extends Component {
 
 
    componentDidMount() {
-      this.props.fetchUser(this.props.post.author_id)     
+      this.props.fetchUser(this.props.post.author_id) 
    }
    
    handleLike(e) {
@@ -56,15 +58,6 @@ class Post extends Component {
       }
    }
 
-
-
-
-
-
-
-
-
-   
    render() {
       // debugger
          // console.log(this.props)
@@ -110,8 +103,8 @@ class Post extends Component {
          <p className="post_form_username">{this.props.currentUser.username}</p>
 
          <div className="post_wrapper">
-            <img className="user_icon" src="https://yt3.ggpht.com/a-/AAuE7mD6DYZhbyoY6NJ2eV-lkxkG3KEgAfD8uC2f4w=s900-mo-c-c0xffffffff-rj-k-no" alt="user_icon"/>
 
+                  <img className="user_icon" src={this.props.currentUser.profile_pic_url} alt="user_icon" />
             {content}
 
                <p className="post_body">{this.props.post.body}</p>

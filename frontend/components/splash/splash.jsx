@@ -35,11 +35,20 @@ class Splash extends React.Component {
       
       const LoginOrSignup = this.props.location.pathname;
 
+      const wallpaperStyle = {
+         margin: 0,
+         background: `url(${window.splashUrl})`,
+         backgroundRepeat: 'no-repeat',
+         height: "100vh",
+         backgroundSize: 'cover',
+      };
+
+
    return (
      
          
       
-      <div className="splash_form" onSubmit={(e) => this.handleSubmit(e)}>
+      <div className="splash_form" onSubmit={(e) => this.handleSubmit(e)} style={wallpaperStyle}>
 
          <a href="#/" className="rainbow">h</a>
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import GreetingContainer from './greeting/greeting_container';
 import {Route, Switch} from 'react-router-dom';
 import SignUpFormContainer from './session_form/signup_form_container.jsx';
 import LogInFormContainer from './session_form/login_form_container.jsx';

@@ -19,8 +19,17 @@ Post.destroy_all
 
 user1 = User.create!({
    id: 1,
-   username: "guyf13r1@flavor.com",
-   password: "password"
+   username: "thesecheesefriesarebombdotcom",
+   password: "password",
+   profile_pic_url: "https://pixel.nymag.com/imgs/daily/grub/2011/10/13/13_guyfieri.w710.h473.2x.jpg",
+   # authoredComments: [4,7],
+   # likedPostIds: [4,7],
+})
+user2 = User.create!({
+   id: 2,
+   username: "gordon",
+   password: "password",
+   profile_pic_url: "https://www.hellomagazine.com/imagenes/cuisine/2018080660901/gordon-ramsay-mourns-death-joel-robuchon/0-248-854/gordon-ramsay-mourns-death-t.jpg",
    # authoredComments: [4,7],
    # likedPostIds: [4,7],
 })
@@ -31,20 +40,40 @@ user1 = User.create!({
 p1 = Post.create!({
    id: 1,
    #body: 'image_url'
-   body: "Welcome to Flavortown",
-   title: "Title1",
+   body: "to Flavortown",
+   title: "Welcome",
    author_id: 1,
    # likerIds:[2,3],
    #commentIds:[2,3]
 })
 
-p1 = Post.create!({
-   id: 1,
+p2 = Post.create!({
+   id: 2,
    #body: 'image_url'
-   body: "Welcome to Flavortown",
-   title: "Title1",
+   body: "are bomb",
+   title: "these cheese fries",
    author_id: 1,
-   media: "https://media0.giphy.com/media/m0MfjLtKOgTPG/200.webp?cid=3640f6095c50c994684a644a2eab1ae8",
+   # media: "https://media0.giphy.com/media/m0MfjLtKOgTPG/200.webp?cid=3640f6095c50c994684a644a2eab1ae8",
+   # likerIds:[2,3],
+   #commentIds:[2,3]
+})
+
+p3 = Post.create!({
+   id: 3,
+   #body: 'image_url'
+   body: "is bad at smash",
+   title: "Greg",
+   author_id: 2,
+   # likerIds:[2,3],
+   #commentIds:[2,3]
+})
+
+p4 = Post.create!({
+   id: 4,
+   #body: 'image_url'
+   body: "are making me thirsty",
+   title: "these pretzels",
+   author_id: 2,
    # likerIds:[2,3],
    #commentIds:[2,3]
 })

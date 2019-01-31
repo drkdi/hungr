@@ -18,7 +18,7 @@ class SessionForm extends React.Component {
    }
 
    demoLogin() {
-      const usernameArr = "guyf13r1@flavor.com".split("");
+      const usernameArr = "thesecheesefriesarebombdotcom".split("");
       const passwordArr = "password".split("");
       const button = document.getElementById('login_signup_button');
       this.setState({username:'', password:''}, () => 
@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
          this.setState(
             { username: this.state.username + usernameArr.shift()}, () => {
                window.setTimeout( () =>
-               this.demoLoginHelper(usernameArr, passwordArr, button), 10);
+               this.demoLoginHelper(usernameArr, passwordArr, button), 80);
             }
          );
       }
@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
          this.setState(
             { password: this.state.password + passwordArr.shift()}, () => {
                window.setTimeout( () => 
-               this.demoLoginHelper(usernameArr, passwordArr, button), 10);
+               this.demoLoginHelper(usernameArr, passwordArr, button), 80);
             }
          );
       }
@@ -62,7 +62,7 @@ class SessionForm extends React.Component {
 
    renderErrors() {
       return (
-         <ul>
+         <ul className="errors_render">
             {this.props.errors.map((error, i) => (
                <li key={`error-${i}`}>
                   {error}
@@ -74,15 +74,41 @@ class SessionForm extends React.Component {
 
 
    render() {
-   
+      // debugger
+
+      let wallpaperStyle = {
+         margin: 0,
+         background: `url(${window.splashUrl})`,
+         backgroundRepeat: 'no-repeat',
+         height: "100vh",
+         backgroundSize: 'cover',
+      };
+
+   let dummy;
+   let email_field
    let demoUserButton;
    if (this.props.formType === "Log in") {
       demoUserButton = <button onClick={this.demoLogin} className="demo_button">Enter Flavortown without a ticket</button>
    }
+   if (this.props.formType === "Sign up") {
+      email_field = <input type="text" placeholder="Email" className="email_field" />
+   }
    
+
+   if (this.props.location.pathname === "/signup") {
+      dummy = {}
+   } else {
+      dummy = wallpaperStyle;
+   }
+   
+
+     
+      
+
+
       return (
          
-         <div className="session_form">
+         <div className="session_form" style={dummy}>
              <a href="#/" className="rainbow">h</a>
          
             {this.props.logo}
@@ -92,15 +118,14 @@ class SessionForm extends React.Component {
                {this.props.navLink}
             </div>
 
-
             <form onSubmit={this.handleSubmit}>
                {/* Please {this.props.formType} or {this.props.navLink} */}
                <br/>
-
+                  {email_field}
                   <label htmlFor="username" />
                      <input onChange={this.update('username')} 
                         type="text" 
-                        placeholder="username" 
+                        placeholder="Username" 
                         id="email" 
                         value={this.state.username}
                         className="username_input"/>
@@ -108,7 +133,7 @@ class SessionForm extends React.Component {
                   <label htmlFor="password" />
                    <input onChange={this.update('password')} 
                      type="password" 
-                     placeholder="password" 
+                     placeholder="Password" 
                      id="password" 
                      value={this.state.password}
                      className="password_input"/>

@@ -98,7 +98,7 @@ Button:hover {
 .fa-home {
    position: relative;
    color: white;
-   top: -1px;
+   top: 8px;
 }
 
 .fa-user-alt {

@@ -55,6 +55,10 @@
    width: 76px;
 }
 
+.modal_icon {
+   font-size: 50px;
+}
+
 
 .dashboard_text_label {
    font-size: 15px;
@@ -134,8 +138,11 @@
    width: 66px;
    height: 66px;
    border-radius: 3px;
+     object-fit: cover;
+
    position: absolute;
    left: -86px;
+   top: 0px;
 }
 
 

@@ -61,7 +61,6 @@ import { createPost } from '../../../actions/post_actions';
          // console.log(this.props);
          // console.log(formData);
 
-         // debugger
          // processForm(this.state)
          this.props.processForm(formData)
             .then(this.props.history.push('/dashboard'));
@@ -153,7 +152,6 @@ import { createPost } from '../../../actions/post_actions';
 
 
 
-   // debugger
    // if title="video", preview source, button (className=video_submit_button)
    // if title="image"
          
