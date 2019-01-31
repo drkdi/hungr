@@ -28,13 +28,11 @@ export const fetchPost = (postId) => dispatch => (
 );
 
 export const createPost = (post) => dispatch => {
-   // debugger
    // const formData = new FormData();
    // formData.append('post[body]', post.body);
    // formData.append('post[author_id]', post.author_id);
    // formData.append('post[media]', post.mediaFile);
    // formData.append('post[title]', post.title);
-   // debugger
    return PostAPIUtil.createPost(post).then(post => dispatch(receivePost(post)))
 };
 

@@ -38,9 +38,12 @@
     
 }
 
-.post_gear {
+.like_button {
    position: relative;
-   left: 50%;
+   left: 45%;
+   border: none;
+   color: red;
+   font-size: 30px;
 }
 
 .form_cancel_button {

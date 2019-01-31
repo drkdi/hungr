@@ -9,20 +9,12 @@ import LinkForm from '../posts/forms/link_form';
 import EditText from '../posts/forms/edit_text';
 
 const Dashboard = props => { 
-
-   // debugger
       
    return (
 
       <div className="dashboard_general">
-
-
-      {/* if want to edit text, need to pass in post information */}
-      
-      {/* <Route path='/dashboard/new/text' component={TextForm} />*/}
   
          <Switch>
-
             <Route exact path='/dashboard/' component={DashboardNav} />
             <Route exact path='/dashboard/new/text' component={TextForm} />
             <Route exact path='/dashboard/new/image' component={MediaForm} />
@@ -30,10 +22,8 @@ const Dashboard = props => {
             <Route exact path='/dashboard/new/audio' component={MediaForm} />
             <Route exact path='/dashboard/new/quote' component={QuoteForm} />
             <Route exact path='/dashboard/new/link' component={LinkForm} />
-            <Route path='/' />
             {/* <Route exact path='/dashboard/edit' component={EditText} props={props} /> */}
-            {/* <Route path='/dashboard/new/quote' component={TextForm} />
-            <Route path='/dashboard/new' component={MediaForm} /> */}
+            <Route path='/' />
          </Switch>
 
 

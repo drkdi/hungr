@@ -28,7 +28,6 @@ const mapDispatchToProps = dispatch => ({
       handleSubmit(e) {
             e.preventDefault();
             // let post = merge({}, this.state);
-            // debugger
             // this.props.processForm(post)
             // // this.props.processForm(this.state)
             // // .then(this.setState({ body: '', title: '', tag: '' }))
@@ -50,7 +49,6 @@ const mapDispatchToProps = dispatch => ({
        }
 
        render() {
-                  //  debugger
 
 
             return (
