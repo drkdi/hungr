@@ -1176,7 +1176,6 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault(); // let post = merge({}, this.state);
-      // debugger
       // this.props.processForm(post)
       // // this.props.processForm(this.state)
       // // .then(this.setState({ body: '', title: '', tag: '' }))
@@ -1200,7 +1199,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      //  debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass_active"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1838,8 +1836,7 @@ function (_Component) {
     _this.state = {
       like: ""
     };
-    _this.handleLike = _this.handleLike.bind(_assertThisInitialized(_assertThisInitialized(_this))); // debugger
-
+    _this.handleLike = _this.handleLike.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -1868,7 +1865,6 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      // debugger
       // console.log(this.props)
       var content;
 
@@ -2277,7 +2273,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
       var wallpaperStyle = {
         margin: 0,
         background: "url(".concat(window.splashUrl, ")"),

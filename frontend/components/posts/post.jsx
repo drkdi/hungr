@@ -39,9 +39,7 @@ class Post extends Component {
          like: "",
       };
       this.handleLike = this.handleLike.bind(this);
-      
-      // debugger
-   }
+         }
 
 
    componentDidMount() {
@@ -59,7 +57,6 @@ class Post extends Component {
    }
 
    render() {
-      // debugger
          // console.log(this.props)
 
    let content;

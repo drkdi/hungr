@@ -28,7 +28,6 @@ class TextForm extends React.Component {
    handleSubmit(e) {
       e.preventDefault();
       // let post = merge({}, this.state);
-      // debugger
       // this.props.processForm(post)
       // // this.props.processForm(this.state)
       // // .then(this.setState({ body: '', title: '', tag: '' }))
@@ -51,7 +50,6 @@ class TextForm extends React.Component {
    }
 
    render() {
-      //  debugger
 
 
       return (

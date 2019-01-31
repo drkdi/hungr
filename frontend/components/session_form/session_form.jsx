@@ -74,7 +74,6 @@ class SessionForm extends React.Component {
 
 
    render() {
-      // debugger
 
       let wallpaperStyle = {
          margin: 0,
