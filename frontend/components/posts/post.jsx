@@ -60,7 +60,7 @@ const Post = (props) => {
    return (
       <> 
          <div className="individual_post" >
-            <p className="post_form_username">{props.currentUser.username}</p>
+            <p className="post_form_username">{props.post.author_id}</p>
 
          <div className="post_wrapper">
             <img className="user_icon" src="https://yt3.ggpht.com/a-/AAuE7mD6DYZhbyoY6NJ2eV-lkxkG3KEgAfD8uC2f4w=s900-mo-c-c0xffffffff-rj-k-no" alt="user_icon"/>

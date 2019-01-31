@@ -1,6 +1,20 @@
 import React from 'react';
 import {Component} from 'react';
 import { merge } from 'lodash';
+import { connect } from 'react-redux';
+import { createPost } from '../../../actions/post_actions';
+
+const mapStateToProps = ({ entities, session }) => {
+      const currentUserID = session[Object.keys(session)[0]];
+      const currentUser = entities.users[currentUserID];
+      return { currentUser };
+};
+
+
+const mapDispatchToProps = dispatch => ({
+      processForm: post => dispatch(createPost(post)),
+});
+
 
  class TextForm extends React.Component {
    
@@ -73,5 +87,5 @@ import { merge } from 'lodash';
             };
             }
 
-export default TextForm;
+export default connect(mapStateToProps, mapDispatchToProps)(TextForm);
 

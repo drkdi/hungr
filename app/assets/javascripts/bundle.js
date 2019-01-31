@@ -315,7 +315,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _posts_post_index_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../posts/post_index_container */ "./frontend/components/posts/post_index_container.js");
 /* harmony import */ var _dashboard_nav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard_nav */ "./frontend/components/dashboard/dashboard_nav.jsx");
-/* harmony import */ var _posts_forms_text_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../posts/forms/text_form_container */ "./frontend/components/posts/forms/text_form_container.js");
+/* harmony import */ var _posts_forms_text_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../posts/forms/text_form */ "./frontend/components/posts/forms/text_form.jsx");
 /* harmony import */ var _posts_forms_quote_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../posts/forms/quote_form */ "./frontend/components/posts/forms/quote_form.jsx");
 /* harmony import */ var _posts_forms_media_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../posts/forms/media_form */ "./frontend/components/posts/forms/media_form.jsx");
 /* harmony import */ var _posts_forms_link_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../posts/forms/link_form */ "./frontend/components/posts/forms/link_form.jsx");
@@ -341,7 +341,7 @@ var Dashboard = function Dashboard(props) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/dashboard/new/text",
-    component: _posts_forms_text_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _posts_forms_text_form__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/dashboard/new/image",
@@ -1034,12 +1034,12 @@ function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../actions/post_actions */ "./frontend/actions/post_actions.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/post_actions */ "./frontend/actions/post_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1079,38 +1079,46 @@ var mapStateToProps = function mapStateToProps(_ref) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(post) {
-      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_1__["createPost"])(post));
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["createPost"])(post));
     }
   };
 };
 
-var QuoteForm =
+var TextForm =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(QuoteForm, _React$Component);
+  _inherits(TextForm, _React$Component);
 
-  function QuoteForm(props) {
+  function TextForm(props) {
     var _this;
 
-    _classCallCheck(this, QuoteForm);
+    _classCallCheck(this, TextForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(QuoteForm).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TextForm).call(this, props));
     _this.state = {
       body: '',
-      title: '',
+      title: 'link',
       author_id: _this.props.currentUser.id
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
-  _createClass(QuoteForm, [{
+  _createClass(TextForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
-      var post = Object(lodash__WEBPACK_IMPORTED_MODULE_3__["merge"])({}, this.state);
-      this.props.processForm(post) // .then(this.setState({ body: '', title: '', tag: '' }))
-      .then(this.props.history.push('/dashboard'));
+      e.preventDefault(); // let post = merge({}, this.state);
+      // debugger
+      // this.props.processForm(post)
+      // // this.props.processForm(this.state)
+      // // .then(this.setState({ body: '', title: '', tag: '' }))
+      // .then(this.props.history.push('/dashboard'));
+
+      var formData = new FormData();
+      formData.append('post[body]', this.state.body);
+      formData.append('post[author_id]', this.state.author_id);
+      formData.append('post[title]', this.state.title);
+      this.props.processForm(formData).then(this.props.history.push('/dashboard'));
     }
   }, {
     key: "update",
@@ -1124,35 +1132,36 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      //  debugger
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass_active"
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create_text",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "post_form_username"
-      }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
+      }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "body_input",
         onChange: this.update('body'),
         value: this.state.body,
         id: "body",
-        placeholder: "Enter a link ples"
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        placeholder: "Enter Link"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "form_cancel_button"
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#/"
-      }, "Close")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+      }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "form_post_button"
       }, "Post"))));
     }
   }]);
 
-  return QuoteForm;
-}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+  return TextForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(QuoteForm));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(TextForm));
 
 /***/ }),
 
@@ -1391,12 +1400,12 @@ function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../actions/post_actions */ "./frontend/actions/post_actions.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/post_actions */ "./frontend/actions/post_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1436,22 +1445,22 @@ var mapStateToProps = function mapStateToProps(_ref) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(post) {
-      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_1__["createPost"])(post));
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["createPost"])(post));
     }
   };
 };
 
-var QuoteForm =
+var TextForm =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(QuoteForm, _React$Component);
+  _inherits(TextForm, _React$Component);
 
-  function QuoteForm(props) {
+  function TextForm(props) {
     var _this;
 
-    _classCallCheck(this, QuoteForm);
+    _classCallCheck(this, TextForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(QuoteForm).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TextForm).call(this, props));
     _this.state = {
       body: '',
       title: '',
@@ -1461,13 +1470,21 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(QuoteForm, [{
+  _createClass(TextForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
-      var post = Object(lodash__WEBPACK_IMPORTED_MODULE_3__["merge"])({}, this.state);
-      this.props.processForm(post) // .then(this.setState({ body: '', title: '', tag: '' }))
-      .then(this.props.history.push('/dashboard'));
+      e.preventDefault(); // let post = merge({}, this.state);
+      // debugger
+      // this.props.processForm(post)
+      // // this.props.processForm(this.state)
+      // // .then(this.setState({ body: '', title: '', tag: '' }))
+      // .then(this.props.history.push('/dashboard'));
+
+      var formData = new FormData();
+      formData.append('post[body]', this.state.body);
+      formData.append('post[author_id]', this.state.author_id);
+      formData.append('post[title]', this.state.title);
+      this.props.processForm(formData).then(this.props.history.push('/dashboard'));
     }
   }, {
     key: "update",
@@ -1481,42 +1498,43 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      //  debugger
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass_active"
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "create_text",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "post_form_username"
-      }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
-        className: "quote_title_input",
+      }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "quote_body",
         onChange: this.update('title'),
         value: this.state.title,
         id: "title",
         type: "text",
         placeholder: "\"Quote\""
-      }), "-", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
-        className: "body_input",
+      }), "-", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        className: "quote_source",
         onChange: this.update('body'),
         value: this.state.body,
         id: "body",
-        placeholder: "- Source"
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        placeholder: "-- Source"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "form_cancel_button"
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#/"
-      }, "Close")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+      }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "form_post_button"
       }, "Post"))));
     }
   }]);
 
-  return QuoteForm;
-}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+  return TextForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(QuoteForm));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(TextForm));
 
 /***/ }),
 
@@ -1533,6 +1551,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/post_actions */ "./frontend/actions/post_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1556,6 +1576,26 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
+
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var entities = _ref.entities,
+      session = _ref.session;
+  var currentUserID = session[Object.keys(session)[0]];
+  var currentUser = entities.users[currentUserID];
+  return {
+    currentUser: currentUser
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    processForm: function processForm(post) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_3__["createPost"])(post));
+    }
+  };
+};
 
 var TextForm =
 /*#__PURE__*/
@@ -1641,45 +1681,7 @@ function (_React$Component) {
   return TextForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (TextForm);
-
-/***/ }),
-
-/***/ "./frontend/components/posts/forms/text_form_container.js":
-/*!****************************************************************!*\
-  !*** ./frontend/components/posts/forms/text_form_container.js ***!
-  \****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _text_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./text_form */ "./frontend/components/posts/forms/text_form.jsx");
-/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/post_actions */ "./frontend/actions/post_actions.js");
-
-
-
-
-var mapStateToProps = function mapStateToProps(_ref) {
-  var entities = _ref.entities,
-      session = _ref.session;
-  var currentUserID = session[Object.keys(session)[0]];
-  var currentUser = entities.users[currentUserID];
-  return {
-    currentUser: currentUser
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    processForm: function processForm(post) {
-      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["createPost"])(post));
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_text_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(TextForm));
 
 /***/ }),
 
@@ -1759,7 +1761,7 @@ var Post = function Post(props) {
     className: "individual_post"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "post_form_username"
-  }, props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.post.author_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "post_wrapper"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "user_icon",

@@ -130,11 +130,22 @@
 
 /* quote */
 
-.quote_title_input {
+.quote_body {
    position: relative;
-   top: 8px;
-   font-size: 50px;
+   top: 11px;
+   font-size: 35px;
    font-weight: 400;
+}
+
+.quote_source {
+   resize: none;
+   width: 500px;
+   height: 84px;
+   position: relative;
+   top: 15px;
+   border: none;
+   font: italic;
+
 }
 
 

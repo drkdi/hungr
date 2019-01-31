@@ -12,7 +12,7 @@ class Api::PostsController < ApplicationController
 
    def create
       
-            debugger
+            # debugger
 
       @post = Post.new(post_params)
       @post.author_id = current_user.id

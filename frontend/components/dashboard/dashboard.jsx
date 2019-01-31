@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Switch, Link, NavLink, Route} from 'react-router-dom';
 import PostIndexContainer from '../posts/post_index_container';
 import DashboardNav from './dashboard_nav';
-import TextForm from '../posts/forms/text_form_container';
+import TextForm from '../posts/forms/text_form';
 import QuoteForm from '../posts/forms/quote_form';
 import MediaForm from '../posts/forms/media_form';
 import LinkForm from '../posts/forms/link_form';
