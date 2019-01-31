@@ -9,7 +9,8 @@ class Api::LikesController < ApplicationController
       if like.save
          render 'api/posts/show'
       else
-         render json: ['cannot like this'], status 422
+         render json: ['cannot like this'], status: 422
+
       end
    end
 
