@@ -34,6 +34,20 @@ user2 = User.create!({
    # likedPostIds: [4,7],
 })
 
+user3 = User.create!({
+   id: 3,
+   username: "yellow rat meme",
+   password: "password",
+   profile_pic_url: "https://media1.giphy.com/media/n7ELTApS5zg4g/giphy.webp?cid=3640f6095c53c6d15157383941c23c95",
+})
+user4 = User.create!({
+   id: 4,
+   username: "naruto",
+   password: "password",
+   profile_pic_url: "https://media0.giphy.com/media/vh4GM3DcAC9cA/200w.webp?cid=3640f6095c53c7bf387163783682de52",
+
+})
+
 
 
 #guy fieri's posts
@@ -61,8 +75,8 @@ p2 = Post.create!({
 p3 = Post.create!({
    id: 3,
    #body: 'image_url'
-   body: "is bad at smash",
-   title: "Greg",
+   body: "u wot m8",
+   title: "fish and chips",
    author_id: 2,
    # likerIds:[2,3],
    #commentIds:[2,3]
@@ -73,7 +87,17 @@ p4 = Post.create!({
    #body: 'image_url'
    body: "are making me thirsty",
    title: "these pretzels",
-   author_id: 2,
+   author_id: 4,
+   # likerIds:[2,3],
+   #commentIds:[2,3]
+})
+
+p5 = Post.create!({
+   id: 5,
+   #body: 'image_url'
+   body: "is bad at smash",
+   title: "Greg",
+   author_id: 3,
    # likerIds:[2,3],
    #commentIds:[2,3]
 })

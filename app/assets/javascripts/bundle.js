@@ -1795,10 +1795,12 @@ var msp = function msp(_ref, ownProps) {
   var currentUser = entities.users[currentUserID] || {
     username: ""
   };
+  var sessionUser = session;
   var post = ownProps.post;
   return {
     currentUser: currentUser,
-    post: post
+    post: post,
+    sessionUser: sessionUser
   }; // this.props.currentUser is post's user
 };
 
@@ -1865,6 +1867,9 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      // console.log(this.props.post.author_id)
+      // console.log(this.props.sessionUser.id)
+      // debugger
       // console.log(this.props)
       var content;
 
@@ -1895,6 +1900,16 @@ function (_Component) {
         }, this.props.post.title);
       }
 
+      var banana2;
+      this.props.post.author_id === this.props.sessionUser.id ? banana2 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: _posts_forms_edit_text__WEBPACK_IMPORTED_MODULE_4__["default"],
+        className: "form_cancel_button"
+      }, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          _this2.props.deletePost(_this2.props.post.id);
+        },
+        className: "form_post_button"
+      }, "Delete")) : banana2 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "individual_post"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1919,15 +1934,7 @@ function (_Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-heart"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: _posts_forms_edit_text__WEBPACK_IMPORTED_MODULE_4__["default"],
-        className: "form_cancel_button"
-      }, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          _this2.props.deletePost(_this2.props.post.id);
-        },
-        className: "form_post_button"
-      }, "Delete")))));
+      })), banana2))));
     }
   }]);
 
@@ -2496,7 +2503,7 @@ function (_React$Component) {
         className: "phrase1"
       }, "Come for what you crave."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
         className: "phrase2"
-      }, "Stay for what you make."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+      }, "Stay for some cheese fries."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/signup",
         component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), LoginOrSignup === "/" || LoginOrSignup === "/login" ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {

@@ -79,16 +79,12 @@
 }
 
 /* keep */
- @font-face {
-  font-family: 'HelveticaNeue-LightExt';
-  /* src: url('/assets/HelveticaNeue-LightExt.otf') format("truetype"); */
-  src: url('/assets/HelveticaNeueLight.ttf') format("truetype");
-}
+
 
 
 .splash_form p {
    display: block;
-   font-family: 'HelveticaNeue-LightExt';
+   font-family: 'Open Sans', sans-serif;
    font-size: 16px;
    letter-spacing: 0.5px;
      /* font-stretch: 'ultra-condensed'; */
@@ -187,7 +183,7 @@
    margin: 12px 0 0 0;
    width: 300px;
    height: 43px;
-   font-family: Arial, xxxxxxxwwHelvetica, sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
    font-size: 14px;
    font-weight: 700;
    padding-top: 5px;

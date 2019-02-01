@@ -7,11 +7,12 @@ import { fetchUser } from '../../actions/user_actions';
 import { createLike, removeLike} from '../../actions/like_actions';
 
 const msp = ({entities, session}, ownProps) => {
+   
    const currentUserID = ownProps.post.author_id;
    const currentUser = entities.users[currentUserID] || {username: ""};
-
+   const sessionUser = session;
    const post = ownProps.post;
-   return { currentUser, post};
+   return { currentUser, post, sessionUser};
 
 
    // this.props.currentUser is post's user
@@ -33,7 +34,6 @@ const mdp = dispatch => {
 class Post extends Component {
 
    constructor(props) {
-      
       super(props);
       this.state = {
          like: "",
@@ -57,6 +57,10 @@ class Post extends Component {
    }
 
    render() {
+      // console.log(this.props.post.author_id)
+      // console.log(this.props.sessionUser.id)
+
+      // debugger
          // console.log(this.props)
 
    let content;
@@ -92,6 +96,17 @@ class Post extends Component {
       )
    }
 
+
+   let banana2
+      (this.props.post.author_id === this.props.sessionUser.id) ? (
+      (banana2) = (<>
+            <button onClick={EditText} className="form_cancel_button">Edit</button>
+            <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="form_post_button">Delete</button>
+         </>
+      )) : (
+      (banana2) = (<> </>)
+      )
+
       
       return (
       
@@ -118,10 +133,10 @@ class Post extends Component {
                         <i className="fas fa-heart"></i>
                      </button>
 
+                     {banana2}
+              
 
-                  <button onClick={EditText} className="form_cancel_button">Edit</button>
 
-                  <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="form_post_button">Delete</button>
                </div>
 
             </div>
