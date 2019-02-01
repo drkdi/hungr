@@ -38,3 +38,10 @@ export const deletePost = (postId) => {
       method: "delete",
    });
 }
+
+export const fetchUserPosts = (id) => {
+  return $.ajax({
+    method: 'get',
+    url: `api/user_posts/${id}`,
+  });
+};

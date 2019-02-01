@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :destroy, :update, :show, :index]
     resources :likes, only: [:create, :destroy]
 
+    get "/user_posts/:id", to: "posts#user_posts", as: :user_posts
     # resources :posts do 
     #   resources :comments
     #   resources :likes, only: [:create]

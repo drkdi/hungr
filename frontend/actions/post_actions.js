@@ -45,5 +45,10 @@ export const deletePost = (postId) => dispatch => {
    return PostAPIUtil.deletePost(postId).then(() => dispatch(removePost(postId)))
 };
 
+export const fetchUserPosts = (postId) => dispatch => (
+   PostAPIUtil.fetchUserPosts(postId).then((posts) => 
+      dispatch(receivePosts(posts)))
+);
+
 
 

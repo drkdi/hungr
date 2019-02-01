@@ -3,16 +3,23 @@ class Api::PostsController < ApplicationController
 
    def index
       # come back and filter when you have friends :(
+
       @posts = Post.all
    end
 
    def show 
       @post = Post.find_by(id: params[:id])
+      # debugger
    end
 
-   def create
+   def user_posts
       
+      @posts = Post.all.where(author_id: current_user.id)
+   end 
 
+   
+
+   def create
       @post = Post.new(post_params)
       @post.author_id = current_user.id
 

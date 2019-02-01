@@ -7,9 +7,13 @@ import QuoteForm from '../posts/forms/quote_form';
 import MediaForm from '../posts/forms/media_form';
 import LinkForm from '../posts/forms/link_form';
 import EditText from '../posts/forms/edit_text';
+import ProfileIndexContainer from '../posts/profile';
 
 const Dashboard = props => { 
       
+  
+      let indexType = ( < PostIndexContainer /> )
+
    return (
 
       <div className="dashboard_general">
@@ -27,18 +31,11 @@ const Dashboard = props => {
          </Switch>
 
 
-
-
-
-
-
-
          <style>{'body { background: #35465C; }'}</style>
-         < PostIndexContainer />  
 
 
          
-
+         {indexType}
 
 
       </div>
