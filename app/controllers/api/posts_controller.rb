@@ -13,7 +13,6 @@ class Api::PostsController < ApplicationController
    end
 
    def user_posts
-      
       @posts = Post.all.where(author_id: current_user.id)
    end 
 
