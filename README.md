@@ -9,6 +9,7 @@ It was built using a Rails backend, and React / Redux frontend, PostgreSQL datab
 Front end and back end auth is baked into the core of the app, preventing unauthorized access based on valid credentials. A switch is used to redirect the user from a splash page to either a login or signup page, rendered using React.
 
 ```js
+<from app.jsx>
       <ProtectedRoute path="/" component={NavContainer} />
       <Switch>
             <ProtectedRoute path="/dashboard" component={Dashboard} />
@@ -40,7 +41,8 @@ Posts are created using different buttons, implementing React to edit the front 
 #Profile
 The user's profile is rendered to show their personal posts, generated using a custom database query.
 
-```js
+```rb
+<from posts_controller.rb>
  def user_posts
       @posts = Post.all.where(author_id: current_user.id)
    end 
