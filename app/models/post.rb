@@ -23,6 +23,8 @@ class Post < ApplicationRecord
       foreign_key: :author_id,
       class_name: :User
 
+   has_many :likes
+   
    # def post_too_long
    #    if body.splilength > 140
    #       errors[:body] << "too long"

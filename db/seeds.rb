@@ -13,9 +13,9 @@
 #gordon ramsay userid 2 owns posts 4,5,6 likes post 1,7
 #rene redzepi userid 3 owns posts 7,8,9 likes post 1,4
 
-
 User.destroy_all
 Post.destroy_all
+Like.destroy_all
 
 user1 = User.create!({
    id: 1,

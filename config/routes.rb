@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :posts, only: [:create, :destroy, :update, :show, :index]
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
 
     get "/user_posts/:id", to: "posts#user_posts", as: :user_posts
     # resources :posts do 

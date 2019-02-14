@@ -41,28 +41,28 @@ class AlertDialog extends React.Component {
 
       return (
          <div className="nav_div">
-            <Button onClick={this.handleClickOpen} 
+            <Button onClick={this.handleClickOpen}
                style={style2}>
                <div className="createPost"><i className="fas fa-pencil-alt"></i></div>
-             </Button>
-        
+            </Button>
+
             <Dialog
                open={this.state.open}
                onClose={this.handleClose}
                aria-labelledby="alert-dialog-title"
                aria-describedby="alert-dialog-description"
-               style={{background: 'transparent', backgroundColor: "transparent"}}
+               style={{ background: 'transparent', backgroundColor: "transparent" }}
                overlayStyle={{ backgroundColor: 'transparent' }}
             >
-               <DialogTitle id="alert-dialog-title" 
+               <DialogTitle id="alert-dialog-title"
                   style={{ background: 'transparent', backgroundColor: "transparent" }}
                   overlayStyle={{ backgroundColor: 'transparent' }}></DialogTitle>
-   
+
 
                <DialogActions style={style}>
                   <div className="dashboard_icon_box" onClick={this.handleClose}>
                      <Link to="/dashboard/new/text" className="dmodalicon">
-                        <span className="dashboard_nav_text" style={{fontSize: 50}}>Aa</span>
+                        <span className="dashboard_nav_text" style={{ fontSize: 50 }}>Aa</span>
                      </Link>
 
                      <label className="dashboard_text_label">Text</label>

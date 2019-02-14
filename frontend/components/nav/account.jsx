@@ -25,7 +25,7 @@ class SimpleMenu extends React.Component {
       this.setState({ anchorEl: null });
    };
 
- 
+
 
    render() {
       const style = {

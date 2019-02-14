@@ -10,7 +10,10 @@ const msp = ({session, entities: {users}}) => {
 
 const mdp = dispatch => {
    const demo = { username: "demo", password: "demodemo"};
-   return { demolog: () => dispatch(login(demo))};
+   return { demolog: () => dispatch(login(demo)),
+         processForm: (user) => dispatch(login(user)),
+
+   };
 }
 
 export default connect(msp, mdp)(Splash);

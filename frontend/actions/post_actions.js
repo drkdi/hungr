@@ -16,7 +16,8 @@ export const receivePost = (post) => ({
 
 export const removePost = (postId) => {
    return  { type: REMOVE_POST,
-   postId,}
+   postId,
+}
 };
 
 export const fetchPosts = () => dispatch => (

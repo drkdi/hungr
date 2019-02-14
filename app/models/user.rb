@@ -18,6 +18,11 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :posts
+  has_many :likes,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: 'Like'
+
 
   after_initialize :ensure_session_token
 

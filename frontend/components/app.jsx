@@ -6,6 +6,7 @@ import NavContainer from './nav/nav_container';
 import SplashContainer from './splash/splash_container';
 import {ProtectedRoute, AuthRoute} from '../util/route_util.jsx';
 import Dashboard from './dashboard/dashboard';
+import Profile from './posts/profile';
 
 const App = () => (
    <>
