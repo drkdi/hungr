@@ -2843,6 +2843,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/comments_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/comments_reducer.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// import { RECEIVE_COMMENTS, RECEIVE_COMMENT, REMOVE_COMMENT } from '../actions/post_actions';
+// import { merge, assign } from 'lodash';
+// let newState;
+// const postReducer = (state = {}, action) => {
+//    Object.freeze(state);
+//    switch (action.type) {
+//       case RECEIVE_POSTS:
+//          return merge({}, state, action.posts);
+//       case RECEIVE_POST:
+//          // debugger
+//          //
+//          // if action.post
+//          // return merge({}, state, action.post);
+//          return merge({}, state, action.post);
+//       // newState = merge({}, state);
+//       // newState = mergeWith(newState, action.post);
+//       // if action.post
+//       // debugger
+//       // return newState;
+//       // return mergeWith(state, action.posts);
+//       case REMOVE_POST:
+//          newState = merge({}, state);
+//          delete newState[action.postId];
+//          return newState;
+//       default:
+//          return state;
+//    }
+// };
+// export default postReducer;
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -2855,12 +2894,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _posts_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./posts_reducer */ "./frontend/reducers/posts_reducer.js");
+/* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
+/* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_comments_reducer__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3___default.a
 }));
 
 /***/ }),
