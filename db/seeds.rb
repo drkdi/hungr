@@ -25,82 +25,82 @@ user1 = User.create!({
    # authoredComments: [4,7],
    # likedPostIds: [4,7],
 })
-user2 = User.create!({
-   id: 2,
-   username: "gordon",
-   password: "password",
-   profile_pic_url: "https://www.hellomagazine.com/imagenes/cuisine/2018080660901/gordon-ramsay-mourns-death-joel-robuchon/0-248-854/gordon-ramsay-mourns-death-t.jpg",
-   # authoredComments: [4,7],
-   # likedPostIds: [4,7],
-})
+# user2 = User.create!({
+#    id: 2,
+#    username: "gordon",
+#    password: "password",
+#    profile_pic_url: "https://www.hellomagazine.com/imagenes/cuisine/2018080660901/gordon-ramsay-mourns-death-joel-robuchon/0-248-854/gordon-ramsay-mourns-death-t.jpg",
+#    # authoredComments: [4,7],
+#    # likedPostIds: [4,7],
+# })
 
-user3 = User.create!({
-   id: 3,
-   username: "yellow rat meme",
-   password: "password",
-   profile_pic_url: "https://media1.giphy.com/media/n7ELTApS5zg4g/giphy.webp?cid=3640f6095c53c6d15157383941c23c95",
-})
-user4 = User.create!({
-   id: 4,
-   username: "naruto",
-   password: "password",
-   profile_pic_url: "https://media0.giphy.com/media/vh4GM3DcAC9cA/200w.webp?cid=3640f6095c53c7bf387163783682de52",
+# user3 = User.create!({
+#    id: 3,
+#    username: "yellow rat meme",
+#    password: "password",
+#    profile_pic_url: "https://media1.giphy.com/media/n7ELTApS5zg4g/giphy.webp?cid=3640f6095c53c6d15157383941c23c95",
+# })
+# user4 = User.create!({
+#    id: 4,
+#    username: "naruto",
+#    password: "password",
+#    profile_pic_url: "https://media0.giphy.com/media/vh4GM3DcAC9cA/200w.webp?cid=3640f6095c53c7bf387163783682de52",
 
-})
+# })
 
 
 
 #guy fieri's posts
-p1 = Post.create!({
-   id: 1,
-   #body: 'image_url'
-   body: "to Flavortown",
-   title: "Welcome",
-   author_id: 1,
-   # likerIds:[2,3],
-   #commentIds:[2,3]
-})
+# p1 = Post.create!({
+#    id: 1,
+#    #body: 'image_url'
+#    body: "to Flavortown",
+#    title: "Welcome",
+#    author_id: 1,
+#    # likerIds:[2,3],
+#    #commentIds:[2,3]
+# })
 
-p2 = Post.create!({
-   id: 2,
-   #body: 'image_url'
-   body: "are bomb",
-   title: "these cheese fries",
-   author_id: 1,
-   # media: "https://media0.giphy.com/media/m0MfjLtKOgTPG/200.webp?cid=3640f6095c50c994684a644a2eab1ae8",
-   # likerIds:[2,3],
-   #commentIds:[2,3]
-})
+# p2 = Post.create!({
+#    id: 2,
+#    #body: 'image_url'
+#    body: "are bomb",
+#    title: "these cheese fries",
+#    author_id: 1,
+#    # media: "https://media0.giphy.com/media/m0MfjLtKOgTPG/200.webp?cid=3640f6095c50c994684a644a2eab1ae8",
+#    # likerIds:[2,3],
+#    #commentIds:[2,3]
+# })
 
-p3 = Post.create!({
-   id: 3,
-   #body: 'image_url'
-   body: "u wot m8",
-   title: "fish and chips",
-   author_id: 2,
-   # likerIds:[2,3],
-   #commentIds:[2,3]
-})
+# p3 = Post.create!({
+#    id: 3,
+#    #body: 'image_url'
+#    body: "u wot m8",
+#    title: "fish and chips",
+#    author_id: 2,
+#    # likerIds:[2,3],
+#    #commentIds:[2,3]
+# })
 
-p4 = Post.create!({
-   id: 4,
-   #body: 'image_url'
-   body: "are making me thirsty",
-   title: "these pretzels",
-   author_id: 4,
-   # likerIds:[2,3],
-   #commentIds:[2,3]
-})
+# p4 = Post.create!({
+#    id: 4,
+#    #body: 'image_url'
+#    body: "are making me thirsty",
+#    title: "these pretzels",
+#    author_id: 4,
+#    # likerIds:[2,3],
+#    #commentIds:[2,3]
+# })
 
-p5 = Post.create!({
-   id: 5,
-   #body: 'image_url'
-   body: "is bad at smash",
-   title: "Greg",
-   author_id: 3,
-   # likerIds:[2,3],
-   #commentIds:[2,3]
-})
+# p5 = Post.create!({
+#    id: 5,
+#    #body: 'image_url'
+#    body: "is bad at smash",
+#    title: "Greg",
+#    author_id: 3,
+#    # likerIds:[2,3],
+#    #commentIds:[2,3]
+# })
 
 
 

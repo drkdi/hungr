@@ -1816,6 +1816,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var msp = function msp(_ref, ownProps) {
   var entities = _ref.entities,
       session = _ref.session;
+  // debugger
   var currentUserID = ownProps.post.author_id;
   var currentUser = entities.users[currentUserID] || {
     username: ""
@@ -2897,6 +2898,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 
 
+var newState;
 
 var postReducer = function postReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -2908,11 +2910,20 @@ var postReducer = function postReducer() {
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.posts);
 
     case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POST"]:
-      debugger;
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.post);
+      // debugger
+      //
+      // if action.post
+      // return merge({}, state, action.post);
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["assign"])({}, state, action.post);
+    // newState = merge({}, state);
+    // newState = mergeWith(newState, action.post);
+    // if action.post
+    // debugger
+    // return newState;
+    // return mergeWith(state, action.posts);
 
     case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_POST"]:
-      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state);
+      newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state);
       delete newState[action.postId];
       return newState;
 

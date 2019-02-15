@@ -7,7 +7,7 @@ import { fetchUser } from '../../actions/user_actions';
 import { createLike, removeLike} from '../../actions/like_actions';
 
 const msp = ({entities, session}, ownProps) => {
-   
+   // debugger
    const currentUserID = ownProps.post.author_id;
    const currentUser = entities.users[currentUserID] || {username: ""};
    const sessionUser = session;
