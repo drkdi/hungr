@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { updatePost } from '../../../actions/post_actions';
-import { merge } from 'lodash';
+import { merge } from 'lodash/merge';
 import { connect } from 'react-redux';
 
 

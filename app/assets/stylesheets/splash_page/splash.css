@@ -91,11 +91,13 @@
 }
 
 .phrase1 {
+   color: white;
    margin: -2px 0 0 0;
 
 }
 
 .phrase2 {
+   color: white;
    margin: 3px 0 0 0;
 
 }
@@ -104,12 +106,14 @@
 
 
 .errors_render {
+   color: white;
    background-color: rgba(10, 10, 10, 0.7);
    padding: 10px;
 }
 
 /* go back and fix */
 .session_errors {
+   color: white;
     margin: 32px 0 0 0;
    width: 300px;
    height: 46px;

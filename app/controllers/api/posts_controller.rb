@@ -18,7 +18,7 @@ class Api::PostsController < ApplicationController
    
 
    def create
-      debugger
+
       @post = Post.new(post_params)
       @post.author_id = current_user.id
       if @post.save
@@ -42,7 +42,9 @@ class Api::PostsController < ApplicationController
    end 
 
    def update
-      @post = Post.find(params[:id]).where(author_id: current_user.id)
+      # debugger
+      @post = Post.find(params[:id])
+      # .where(author_id: current_user.id)
       if @post && @post.update(post_params)
          render 'api/posts/show'
       else

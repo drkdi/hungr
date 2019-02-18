@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { createPost } from '../../../actions/post_actions';
 
 const mapStateToProps = ({ entities, session }) => {
+      // debugger
       const currentUserID = session[Object.keys(session)[0]];
       const currentUser = entities.users[currentUserID];
       return { currentUser };
@@ -19,13 +20,14 @@ const mapDispatchToProps = dispatch => ({
  class TextForm extends React.Component {
    
       constructor(props) {
+            
             super(props);
             this.state = { body: '', title: '', author_id: this.props.currentUser.id};
             this.handleSubmit = this.handleSubmit.bind(this);
-            
       }
 
       handleSubmit(e) {
+            // debugger
             e.preventDefault();
             // let post = merge({}, this.state);
             // this.props.processForm(post)

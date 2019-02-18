@@ -21,7 +21,7 @@
 
 
 html, div {
-   color: white;
+   color: black;
    font-family: 'Open Sans', sans-serif;
    margin: 0;
       padding: 0;
@@ -81,6 +81,8 @@ ul {
 /*This is coded CSS rainbow*/
 /* small corner logo h */
 .rainbow {
+
+  color: white;
   font-size:42.0px;
   font-family: 'BookmanStd-bold';
   position: fixed;
@@ -90,6 +92,8 @@ ul {
 
 }
 .rainbow:hover {
+    text-decoration: none;
+
 -webkit-animation:rainbow 1s infinite;
 -ms-animation:rainbow 1s infinite;
 -o-animation:rainbow 1s infinite;

@@ -23,9 +23,9 @@ class Post < ApplicationRecord
       foreign_key: :author_id,
       class_name: :User
 
-   has_many :likes
+   has_many :likes, :dependent => :destroy
 
-   has_many :comments
+   has_many :comments, :dependent => :destroy
    
    # def post_too_long
    #    if body.splilength > 140

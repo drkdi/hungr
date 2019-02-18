@@ -1,82 +1,104 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
+import React, { Component } from 'react';
+import { merge } from 'lodash';
+import { connect } from 'react-redux';
+import { updatePost } from '../../../actions/post_actions';
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
 
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+const msp = ({ entities, session }, ownProps) => {
 
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
-const styles = theme => ({
-  paper: {
-    position: 'absolute',
-    width: theme.spacing.unit * 50,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
-    outline: 'none',
-  },
-});
-
-class SimpleModal extends React.Component {
-  state = {
-    open: false,
-  };
-
-  handleOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
-  render() {
-    const { classes } = this.props;
-
-    return (
-      <div>
-        <Typography gutterBottom>Click to get the full Modal experience!</Typography>
-        <Button onClick={this.handleOpen}>Open Modal</Button>
-        <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={this.state.open}
-          onClose={this.handleClose}
-        >
-          <div style={getModalStyle()} className={classes.paper}>
-            <Typography variant="h6" id="modal-title">
-              Text in a modal
-            </Typography>
-            <Typography variant="subtitle1" id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-            <SimpleModalWrapped />
-          </div>
-        </Modal>
-      </div>
-    );
-  }
-}
-
-SimpleModal.propTypes = {
-  classes: PropTypes.object.isRequired,
+  return {ownProps, session};
 };
 
-// We need an intermediary variable for handling the recursive nesting.
-const SimpleModalWrapped = withStyles(styles)(SimpleModal);
+const mdp = dispatch => {
+  return {
+    updatePost: post => dispatch(updatePost(post)),
+  };
+};
 
-export default SimpleModalWrapped;
+class EditModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {title: props.post.title, body: props.post.body};
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  // componentDidMount() {
+  //   // need to add custom route to get only comments for this specific post's author
+  //   this.props.fetchComments();
+  // }
+
+  handleSubmit(e) {
+    // debugger
+  
+    e.preventDefault();
+    this.props.updatePost(merge({}, this.props.post, this.state))
+      .then(this.setState({ body: "", title: ""}))
+      .then(document.getElementById("close-modal").click());
+  }
+
+  update(field) {
+    return (e) => this.setState({ [field]: e.target.value });
+  }
+
+
+
+
+  render() {
+    // debugger
+
+    return (
+      <form onSubmit={this.handleSubmit}>
+      <div className="container">
+
+        <button type="button" className="form_cancel_button" data-toggle="modal" data-target="#myModal">Edit</button>
+
+        <div className="modal fade" id="myModal" role="dialog">
+          <div className="modal-dialog">
+
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal">&times;</button>
+                {/* <h4 className="modal-title">{this.props.post.title}</h4> */}
+                {/* <textarea name="" id="title" cols="30" rows="1" defaultValue={this.props.post.title}></textarea> */}
+
+                  <label htmlFor="title" />
+                  <input onChange={this.update('title')}
+                    type="text"
+                    placeholder="title"
+                    id="title"
+                    value={this.state.title}
+                    className="edit_modal_title" />
+
+              </div>
+              <div className="modal-body">
+                {/* <textarea name="" id="body" cols="30" rows="5" defaultValue={this.props.post.body}></textarea> */}
+                  <label htmlFor="body" />
+                  <input onChange={this.update('body')}
+                    type="text"
+                    id="body"
+                    value={this.state.body}
+                    className="edit_modal_body" />
+              </div>
+              <div className="modal-footer">
+                <input type="submit" className="edit_modal_save"/>
+                <button type="button" id="close-modal" className="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+      </div> 
+      </form>
+    )
+  }
+
+}
+
+export default connect(msp, mdp)(EditModal);
+
+
+

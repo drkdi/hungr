@@ -39,7 +39,7 @@ class CommentForm extends React.Component {
    
       this.props.processForm( {comment: {body: this.state.body, post_id: this.state.post_id, author_id: this.state.author_id}})
       // debugger
-      this.state.body = {body: ''};
+      this.state.body = '';
       
    }
 
@@ -56,16 +56,14 @@ class CommentForm extends React.Component {
 
                <p className="post_form_username">{this.props.currentUser.username}</p>
 
-               <textarea
+               <input
                   className="body_input"
                   onChange={this.update('body')}
                   value={this.state.body}
                   id="body"
-                  placeholder={"Say your thang"}>
-               </textarea>
+                  placeholder={"Say your thang"} />
 
                <div className="form_buttons">
-                  <button className="form_cancel_button"><a href="#/" >Close</a></button>
                   <button className="form_comment_button">Reply</button>
                </div>
             </form>

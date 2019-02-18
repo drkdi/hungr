@@ -6,13 +6,14 @@ import EditText from '../posts/forms/edit_text';
 import { fetchUser } from '../../actions/user_actions';
 
 import CommentForm from '../posts/forms/comment_form';
-
 import Comment from './comment';
 import {fetchComment, fetchComments} from '../../actions/comment_actions';
+import {createComment, deleteComment} from '../../actions/comment_actions';
 
 import { createLike, removeLike} from '../../actions/like_actions';
-import {createComment, deleteComment} from '../../actions/comment_actions';
-import comment from './comment';
+
+import CommentModal from './comment_modal';
+import EditModal from './forms/edit_modal';
 
 
 const msp = ({entities, session}, ownProps) => {
@@ -21,8 +22,7 @@ const msp = ({entities, session}, ownProps) => {
    const currentUser = entities.users[currentUserID] || {username: ""};
    const sessionUser = session;
    const post = ownProps.post;
-   let comments = entities.comments;
-   return { currentUser, post, sessionUser, comments};
+   return { currentUser, post, sessionUser};
    
 
    // this.props.currentUser is post's user
@@ -37,10 +37,7 @@ const mdp = dispatch => {
       like: postId => dispatch(createLike(postId)),
       unlike: postId => dispatch(removeLike(postId)),
 
-      createComment: id => dispatch(createComment(id)),
-      deleteComment: id => dispatch(deleteComment(id)),
 
-      fetchComments: () => dispatch(fetchComments()),
    }
 };
 
@@ -58,7 +55,6 @@ class Post extends Component {
    componentDidMount() {
       // debugger
       this.props.fetchUser(this.props.post.author_id);
-      this.props.fetchComments();
       // debugger
    }
 
@@ -94,7 +90,7 @@ class Post extends Component {
 
    else if (this.props.post.title === "link") {
       content = (
-         <a href="{this.props.post.body}"></a>
+         <a href="{this.props.post.body}" className="index_link"></a>
       )
    }
 
@@ -109,8 +105,10 @@ class Post extends Component {
    let editForm
       (this.props.post.author_id === this.props.sessionUser.id) ? (
       (editForm) = (<>
-            <button onClick={EditText} className="form_cancel_button">Edit</button>
+            {/* <button onClick={() => {}} className="form_cancel_button">Edit</button> */}
             <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="form_post_button">Delete</button>
+            < EditModal post={this.props.post} />
+       
          </>
       )) : (
       (editForm) = (<> </>)
@@ -125,6 +123,7 @@ class Post extends Component {
 
    let likeBool 
    let found = false;
+   
       for (let i = 0; i < this.props.post.likes.length; i++) {
          if (this.props.post.likes[i].author_id === this.props.sessionUser.id) {
             found = true;
@@ -145,25 +144,10 @@ class Post extends Component {
             </button>)
          )
 
-      let commentArr;
-   // need to add custom route to get only comments for this specific post's author
-      if (Object.keys(this.props.comments).length == 0) {
-         commentArr = []
-      }
-      else {
-         // commentArr = this.props.comments.map(comment => {
-         //    return <Comment key={comment.id} comment={comment} className="comment" />
-         // })
-         commentArr = Object.keys(this.props.comments).map(comment => {
-            return (
-               <div className="commentText">
-                  <p className="commentText">comment is: {this.props.comments[comment].body}</p>
-                  
-               </div>
-            )
-         })
-      }
 
+      if (!this.props.currentUser.profile_pic_url) {
+         this.props.currentUser.profile_pic_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGTjtPQ8LBaJLXxGwFuDi6jPWZQq3nszuKi8HHiRn0yT4xUGoPDw";
+      } 
 
 
 
@@ -194,13 +178,11 @@ class Post extends Component {
 
                      {editForm}
                      {likeBool}
-                     {commentArr}
+                     {/* {commentArr} */}
 
+                     
 
-                     < CommentForm post={this.props.post} />
-
-
-
+                     < CommentModal post={this.props.post} className="comment_modal"/>
                      {/* <button onClick={() => { this.props.createComment({body: "banana", }) }} className="create_comment_button">CreateComment</button> */}
 
 

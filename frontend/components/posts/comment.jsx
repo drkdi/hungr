@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import {createComment, deleteComment } from '../../actions/comment_actions';
 
 const msp = ({entities, session}, ownProps) => {
-   debugger
+   // debugger
+   return {};
 };
 
 const mdp = dispatch => {
@@ -19,12 +20,19 @@ class Comment extends Component {
       super(props);
    }
 
-   componentDidMount() {
+   // componentDidMount() {
 
-   }
+   // }
 
    render() {
-
+      // debugger
+      return (
+         <>
+         <p className="commentText">{this.props.comment.body}</p>
+         <button onClick={() => {this.props.deleteComment(this.props.comment.id)}}>Delete</button>
+         {/* need to refresh after deleting */}
+         </>
+      )
    }
 
 }

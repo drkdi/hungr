@@ -39,7 +39,7 @@
 }
 
 .like_button {
-   position: relative;
+   position: absolute;
    left: 45%;
    border: none;
    color: red;

@@ -1,0 +1,22 @@
+.index_link {
+   font-style: italic;
+}
+
+.modal-title {
+   color: black;
+}
+
+.modal-body {
+   color: black;
+}
+
+.comment_modal {
+   display: block;
+   position: absolute;
+   left: 50%;
+   top: 70%;
+}
+
+.btn btn-default {
+   z-index: 2;
+}
