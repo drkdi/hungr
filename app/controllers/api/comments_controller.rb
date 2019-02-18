@@ -1,4 +1,4 @@
-class Api::PostsController < ApplicationController
+class Api::CommentsController < ApplicationController
    def index
       @comments = Comment.all
    end
@@ -8,8 +8,9 @@ class Api::PostsController < ApplicationController
    end
 
    def create
-      @comment = Post.new(comment_params)
-      @comment.author_id = current_user.id
+      debugger
+      @comment = Comment.new(comment_params)
+      # @comment.author_id = current_user.id
       if @comment.save
          render 'api/comments/show'
       else

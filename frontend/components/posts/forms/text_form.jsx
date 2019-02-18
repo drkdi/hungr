@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
             // // .then(this.setState({ body: '', title: '', tag: '' }))
             // .then(this.props.history.push('/dashboard'));
        
-            const formData = new FormData();
+            let formData = new FormData();
             formData.append('post[body]', this.state.body);
             formData.append('post[author_id]', this.state.author_id);
             formData.append('post[title]', this.state.title);

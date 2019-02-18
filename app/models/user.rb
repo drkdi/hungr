@@ -22,6 +22,8 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :author_id,
     class_name: 'Like'
+  
+  has_many :comments
 
 
   after_initialize :ensure_session_token

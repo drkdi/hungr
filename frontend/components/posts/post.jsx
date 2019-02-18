@@ -4,7 +4,16 @@ import {connect} from 'react-redux';
 import {updatePost, deletePost} from '../../actions/post_actions';
 import EditText from '../posts/forms/edit_text';
 import { fetchUser } from '../../actions/user_actions';
+
+import CommentForm from '../posts/forms/comment_form';
+
+import Comment from './comment';
+import {fetchComment, fetchComments} from '../../actions/comment_actions';
+
 import { createLike, removeLike} from '../../actions/like_actions';
+import {createComment, deleteComment} from '../../actions/comment_actions';
+import comment from './comment';
+
 
 const msp = ({entities, session}, ownProps) => {
    // debugger
@@ -12,8 +21,9 @@ const msp = ({entities, session}, ownProps) => {
    const currentUser = entities.users[currentUserID] || {username: ""};
    const sessionUser = session;
    const post = ownProps.post;
-   return { currentUser, post, sessionUser};
-
+   let comments = entities.comments;
+   return { currentUser, post, sessionUser, comments};
+   
 
    // this.props.currentUser is post's user
 };
@@ -23,9 +33,14 @@ const mdp = dispatch => {
       deletePost: id => dispatch(deletePost(id)),
       updatePost: post => dispatch(updatePost(post)),
       fetchUser: userId => dispatch(fetchUser(userId)),
+      
       like: postId => dispatch(createLike(postId)),
       unlike: postId => dispatch(removeLike(postId)),
 
+      createComment: id => dispatch(createComment(id)),
+      deleteComment: id => dispatch(deleteComment(id)),
+
+      fetchComments: () => dispatch(fetchComments()),
    }
 };
 
@@ -34,25 +49,19 @@ const mdp = dispatch => {
 class Post extends Component {
 
    constructor(props) {
-      
+      // debugger
       super(props);
       // this.handleLike = this.handleLike.bind(this);
          }
 
 
    componentDidMount() {
-      this.props.fetchUser(this.props.post.author_id) ;
+      // debugger
+      this.props.fetchUser(this.props.post.author_id);
+      this.props.fetchComments();
+      // debugger
    }
-   
-   // handleLike(e) {
-   //    e.preventDefault();
-   //    if (this.state.like) {
-   //       this.setState({like: ""});
-   //    }
-   //    else {
-   //       this.setState({ like: true});
-   //    }
-   // }
+
 
    render() {
       // debugger
@@ -136,6 +145,27 @@ class Post extends Component {
             </button>)
          )
 
+      let commentArr;
+   // need to add custom route to get only comments for this specific post's author
+      if (Object.keys(this.props.comments).length == 0) {
+         commentArr = []
+      }
+      else {
+         // commentArr = this.props.comments.map(comment => {
+         //    return <Comment key={comment.id} comment={comment} className="comment" />
+         // })
+         commentArr = Object.keys(this.props.comments).map(comment => {
+            return (
+               <div className="commentText">
+                  <p className="commentText">comment is: {this.props.comments[comment].body}</p>
+                  
+               </div>
+            )
+         })
+      }
+
+
+
 
       return (
       
@@ -164,7 +194,14 @@ class Post extends Component {
 
                      {editForm}
                      {likeBool}
-                     
+                     {commentArr}
+
+
+                     < CommentForm post={this.props.post} />
+
+
+
+                     {/* <button onClick={() => { this.props.createComment({body: "banana", }) }} className="create_comment_button">CreateComment</button> */}
 
 
 

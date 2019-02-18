@@ -1,3 +1,18 @@
+export const fetchComments = () => {
+   return $.ajax({
+      url: "api/comments",
+      method: "get"
+   });
+};
+
+export const fetchComment = (id) => {
+   return $.ajax({
+      url: `api/comment/${id}`,
+      method: "get"
+   });
+};
+
+
 export const createComment = comment => {
    // debugger
    return $.ajax({
@@ -7,7 +22,7 @@ export const createComment = comment => {
    });
 };
 
-export const removeComment = commentId => {
+export const deleteComment = commentId => {
    // debugger
    return $.ajax({
       method: 'delete',

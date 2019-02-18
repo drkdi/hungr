@@ -24,6 +24,8 @@ class Post < ApplicationRecord
       class_name: :User
 
    has_many :likes
+
+   has_many :comments
    
    # def post_too_long
    #    if body.splilength > 140
