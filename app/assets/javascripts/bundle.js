@@ -858,7 +858,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "createPost"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-pencil-alt"
+        class: "fas fa-utensils"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Dialog__WEBPACK_IMPORTED_MODULE_3___default.a, {
         open: this.state.open,
         onClose: this.handleClose,
@@ -1141,13 +1141,27 @@ function (_Component) {
       var _this = this;
 
       // debugger
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      // debugger
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "commentBox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.props.author.profile_pic_url,
+        className: "commentAuthorImg",
+        alt: "comment_author"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "commentBoxText"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "commentAuthor"
+      }, this.props.author.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "commentText"
-      }, this.props.comment.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.props.comment.body))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "commentDelete",
         onClick: function onClick() {
-          _this.props.deleteComment(_this.props.comment.id);
+          _this.props.deleteComment(_this.props.comment.id).then(window.location.reload());
         }
-      }, "Delete"));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-trash-alt"
+      })));
     }
   }]);
 
@@ -1173,6 +1187,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _posts_forms_comment_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../posts/forms/comment_form */ "./frontend/components/posts/forms/comment_form.jsx");
 /* harmony import */ var _comment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comment */ "./frontend/components/posts/comment.jsx");
 /* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var os__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! os */ "./node_modules/os-browserify/browser.js");
+/* harmony import */ var os__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(os__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1198,13 +1214,15 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var msp = function msp(_ref, ownProps) {
   var entities = _ref.entities,
       session = _ref.session;
   // debugger
   var comments = entities.comments;
   return {
-    comments: comments
+    comments: comments,
+    entities: entities
   };
 };
 
@@ -1244,9 +1262,11 @@ function (_Component) {
     value: function render() {
       var _this = this;
 
+      // debugger
       var commentArr;
+      commentArr = []; // if (Object.keys(this.props.comments).length === 0) {
 
-      if (Object.keys(this.props.comments).length === 0) {
+      if (this.props.comments.length === 0) {
         commentArr = [];
       } else {
         // commentArr = this.props.comments.map(comment => {
@@ -1257,24 +1277,43 @@ function (_Component) {
             // {/* <p className="commentText">comment is: {this.props.comments[comment].body}</p> */}
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment__WEBPACK_IMPORTED_MODULE_3__["default"], {
               key: _this.props.comments[comment].id,
-              comment: _this.props.comments[comment]
+              comment: _this.props.comments[comment],
+              author: _this.props.entities.users[_this.props.comments[comment].author_id],
+              post_id: _this.props.entities.comments[comment].post_id
             }) // </div>
 
           );
-        });
-      } // let currPostid = this.props.post.id
+        }).filter(function (comment) {
+          return comment.props.comment.post_id === _this.props.post.id;
+        }); // not comments post_id , changing with ever different comment
+        // debugger            
+      } // author_id={this.props.entities.users[this.props.comments[comment].author_id].username}
+      // let currPostid = this.props.post.id
       //    commentArr = commentArr.filter(comment => (comment.props.post_id === currPostid) );
       //  debugger
       // need to filter comments based on postId, (this post has these specific comments)
 
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      var zeroPosts;
+
+      if (commentArr.length !== 0) {
+        zeroPosts = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          className: "comments_counter_outer",
+          "data-toggle": "modal",
+          "data-target": "#myModal1"
+        }, commentArr.length, " notes");
+      } else {
+        zeroPosts = [];
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, zeroPosts, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "comment_modal",
         "data-toggle": "modal",
         "data-target": "#myModal1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "comment_modal far fa-comment"
+        className: "far fa-comment"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal fade",
         id: "myModal1",
@@ -1285,19 +1324,19 @@ function (_Component) {
         className: "modal-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "comments_counter"
+      }, commentArr.length, " notes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "modal-title"
-      }, commentArr)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_forms_comment_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        post: this.props.post
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, commentArr.reverse()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-default",
         "data-dismiss": "modal"
-      }, "Close"))))));
+      }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_posts_forms_comment_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        post: this.props.post
+      }))))));
     }
   }]);
 
@@ -1321,6 +1360,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1340,6 +1380,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 
 
 
@@ -1401,12 +1442,13 @@ function (_React$Component) {
       this.props.processForm({
         comment: {
           body: this.state.body,
-          post_id: this.state.post_id,
+          post_id: this.props.post.post.id,
           author_id: this.state.author_id
         }
       }); // debugger
 
       this.state.body = '';
+      window.location.reload();
     }
   }, {
     key: "update",
@@ -1420,13 +1462,14 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "create_text",
+        className: "comment_form",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "post_form_username"
-      }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "body_input",
+        className: "comment_form_username"
+      }, "Posting as: \"", this.props.currentUser.username, "\""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "comment_input",
         onChange: this.update('body'),
         value: this.state.body,
         id: "body",
@@ -1442,7 +1485,7 @@ function (_React$Component) {
   return CommentForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(CommentForm));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(CommentForm)));
 
 /***/ }),
 
@@ -1489,9 +1532,12 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 var msp = function msp(_ref, ownProps) {
   var entities = _ref.entities,
       session = _ref.session;
+  var currentUserID = session[Object.keys(session)[0]];
+  var currentUser = entities.users[currentUserID];
   return {
     ownProps: ownProps,
-    session: session
+    session: session,
+    currentUser: currentUser
   };
 };
 
@@ -1513,10 +1559,12 @@ function (_Component) {
 
     _classCallCheck(this, EditModal);
 
+    // debugger
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditModal).call(this, props));
+    var post = props.post;
     _this.state = {
-      title: props.post.title,
-      body: props.post.body
+      title: post.title,
+      body: post.body
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
@@ -1555,10 +1603,12 @@ function (_Component) {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        className: "form_cancel_button",
+        className: "edit_button",
         "data-toggle": "modal",
         "data-target": "#myModal"
-      }, "Edit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-edit"
+      }), "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal fade",
         id: "myModal",
         role: "dialog"
@@ -1572,7 +1622,11 @@ function (_Component) {
         type: "button",
         className: "close",
         "data-dismiss": "modal"
-      }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "comment_form_username"
+      }, "Editing as: \"", this.props.currentUser.username, "\""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create_text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "title"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update('title'),
@@ -1580,7 +1634,7 @@ function (_Component) {
         placeholder: "title",
         id: "title",
         value: this.state.title,
-        className: "edit_modal_title"
+        className: "title_input"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1590,18 +1644,18 @@ function (_Component) {
         type: "text",
         id: "body",
         value: this.state.body,
-        className: "edit_modal_body"
+        className: "body_input"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
-        className: "edit_modal_save"
+        className: "form_post_button"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         id: "close-modal",
-        className: "btn btn-default",
+        className: "form_cancel_button",
         "data-dismiss": "modal"
-      }, "Close")))))));
+      }, "Close"))))))));
     }
   }]);
 
@@ -1691,7 +1745,7 @@ function (_React$Component) {
         body: "",
         title: "",
         author_id: this.props.currentUser.id
-      })).then(this.props.history.push('/dashboard'));
+      })).then(window.location.reload());
     }
   }, {
     key: "update",
@@ -2495,8 +2549,7 @@ function (_Component) {
   _createClass(Post, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
-      this.props.fetchUser(this.props.post.author_id); // debugger
+      this.props.fetchUser(this.props.post.author_id);
     }
   }, {
     key: "render",
@@ -2506,9 +2559,7 @@ function (_Component) {
       // debugger
       var _this$props = this.props,
           like = _this$props.like,
-          unlike = _this$props.unlike; // console.log(this.props.post.author_id)
-      // console.log(this.props.sessionUser.id)
-      // debugger
+          unlike = _this$props.unlike; // debugger
       // console.log(this.props)
 
       var content;
@@ -2546,8 +2597,10 @@ function (_Component) {
         onClick: function onClick() {
           _this.props.deletePost(_this.props.post.id);
         },
-        className: "form_post_button"
-      }, "Delete"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_edit_modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        className: "delete_button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-trash-alt"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_edit_modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
         post: this.props.post
       })) : editForm = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ");
       {
@@ -2585,7 +2638,7 @@ function (_Component) {
         },
         className: "like_button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-heart",
+        className: "far fa-heart",
         style: {
           color: "gray"
         }
@@ -2611,7 +2664,8 @@ function (_Component) {
         className: "form_buttons"
       }, editForm, likeBool, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_modal__WEBPACK_IMPORTED_MODULE_10__["default"], {
         post: this.props.post,
-        className: "comment_modal"
+        className: "comment_modal",
+        post_id: this.props.post_id
       })))));
     }
   }]);
@@ -3328,7 +3382,7 @@ function (_React$Component) {
         className: "phrase1"
       }, "Come for what you crave."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
         className: "phrase2"
-      }, "Stay for some cheese fries."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+      }, "Stay for some memes."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/signup",
         component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), LoginOrSignup === "/" || LoginOrSignup === "/login" ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
@@ -3497,10 +3551,10 @@ var commentsReducer = function commentsReducer() {
 
   switch (action.type) {
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENTS"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.comments);
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["assign"])({}, state, action.comments);
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.post);
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["assign"])({}, state, action.post);
 
     case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_COMMENT"]:
       newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state);
@@ -67721,6 +67775,66 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	}
 
 	return to;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/os-browserify/browser.js":
+/*!***********************************************!*\
+  !*** ./node_modules/os-browserify/browser.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+exports.endianness = function () { return 'LE' };
+
+exports.hostname = function () {
+    if (typeof location !== 'undefined') {
+        return location.hostname
+    }
+    else return '';
+};
+
+exports.loadavg = function () { return [] };
+
+exports.uptime = function () { return 0 };
+
+exports.freemem = function () {
+    return Number.MAX_VALUE;
+};
+
+exports.totalmem = function () {
+    return Number.MAX_VALUE;
+};
+
+exports.cpus = function () { return [] };
+
+exports.type = function () { return 'Browser' };
+
+exports.release = function () {
+    if (typeof navigator !== 'undefined') {
+        return navigator.appVersion;
+    }
+    return '';
+};
+
+exports.networkInterfaces
+= exports.getNetworkInterfaces
+= function () { return {} };
+
+exports.arch = function () { return 'javascript' };
+
+exports.platform = function () { return 'browser' };
+
+exports.tmpdir = exports.tmpDir = function () {
+    return '/tmp';
+};
+
+exports.EOL = '\n';
+
+exports.homedir = function () {
+	return '/'
 };
 
 

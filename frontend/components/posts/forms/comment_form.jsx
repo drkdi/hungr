@@ -2,6 +2,8 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { createComment } from '../../../actions/comment_actions';
+import { withRouter } from 'react-router-dom';
+
 
 const mapStateToProps = ({ entities, session }, post) => {
    // debugger
@@ -37,10 +39,10 @@ class CommentForm extends React.Component {
       // this.props.processForm(formData)
       //    .then(this.props.history.push('/dashboard'));
    
-      this.props.processForm( {comment: {body: this.state.body, post_id: this.state.post_id, author_id: this.state.author_id}})
+      this.props.processForm( {comment: {body: this.state.body, post_id: this.props.post.post.id, author_id: this.state.author_id}})
       // debugger
       this.state.body = '';
-      
+      window.location.reload()   
    }
 
    update(field) {
@@ -48,16 +50,16 @@ class CommentForm extends React.Component {
    }
 
    render() {
-
+      // debugger
 
       return (
          <div>
-            <form className="create_text" onSubmit={this.handleSubmit}>
+            <form className="comment_form" onSubmit={this.handleSubmit}>
 
-               <p className="post_form_username">{this.props.currentUser.username}</p>
+               <p className="comment_form_username">Posting as: "{this.props.currentUser.username}"</p>
 
                <input
-                  className="body_input"
+                  className="comment_input"
                   onChange={this.update('body')}
                   value={this.state.body}
                   id="body"
@@ -72,5 +74,5 @@ class CommentForm extends React.Component {
    };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentForm));
 

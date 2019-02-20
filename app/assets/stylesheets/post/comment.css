@@ -1,3 +1,81 @@
 .commentText {
    color: black;
 }
+
+.modal-content {
+   width: 500px;
+   height: auto;
+}
+
+
+.commentAuthorImg {
+   width: 50px;
+   height: 50px ;
+   border-radius: 5px;
+   object-fit: cover;
+
+   /* position: absolute;
+   left: -86px;
+   top: 0px; */
+}
+
+.commentBox {
+   display: inline-flex;
+}
+
+.commentBoxText {
+   padding-left: 20px;
+   font-size: 14px;
+}
+.commentAuthor{ 
+   font-family: 'Source Sans Pro', sans-serif;
+   font-weight: 600px;
+}
+.commentText {
+   padding-top: 10px;
+}
+.commentDelete {
+  position: absolute;
+  right: 10%;
+   border: none;
+   color: gray;
+   background: none;
+
+   font-size: 22px;
+}
+
+.btn-default {
+   position: absolute;
+   bottom: 80px;
+   right: 0.3%;
+   z-index: 2;
+}
+
+.comment_input {
+   position: absolute;
+   bottom: 17%;
+   left: 2%;
+   height:30px;
+   border: none;
+   width: 400px;
+
+}
+
+.form_comment_button {
+   position: absolute;
+   bottom: 17%;
+   right: 5%;
+   border: none;
+   background: none;
+}
+.comment_form_username {
+   font-family: 'Source Sans Pro', sans-serif;
+   font-weight: 600px;
+   position: absolute;
+   top: 5%;
+   left: 2%;
+}
+.comment_form {
+      height: 40px;
+      width: 400px;
+}

@@ -1,10 +1,10 @@
 .post_form_username {
    font-size: 14px;
-   font-weight: 800;
+   font-weight: bold;
    color: rgba(68, 68, 68);
    position: relative;
-   top: 15px;
-   left: 20px; 
+   top: 10px;
+   left: 15px; 
 }
 
 ::placeholder {
@@ -40,11 +40,49 @@
 
 .like_button {
    position: absolute;
-   left: 45%;
+   right: 1%;
+   bottom: 0%;
    border: none;
    color: red;
-   font-size: 30px;
+   background: none;
+   font-size: 22px;
 }
+
+.delete_button {
+   position: absolute;
+   right: 12.5%;
+   bottom: 0%;
+   border: none;
+   color: gray;
+   background: none;
+
+   font-size: 22px;
+}
+
+.comment_modal {
+   background: none;
+   border: none;
+}
+
+.edit_button {
+   background: none;
+   border: none;
+   color: gray;
+   position: absolute;
+   right: 18%;
+   bottom: 2px;
+   font-size: 20px;
+   
+}
+
+.fa-comment {
+   position: absolute;
+   right: 8%;
+   bottom: 6px;
+   font-size: 22px;
+   color: gray;
+}
+
 
 .form_cancel_button {
    color: white;

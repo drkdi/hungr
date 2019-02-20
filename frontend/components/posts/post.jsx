@@ -24,7 +24,6 @@ const msp = ({entities, session}, ownProps) => {
    const post = ownProps.post;
    return { currentUser, post, sessionUser};
    
-
    // this.props.currentUser is post's user
 };
 
@@ -33,7 +32,6 @@ const mdp = dispatch => {
       deletePost: id => dispatch(deletePost(id)),
       updatePost: post => dispatch(updatePost(post)),
       fetchUser: userId => dispatch(fetchUser(userId)),
-      
       like: postId => dispatch(createLike(postId)),
       unlike: postId => dispatch(removeLike(postId)),
 
@@ -53,17 +51,13 @@ class Post extends Component {
 
 
    componentDidMount() {
-      // debugger
       this.props.fetchUser(this.props.post.author_id);
-      // debugger
    }
 
 
    render() {
       // debugger
       const { like, unlike} = this.props;
-      // console.log(this.props.post.author_id)
-      // console.log(this.props.sessionUser.id)
 
       // debugger
          // console.log(this.props)
@@ -94,7 +88,6 @@ class Post extends Component {
       )
    }
 
-
    else {
       content = (
          <p className="quote_post_title">{this.props.post.title}</p>
@@ -105,9 +98,10 @@ class Post extends Component {
    let editForm
       (this.props.post.author_id === this.props.sessionUser.id) ? (
       (editForm) = (<>
-            {/* <button onClick={() => {}} className="form_cancel_button">Edit</button> */}
-            <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="form_post_button">Delete</button>
+            {/* <button onClick={() => {}} className="form_cancel_button"><i class="far fa-trash-alt"></i>delete</button> */}
+            <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="delete_button"><i className="far fa-trash-alt"></i></button>
             < EditModal post={this.props.post} />
+       
        
          </>
       )) : (
@@ -140,7 +134,7 @@ class Post extends Component {
             )
          ) : (
          (likeBool) = (<button onClick={() => { like(this.props.post.id) }} className="like_button">
-                  <i className="fas fa-heart" style={{ color: "gray" }}></i>
+                  <i className="far fa-heart" style={{ color: "gray" }}></i>
             </button>)
          )
 
@@ -178,11 +172,11 @@ class Post extends Component {
 
                      {editForm}
                      {likeBool}
-                     {/* {commentArr} */}
 
-                     
 
-                     < CommentModal post={this.props.post} className="comment_modal"/>
+{/* NEED TO QUERY DB FOR SPECIFIC COMMENTS */}
+
+                     < CommentModal post={this.props.post} className="comment_modal" post_id={this.props.post_id}/>
                      {/* <button onClick={() => { this.props.createComment({body: "banana", }) }} className="create_comment_button">CreateComment</button> */}
 
 

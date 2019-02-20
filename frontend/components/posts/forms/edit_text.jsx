@@ -25,7 +25,7 @@ class EditText extends React.Component {
       let post = merge({}, this.state);
       this.props.updatePost(merge({}, this.props.post, this.state))
          .then(this.setState({ body: "", title: "", author_id: this.props.currentUser.id}))
-         .then(this.props.history.push('/dashboard'));
+      .then(window.location.reload());   
    }
 
    update(field) {
