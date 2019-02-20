@@ -55,7 +55,7 @@ class Splash extends React.Component {
          <img className="logo" src="https://i.imgur.com/RjrJpb7.png" alt="hungr_logo"/>
 
          <p className="phrase1">Come for what you crave.</p>
-         <p className="phrase2">Stay for some memes.</p>
+         <p className="phrase2">Stay for some dank memes.</p>
          
          <Route path="/signup" component={SignUpFormContainer} />
          <br/>

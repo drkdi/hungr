@@ -13,14 +13,7 @@
    height: 60px;
 }
 
- .session_form {
-  position: relative;
-  top: 0px;
-  display: flex;
-  align-items: center;
-  flex-flow: column;
-  text-align: center; 
-}
+
 
 .email_field {
    display: flex;
@@ -33,6 +26,7 @@
   width: 280px;
   font-size: 16px;
   padding: 0 10px;
+  position: relative;
 
 }
 .username_input {
@@ -46,6 +40,8 @@
   width: 280px;
   font-size: 16px;
   padding: 0 10px;
+  position: relative;
+  top:
 
 }
 .password_input {

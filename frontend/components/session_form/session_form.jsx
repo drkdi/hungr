@@ -132,7 +132,6 @@ class SessionForm extends React.Component {
                {/* Please {this.props.formType} or {this.props.navLink} */}
                <br/>
                   {email_field}
-                  <label htmlFor="username" />
                      <input onChange={this.update('username')} 
                         type="text" 
                         placeholder="Username" 
@@ -140,7 +139,6 @@ class SessionForm extends React.Component {
                         value={this.state.username}
                         className="username_input"/>
 
-                  <label htmlFor="password" />
                    <input onChange={this.update('password')} 
                      type="password" 
                      placeholder="Password" 

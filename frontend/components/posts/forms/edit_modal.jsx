@@ -19,7 +19,7 @@ const mdp = dispatch => {
 
 class EditModal extends Component {
   constructor(props) {
-    // debugger
+    debugger
     super(props);
     const { post } = props;
     this.state = {title: post.title, body: post.body};
@@ -56,37 +56,37 @@ class EditModal extends Component {
       <form onSubmit={this.handleSubmit}>
       <div className="container">
 
-          <button type="button" className="edit_button" data-toggle="modal" data-target="#myModal"><i className="far fa-edit"></i>  </button>
-
+        <button type="button" className="edit_button" data-toggle="modal" data-target="#myModal"><i className="far fa-edit"></i>  </button>
         <div className="modal fade" id="myModal" role="dialog">
           <div className="modal-dialog">
       
-            <div className="modal-content">
+            <div className="modal-content-edit">
               <div className="modal-header">
                 <button type="button" className="close" data-dismiss="modal">&times;</button>
                 {/* <h4 className="modal-title">{this.props.post.title}</h4> */}
                 {/* <textarea name="" id="title" cols="30" rows="1" defaultValue={this.props.post.title}></textarea> */}
-                  <p className="comment_form_username">Editing as: "{this.props.currentUser.username}"</p>
+                  <p className="edit_modal_username">Editing as: "{this.props.currentUser.username}"</p>
 
-                  <div className="create_text">
+                  <div className="edit_modal_wrapper">
                     <label htmlFor="title" />
                     <input onChange={this.update('title')}
                       type="text"
                       placeholder="title"
                       id="title"
                       value={this.state.title}
-                      className="title_input" 
+                      className="edit_modal_title" 
                       />
 
                      </div>
-              <div className="modal-body">
+              <div className="edit_modal_wrapper-body">
                 {/* <textarea name="" id="body" cols="30" rows="5" defaultValue={this.props.post.body}></textarea> */}
                   <label htmlFor="body" />
                   <input onChange={this.update('body')}
                     type="text"
                     id="body"
+                    placeholder="bodys"
                     value={this.state.body}
-                    className="body_input" 
+                    className="edit_modal_body" 
                     />
               </div>
               <div className="modal-footer">

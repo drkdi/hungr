@@ -1,10 +1,13 @@
-.session_form {
-   text-align: center;
-   position: relative;
-  top: 30%;
+
+ .session_form {
+  position: relative;
+  top: 0px;
   display: flex;
   align-items: center;
+  vertical-align: middle;   
   flex-flow: column;
+  text-align: center; 
+   
 }
 
 .demo_button {

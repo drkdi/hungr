@@ -1,0 +1,40 @@
+.edit_modal_username{
+   font-family: 'Source Sans Pro', sans-serif;
+   font-weight: 600px;
+   position: absolute;
+   top: 10px;
+   left: 10px;
+}
+
+.edit_modal_wrapper {
+   position: relative;
+   top: 30px;
+   border: none;
+
+}
+.modal-content-edit {
+      width: 600px;
+   height: 300px;
+   background-color: white;
+   border-radius: 5px;
+}
+.edit_modal_title {
+   position: relative;
+   font-size: 30px;
+   font-weight: 400;
+   border: none;
+}
+
+.edit_modal_wrapper-body {
+    position: relative;
+   top: 40px;
+   border: none;
+}
+
+.edit_modal_body {
+    position: relative;
+   font-size: 12px;
+   font-weight: 400;
+   border: none;
+   color: black;
+}

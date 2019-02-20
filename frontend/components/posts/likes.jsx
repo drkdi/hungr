@@ -21,7 +21,7 @@ export const Likes = ({post, currentUserId, like, unlike}) => {
 
    const likeButton = (
       <button onClick={likeAction} className="likeButton">
-         <i class="fas fa-heart"></i>
+         <i className="fas fa-heart"></i>
       </button>
    )
 

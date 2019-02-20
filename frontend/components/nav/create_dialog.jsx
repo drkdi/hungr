@@ -43,7 +43,7 @@ class AlertDialog extends React.Component {
          <div className="nav_div">
             <Button onClick={this.handleClickOpen}
                style={style2}>
-               <div className="createPost"><i class="fas fa-utensils"></i></div>
+               <div className="createPost"><i className="fas fa-utensils"></i></div>
             </Button>
 
             <Dialog
