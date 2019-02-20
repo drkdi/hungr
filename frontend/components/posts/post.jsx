@@ -100,7 +100,7 @@ class Post extends Component {
       (editForm) = (<>
             {/* <button onClick={() => {}} className="form_cancel_button"><i class="far fa-trash-alt"></i>delete</button> */}
             <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="delete_button"><i className="far fa-trash-alt"></i></button>
-            < EditModal post={this.props.post} />
+            < EditModal post={this.props.post}  />
        
        
          </>
