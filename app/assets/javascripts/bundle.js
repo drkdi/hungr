@@ -1565,12 +1565,13 @@ function (_Component) {
 
     _classCallCheck(this, EditModal);
 
-    debugger;
+    console.log(props.post.id);
     _this = _possibleConstructorReturn(this, _getPrototypeOf(EditModal).call(this, props));
     var post = props.post;
     _this.state = {
       title: post.title,
-      body: post.body
+      body: post.body,
+      id: post.id
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
@@ -1602,67 +1603,79 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "edit_button",
-        "data-toggle": "modal",
-        "data-target": "#myModal"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-edit"
-      }), "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal fade",
-        id: "myModal",
-        role: "dialog"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-dialog"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-content-edit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "close",
-        "data-dismiss": "modal"
-      }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "edit_modal_username"
-      }, "Editing as: \"", this.props.currentUser.username, "\""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "edit_modal_wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "title"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        onChange: this.update('title'),
-        type: "text",
-        placeholder: "title",
-        id: "title",
-        value: this.state.title,
-        className: "edit_modal_title"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "edit_modal_wrapper-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "body"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        onChange: this.update('body'),
-        type: "text",
-        id: "body",
-        placeholder: "bodys",
-        value: this.state.body,
-        className: "edit_modal_body"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit",
-        className: "form_post_button"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        id: "close-modal",
-        className: "form_cancel_button",
-        "data-dismiss": "modal"
-      }, "Close"))))))));
+      debugger;
+      console.log(this.state);
+      var edit_modal_thing;
+
+      if (this.props.post.id === this.state.id) {
+        edit_modal_thing = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: this.handleSubmit,
+          id: this.props.post.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container",
+          id: this.props.post.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          className: "edit_button",
+          "data-toggle": "modal",
+          "data-target": "#myModal",
+          "data-id": this.props.post.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-edit"
+        }), "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "modal fade",
+          id: "myModal",
+          role: "dialog"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "modal-dialog"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "modal-content-edit"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "modal-header"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          className: "close",
+          "data-dismiss": "modal"
+        }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "edit_modal_username"
+        }, "Editing as: \"", this.props.currentUser.username, "\""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "edit_modal_wrapper"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "title"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          onChange: this.update('title'),
+          type: "text",
+          placeholder: "title",
+          id: "title",
+          value: this.state.title,
+          className: "edit_modal_title"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "edit_modal_wrapper-body"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "body"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          onChange: this.update('body'),
+          type: "text",
+          id: "body",
+          placeholder: "bodys",
+          value: this.state.body,
+          className: "edit_modal_body"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "modal-footer"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "submit",
+          className: "form_post_button"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          id: "close-modal",
+          className: "form_cancel_button",
+          "data-dismiss": "modal"
+        }, "Close"))))))));
+      } else {
+        edit_modal_thing = [];
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, edit_modal_thing);
     }
   }]);
 
@@ -2507,7 +2520,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var msp = function msp(_ref, ownProps) {
   var entities = _ref.entities,
       session = _ref.session;
-  // debugger
   var currentUserID = ownProps.post.author_id;
   var currentUser = entities.users[currentUserID] || {
     username: ""
@@ -2518,7 +2530,7 @@ var msp = function msp(_ref, ownProps) {
     currentUser: currentUser,
     post: post,
     sessionUser: sessionUser
-  }; // this.props.currentUser is post's user
+  };
 };
 
 var mdp = function mdp(dispatch) {
@@ -2549,8 +2561,7 @@ function (_Component) {
   function Post(props) {
     _classCallCheck(this, Post);
 
-    // debugger
-    return _possibleConstructorReturn(this, _getPrototypeOf(Post).call(this, props)); // this.handleLike = this.handleLike.bind(this);
+    return _possibleConstructorReturn(this, _getPrototypeOf(Post).call(this, props));
   }
 
   _createClass(Post, [{
@@ -2563,12 +2574,9 @@ function (_Component) {
     value: function render() {
       var _this = this;
 
-      // debugger
       var _this$props = this.props,
           like = _this$props.like,
-          unlike = _this$props.unlike; // debugger
-      // console.log(this.props)
-
+          unlike = _this$props.unlike;
       var content;
 
       if (this.props.post.title === "image") {
@@ -2610,14 +2618,6 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_edit_modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
         post: this.props.post
       })) : editForm = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ");
-      {
-        /* if post.likes.include(currentUser) 
-          display delete button
-          else
-          display like button
-          style={this.state.like ? { color: "red" } : { color: "gray" }
-          */
-      }
       var likeBool;
       var found = false;
 
@@ -2655,6 +2655,7 @@ function (_Component) {
         this.props.currentUser.profile_pic_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGTjtPQ8LBaJLXxGwFuDi6jPWZQq3nszuKi8HHiRn0yT4xUGoPDw";
       }
 
+      var modalPost = this.props.post;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "individual_post"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2670,7 +2671,8 @@ function (_Component) {
       }, this.props.post.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
       }, editForm, likeBool, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_modal__WEBPACK_IMPORTED_MODULE_10__["default"], {
-        post: this.props.post,
+        id: this.props.post_id,
+        post: modalPost,
         className: "comment_modal",
         post_id: this.props.post_id
       })))));
@@ -3117,7 +3119,7 @@ function (_React$Component) {
         }, function () {
           window.setTimeout(function () {
             return _this4.demoLoginHelper(usernameArr, passwordArr, button);
-          }, 10);
+          }, 80);
         });
       } else if (passwordArr.length > 0) {
         this.setState({
@@ -3125,7 +3127,7 @@ function (_React$Component) {
         }, function () {
           window.setTimeout(function () {
             return _this4.demoLoginHelper(usernameArr, passwordArr, button);
-          }, 10);
+          }, 80);
         });
       } else {
         button.click();
@@ -3364,9 +3366,9 @@ function (_React$Component) {
       var wallpaperStyle = {
         margin: 0,
         background: "url(".concat(window.splashUrl, ")"),
-        backgroundRepeat: 'no-repeat',
         height: "100vh",
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
       };
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "splash_form",
@@ -3385,7 +3387,7 @@ function (_React$Component) {
         className: "phrase1"
       }, "Come for what you crave."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
         className: "phrase2"
-      }, "Stay for some dank memes."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+      }, "Stay because I need a job P L E A S E"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/signup",
         component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), LoginOrSignup === "/" || LoginOrSignup === "/login" ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {

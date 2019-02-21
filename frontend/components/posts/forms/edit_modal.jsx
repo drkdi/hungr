@@ -19,10 +19,10 @@ const mdp = dispatch => {
 
 class EditModal extends Component {
   constructor(props) {
-    debugger
+    console.log(props.post.id)
     super(props);
-    const { post } = props;
-    this.state = {title: post.title, body: post.body};
+    let post = props.post;
+    this.state = {title: post.title, body: post.body, id: post.id};
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -49,59 +49,68 @@ class EditModal extends Component {
 
 
   render() {
+    debugger
+    console.log(this.state);
+    let edit_modal_thing
+    if (this.props.post.id === this.state.id) { 
+      edit_modal_thing = (<form onSubmit={this.handleSubmit} id={this.props.post.id}>
+      <div className="container" id={this.props.post.id}>
 
-    // debugger
-
-    return (
-      <form onSubmit={this.handleSubmit}>
-      <div className="container">
-
-        <button type="button" className="edit_button" data-toggle="modal" data-target="#myModal"><i className="far fa-edit"></i>  </button>
+        <button type="button" className="edit_button" data-toggle="modal" data-target="#myModal" data-id={this.props.post.id}><i className="far fa-edit"></i>  </button>
         <div className="modal fade" id="myModal" role="dialog">
           <div className="modal-dialog">
-      
+
             <div className="modal-content-edit">
               <div className="modal-header">
                 <button type="button" className="close" data-dismiss="modal">&times;</button>
                 {/* <h4 className="modal-title">{this.props.post.title}</h4> */}
                 {/* <textarea name="" id="title" cols="30" rows="1" defaultValue={this.props.post.title}></textarea> */}
-                  <p className="edit_modal_username">Editing as: "{this.props.currentUser.username}"</p>
+                <p className="edit_modal_username">Editing as: "{this.props.currentUser.username}"</p>
 
-                  <div className="edit_modal_wrapper">
-                    <label htmlFor="title" />
-                    <input onChange={this.update('title')}
-                      type="text"
-                      placeholder="title"
-                      id="title"
-                      value={this.state.title}
-                      className="edit_modal_title" 
-                      />
+                <div className="edit_modal_wrapper">
+                  <label htmlFor="title" />
+                  <input onChange={this.update('title')}
+                    type="text"
+                    placeholder="title"
+                    id="title"
+                    value={this.state.title}
+                    className="edit_modal_title"
+                  />
 
-                     </div>
-              <div className="edit_modal_wrapper-body">
-                {/* <textarea name="" id="body" cols="30" rows="5" defaultValue={this.props.post.body}></textarea> */}
+                </div>
+                <div className="edit_modal_wrapper-body">
+                  {/* <textarea name="" id="body" cols="30" rows="5" defaultValue={this.props.post.body}></textarea> */}
                   <label htmlFor="body" />
                   <input onChange={this.update('body')}
                     type="text"
                     id="body"
                     placeholder="bodys"
                     value={this.state.body}
-                    className="edit_modal_body" 
-                    />
-              </div>
-              <div className="modal-footer">
-                    <input type="submit" className="form_post_button"/>
-                    <button type="button" id="close-modal" className="form_cancel_button" data-dismiss="modal">Close</button>
-              </div>
-
+                    className="edit_modal_body"
+                  />
                 </div>
+                <div className="modal-footer">
+                  <input type="submit" className="form_post_button" />
+                  <button type="button" id="close-modal" className="form_cancel_button" data-dismiss="modal">Close</button>
+                </div>
+
+              </div>
             </div>
 
           </div>
         </div>
 
-      </div> 
-      </form>
+      </div>
+    </form>)
+    }
+
+    else {
+       edit_modal_thing = []
+    }
+    return (
+      <>
+      {edit_modal_thing}
+      </>
     )
   }
 

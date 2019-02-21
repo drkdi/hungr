@@ -12,7 +12,7 @@ class SimpleMenu extends React.Component {
    constructor(props) {
       super(props);
    }
-
+   
    state = {
       anchorEl: null,
    };

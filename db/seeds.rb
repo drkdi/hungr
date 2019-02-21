@@ -25,28 +25,28 @@ user1 = User.create!({
    # authoredComments: [4,7],
    # likedPostIds: [4,7],
 })
-# user2 = User.create!({
-#    id: 2,
-#    username: "gordon",
-#    password: "password",
-#    profile_pic_url: "https://www.hellomagazine.com/imagenes/cuisine/2018080660901/gordon-ramsay-mourns-death-joel-robuchon/0-248-854/gordon-ramsay-mourns-death-t.jpg",
-#    # authoredComments: [4,7],
-#    # likedPostIds: [4,7],
-# })
+user2 = User.create!({
+   id: 2,
+   username: "gordon",
+   password: "password",
+   profile_pic_url: "https://www.hellomagazine.com/imagenes/cuisine/2018080660901/gordon-ramsay-mourns-death-joel-robuchon/0-248-854/gordon-ramsay-mourns-death-t.jpg",
+   # authoredComments: [4,7],
+   # likedPostIds: [4,7],
+})
 
-# user3 = User.create!({
-#    id: 3,
-#    username: "yellow rat meme",
-#    password: "password",
-#    profile_pic_url: "https://media1.giphy.com/media/n7ELTApS5zg4g/giphy.webp?cid=3640f6095c53c6d15157383941c23c95",
-# })
-# user4 = User.create!({
-#    id: 4,
-#    username: "naruto",
-#    password: "password",
-#    profile_pic_url: "https://media0.giphy.com/media/vh4GM3DcAC9cA/200w.webp?cid=3640f6095c53c7bf387163783682de52",
+user3 = User.create!({
+   id: 3,
+   username: "bulbasaur",
+   password: "password",
+   profile_pic_url: "https://media1.giphy.com/media/n7ELTApS5zg4g/giphy.webp?cid=3640f6095c53c6d15157383941c23c95",
+})
+user4 = User.create!({
+   id: 4,
+   username: "naruto",
+   password: "password",
+   profile_pic_url: "https://media0.giphy.com/media/vh4GM3DcAC9cA/200w.webp?cid=3640f6095c53c7bf387163783682de52",
 
-# })
+})
 
 
 

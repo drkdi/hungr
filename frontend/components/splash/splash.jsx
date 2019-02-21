@@ -38,9 +38,11 @@ class Splash extends React.Component {
       const wallpaperStyle = {
          margin: 0,
          background: `url(${window.splashUrl})`,
-         backgroundRepeat: 'no-repeat',
          height: "100vh",
          backgroundSize: 'cover',
+         backgroundRepeat: 'no-repeat',
+         
+
       };
 
 
@@ -55,7 +57,7 @@ class Splash extends React.Component {
          <img className="logo" src="https://i.imgur.com/RjrJpb7.png" alt="hungr_logo"/>
 
          <p className="phrase1">Come for what you crave.</p>
-         <p className="phrase2">Stay for some dank memes.</p>
+         <p className="phrase2">Stay because I need a job P L E A S E</p>
          
          <Route path="/signup" component={SignUpFormContainer} />
          <br/>
