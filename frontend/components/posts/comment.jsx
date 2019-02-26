@@ -28,8 +28,19 @@ class Comment extends Component {
       // debugger
       // debugger
       let picBool;
-      if (this.props.author.profile_pic_url) {
-         picBool = <li> <img src={this.props.author.profile_pic_url} className="commentAuthorImg" alt="comment_author" /></li>
+      if (this.props.author) {
+         picBool = (
+            <>
+            <img src={this.props.author.profile_pic_url} className="commentAuthorImg" alt="comment_author" />
+            <ul className="commentBox">
+               {picBool}
+               <li className="commentBoxText">
+                  <div className="commentAuthor">{this.props.author.username}</div>
+                  <p className="commentText">{this.props.comment.body}</p>
+               </li>
+            </ul>
+            </>
+            )
       }
       else {
          picBool = <> </>
@@ -38,13 +49,6 @@ class Comment extends Component {
       return (
          <>
 
-         <ul className="commentBox">
-            {picBool}
-            <li className="commentBoxText">
-               <div className="commentAuthor">{this.props.author.username}</div>
-               <p className="commentText">{this.props.comment.body}</p>
-            </li>
-         </ul>
 
             <button className="commentDelete" onClick={() => {
                this.props.deleteComment(this.props.comment.id).then(window.location.reload()) }}><i className="far fa-trash-alt"></i></button>

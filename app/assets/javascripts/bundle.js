@@ -1166,25 +1166,25 @@ function (_Component) {
       // debugger
       var picBool;
 
-      if (this.props.author.profile_pic_url) {
-        picBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      if (this.props.author) {
+        picBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: this.props.author.profile_pic_url,
           className: "commentAuthorImg",
           alt: "comment_author"
-        }));
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "commentBox"
+        }, picBool, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "commentBoxText"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "commentAuthor"
+        }, this.props.author.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "commentText"
+        }, this.props.comment.body))));
       } else {
         picBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ");
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "commentBox"
-      }, picBool, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "commentBoxText"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "commentAuthor"
-      }, this.props.author.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "commentText"
-      }, this.props.comment.body))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "commentDelete",
         onClick: function onClick() {
           _this.props.deleteComment(_this.props.comment.id).then(window.location.reload());
