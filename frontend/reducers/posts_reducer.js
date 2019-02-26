@@ -6,13 +6,13 @@ const postReducer = (state={}, action) => {
    Object.freeze(state);
    switch(action.type) {
       case RECEIVE_POSTS:   
-         return merge({}, state, action.posts);
+         // debugger
+         return assign({}, action.posts);
       case RECEIVE_POST:
          // debugger
          //
          // if action.post
          
-
          // return merge({}, state, action.post);
          return assign({}, state, action.post);
          // newState = merge({}, state);

@@ -40,7 +40,7 @@ class PostIndex extends React.Component {
       // debugger
 
       this.props.fetchLikedPosts(this.props.state.session.id);
-      // this.props.state.session.id
+      // this.props.state.session.id 
    }
 
    render() {

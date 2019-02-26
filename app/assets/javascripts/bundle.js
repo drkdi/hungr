@@ -461,9 +461,6 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
     path: "/liked",
     component: _posts_liked__WEBPACK_IMPORTED_MODULE_9__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
-    path: "/liked",
-    component: _posts_profile__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__["AuthRoute"], {
     exact: true,
     path: "/login",
@@ -735,9 +732,11 @@ function (_React$Component) {
         className: "account_menu"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
         onClick: this.props.props.logout
-      }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
+        to: "/liked"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
         onClick: this.handleClose
-      }, "Liked"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
+      }, "Liked")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
         to: "/profile"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3___default.a, {
         onClick: this.handleClose
@@ -2613,7 +2612,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       // this.props.fetchPosts();
       // debugger
-      this.props.fetchLikedPosts(this.props.state.session.id); // this.props.state.session.id
+      this.props.fetchLikedPosts(this.props.state.session.id); // this.props.state.session.id 
     }
   }, {
     key: "render",
@@ -3831,7 +3830,8 @@ var postReducer = function postReducer() {
 
   switch (action.type) {
     case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POSTS"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.posts);
+      // debugger
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["assign"])({}, action.posts);
 
     case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POST"]:
       // debugger

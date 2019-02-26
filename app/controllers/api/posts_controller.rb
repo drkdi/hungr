@@ -16,9 +16,10 @@ class Api::PostsController < ApplicationController
    end 
 
    def liked_posts
-      @posts = Post.all.where(author_id: current_user.id)
 
-      debugger
+      # posts where like's author_id = current_user.id
+      # author_likes = Like.all.where(author_id: current_user.id)
+      @posts = Like.all.where(author_id: current_user.id).map {|post| Post.find_by(id: post.post_id)}
    end
 
    def create

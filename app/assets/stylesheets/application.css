@@ -81,7 +81,7 @@ ul {
 /*This is coded CSS rainbow*/
 /* small corner logo h */
 .rainbow {
-
+text-decoration: none; 
   color: white;
   font-size:42.0px;
   font-family: 'BookmanStd-bold';
@@ -89,8 +89,19 @@ ul {
   top: 3px;
   left: 20px;
   z-index: 5;
-
 }
+
+.rainbow:not(:hover) {
+  text-decoration: none; 
+  color: white;
+  font-size:42.0px;
+  font-family: 'BookmanStd-bold';
+  position: fixed;
+  top: 3px;
+  left: 20px;
+  z-index: 5;
+}
+
 .rainbow:hover {
     text-decoration: none;
 

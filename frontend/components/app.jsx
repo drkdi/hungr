@@ -18,7 +18,6 @@ const App = () => (
             <ProtectedRoute path="/dashboard" component={Dashboard} />
             <ProtectedRoute path="/profile" component={Profile} />
             <ProtectedRoute path="/liked" component={Liked} />
-            <ProtectedRoute path="/liked" component={Profile} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute path="/" component={SplashContainer} />
       </Switch>

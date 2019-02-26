@@ -56,7 +56,8 @@ class SimpleMenu extends React.Component {
             >
                {/* <button onClick={this.props.logout} className="logout">Logout</button> */}
                <MenuItem onClick={this.props.props.logout}>Log Out</MenuItem>
-               <MenuItem onClick={this.handleClose}>Liked</MenuItem>
+
+               <Link to="/liked"><MenuItem onClick={this.handleClose}>Liked</MenuItem></Link>
                <Link to="/profile"><MenuItem onClick={this.handleClose}>Profile</MenuItem></Link>
                <MenuItem onClick={() => { location.href = "https://derekdai.com" }}>derekdai.com</MenuItem>
                <MenuItem onClick={() => { location.href = "https://linkedin.com/in/daiderek/" }}>Github</MenuItem>
