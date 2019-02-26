@@ -80,11 +80,12 @@ class Post extends Component {
 
 
    let editForm
+   // debugger
       (this.props.post.author_id === this.props.sessionUser.id) ? (
       (editForm) = (<>
             {/* <button onClick={() => {}} className="form_cancel_button"><i class="far fa-trash-alt"></i>delete</button> */}
             <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="delete_button"><i className="far fa-trash-alt"></i></button>
-            < EditModal post={this.props.post}  />
+            < EditModal post={this.props.post} post_id={this.props.post_id} />
          </>
       )) : (
       (editForm) = (<> </>)

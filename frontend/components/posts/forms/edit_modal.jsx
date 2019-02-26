@@ -5,6 +5,7 @@ import { updatePost } from '../../../actions/post_actions';
 
 
 const msp = ({ entities, session }, ownProps) => {
+  // debugger
   const currentUserID = session[Object.keys(session)[0]];
   const currentUser = entities.users[currentUserID];
 
@@ -19,11 +20,12 @@ const mdp = dispatch => {
 
 class EditModal extends Component {
   constructor(props) {
-    console.log(props.post.id)
+      console.log(props.post.id)
     super(props);
     let post = props.post;
     this.state = {title: post.title, body: post.body, id: post.id};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
   }
 
@@ -45,18 +47,23 @@ class EditModal extends Component {
     return (e) => this.setState({ [field]: e.target.value });
   }
 
+  handleClick() {
+    debugger
+  }
+
 
 
 
   render() {
-    debugger
-    console.log(this.state);
+    // debugger
+    // console.log(this.state);
     let edit_modal_thing
+    
     if (this.props.post.id === this.state.id) { 
       edit_modal_thing = (<form onSubmit={this.handleSubmit} id={this.props.post.id}>
       <div className="container" id={this.props.post.id}>
 
-        <button type="button" className="edit_button" data-toggle="modal" data-target="#myModal" data-id={this.props.post.id}><i className="far fa-edit"></i>  </button>
+        <button type="button" className="edit_button" onClick={this.handleClick} data-toggle="modal" data-target="#myModal" data-id={this.props.post.id}><i className="far fa-edit"></i></button>
         <div className="modal fade" id="myModal" role="dialog">
           <div className="modal-dialog">
 

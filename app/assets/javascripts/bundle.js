@@ -1538,6 +1538,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 var msp = function msp(_ref, ownProps) {
   var entities = _ref.entities,
       session = _ref.session;
+  // debugger
   var currentUserID = session[Object.keys(session)[0]];
   var currentUser = entities.users[currentUserID];
   return {
@@ -1574,6 +1575,7 @@ function (_Component) {
       id: post.id
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   } // componentDidMount() {
   //   // need to add custom route to get only comments for this specific post's author
@@ -1601,10 +1603,15 @@ function (_Component) {
       };
     }
   }, {
+    key: "handleClick",
+    value: function handleClick() {
+      debugger;
+    }
+  }, {
     key: "render",
     value: function render() {
-      debugger;
-      console.log(this.state);
+      // debugger
+      // console.log(this.state);
       var edit_modal_thing;
 
       if (this.props.post.id === this.state.id) {
@@ -1617,12 +1624,13 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
           className: "edit_button",
+          onClick: this.handleClick,
           "data-toggle": "modal",
           "data-target": "#myModal",
           "data-id": this.props.post.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "far fa-edit"
-        }), "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "modal fade",
           id: "myModal",
           role: "dialog"
@@ -1797,6 +1805,7 @@ function (_React$Component) {
         className: "text_form_post"
       }, "Post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#/",
+        value: "link",
         className: "create_text_cancel"
       }, "Cancel"));
     }
@@ -1901,7 +1910,12 @@ function (_React$Component) {
       formData.append('post[body]', this.state.body);
       formData.append('post[author_id]', this.state.author_id);
       formData.append('post[title]', this.state.title);
-      this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+
+      if (this.state.body === "") {
+        alert("needs link");
+      } else {
+        this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+      }
     }
   }, {
     key: "update",
@@ -1931,8 +1945,10 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "link",
         className: "form_cancel_button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        type: "link",
         href: "#/"
       }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "form_post_button"
@@ -2050,7 +2066,11 @@ function (_React$Component) {
       // console.log(formData);
       // processForm(this.state)
 
-      this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+      if (this.state.mediaFile === '' || this.state.mediaFile === null) {
+        alert("need to attach media");
+      } else {
+        this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+      }
     }
   }, {
     key: "handleFile",
@@ -2155,8 +2175,10 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "link",
         className: "form_cancel_button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        type: "link",
         href: "#/"
       }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "form_post_button"
@@ -2263,7 +2285,12 @@ function (_React$Component) {
       formData.append('post[body]', this.state.body);
       formData.append('post[author_id]', this.state.author_id);
       formData.append('post[title]', this.state.title);
-      this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+
+      if (this.state.body === "" || this.title === "") {
+        alert("needs quote or source");
+      } else {
+        this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+      }
     }
   }, {
     key: "update",
@@ -2300,8 +2327,10 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "link",
         className: "form_cancel_button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        type: "link",
         href: "#/"
       }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "form_post_button"
@@ -2410,7 +2439,12 @@ function (_React$Component) {
       formData.append('post[body]', this.state.body);
       formData.append('post[author_id]', this.state.author_id);
       formData.append('post[title]', this.state.title);
-      this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+
+      if (this.state.body === "" || this.title === "") {
+        alert("needs body or title");
+      } else {
+        this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+      }
     }
   }, {
     key: "update",
@@ -2447,8 +2481,10 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form_buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "link",
         className: "form_cancel_button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        type: "link",
         href: "#/"
       }, "Close")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "form_post_button"
@@ -2607,7 +2643,8 @@ function (_Component) {
         }, this.props.post.title);
       }
 
-      var editForm;
+      var editForm; // debugger
+
       this.props.post.author_id === this.props.sessionUser.id ? editForm = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           _this.props.deletePost(_this.props.post.id);
@@ -2616,7 +2653,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-trash-alt"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_edit_modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        post: this.props.post
+        post: this.props.post,
+        post_id: this.props.post_id
       })) : editForm = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ");
       var likeBool;
       var found = false;
@@ -2922,9 +2960,9 @@ function (_React$Component) {
           post: post,
           className: "post"
         });
-      });
-      console.log(this.props.state.session.id);
-      console.log(posts); // filter?
+      }); // console.log(this.props.state.session.id)
+      //    console.log(posts)
+      // filter?
 
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
         className: "dashboard_general"
@@ -3119,7 +3157,7 @@ function (_React$Component) {
         }, function () {
           window.setTimeout(function () {
             return _this4.demoLoginHelper(usernameArr, passwordArr, button);
-          }, 80);
+          }, 10);
         });
       } else if (passwordArr.length > 0) {
         this.setState({
@@ -3127,7 +3165,7 @@ function (_React$Component) {
         }, function () {
           window.setTimeout(function () {
             return _this4.demoLoginHelper(usernameArr, passwordArr, button);
-          }, 80);
+          }, 10);
         });
       } else {
         button.click();

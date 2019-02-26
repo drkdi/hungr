@@ -28,6 +28,7 @@ const mapDispatchToProps = dispatch => ({
 
       handleSubmit(e) {
             // debugger
+            
             e.preventDefault();
             // let post = merge({}, this.state);
             // this.props.processForm(post)
@@ -39,10 +40,14 @@ const mapDispatchToProps = dispatch => ({
             formData.append('post[body]', this.state.body);
             formData.append('post[author_id]', this.state.author_id);
             formData.append('post[title]', this.state.title);
-            this.props.processForm(formData)
-           
-            .then(this.props.history.push('/dashboard'));
-
+            
+            
+            if (this.state.body === "" || this.title === "") {
+                  alert("needs body or title")
+            }
+            else {
+                  this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+            }
       
       }
 
@@ -78,7 +83,8 @@ const mapDispatchToProps = dispatch => ({
                               </textarea>
 
                               <div className="form_buttons">
-                                    <button className="form_cancel_button"><a href="#/" >Close</a></button>
+                                    <button type="link" className="form_cancel_button"><a type="link" href="#/" >Close</a></button>
+                                    {/* <a typeclassName="form_cancel_button" href="#/" >Close</a> */}
                                     <button className="form_post_button">Post</button>
                               </div>
                         </form>

@@ -85,6 +85,8 @@ class ImageForm extends React.Component {
             <div className="form_buttons">
                <button className="text_form_button">Post</button>
                <a href="#/" className="create_text_cancel">Cancel</a>
+               <a type="link" href="#/" className="create_text_cancel">Close</a>
+
             </div>
          </form>
       )

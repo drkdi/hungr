@@ -65,8 +65,8 @@ class PostIndex extends React.Component {
          return <Post key={post.id} post={post} className="post" />
       });
 
-      console.log(this.props.state.session.id)
-         console.log(posts)
+      // console.log(this.props.state.session.id)
+      //    console.log(posts)
 
 
       // filter?

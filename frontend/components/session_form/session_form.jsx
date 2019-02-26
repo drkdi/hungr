@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
          this.setState(
             { username: this.state.username + usernameArr.shift()}, () => {
                window.setTimeout( () =>
-               this.demoLoginHelper(usernameArr, passwordArr, button), 80);
+               this.demoLoginHelper(usernameArr, passwordArr, button), 10);
             }
          );
       }
@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
          this.setState(
             { password: this.state.password + passwordArr.shift()}, () => {
                window.setTimeout( () => 
-               this.demoLoginHelper(usernameArr, passwordArr, button), 80);
+               this.demoLoginHelper(usernameArr, passwordArr, button), 10);
             }
          );
       }

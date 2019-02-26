@@ -8,15 +8,9 @@ import { createPost } from '../../../actions/post_actions';
       const currentUser = entities.users[currentUserID];
       return { currentUser };
    };
-
    const mapDispatchToProps = dispatch => ({
       processForm: post => dispatch(createPost(post)),
    });
-
-   
-
-
-
 
    class MediaForm extends React.Component {
       constructor(props) {
@@ -24,20 +18,17 @@ import { createPost } from '../../../actions/post_actions';
          this.state = props.post;
          this.handleSubmit = this.handleSubmit.bind(this);
          this.handleFile = this.handleFile.bind(this);
-         
-       
+           
          let banana;
          if (props.location.pathname === "/dashboard/new/image") {
             banana = 'image';
          }
-
          else if (props.location.pathname === "/dashboard/new/video") {
             banana = 'video';
          }
          else {
             banana = 'audio';
          }
-
          this.state = {
             body: '',
             author_id: this.props.currentUser.id,
@@ -45,7 +36,6 @@ import { createPost } from '../../../actions/post_actions';
             mediaUrl: null, // for image preview
             title: banana,
          };
-
       }
 
       handleSubmit(e) {
@@ -62,8 +52,16 @@ import { createPost } from '../../../actions/post_actions';
          // console.log(formData);
 
          // processForm(this.state)
-         this.props.processForm(formData)
-            .then(this.props.history.push('/dashboard'));
+         
+         
+         if (this.state.mediaFile === '' || this.state.mediaFile === null) {
+            alert("need to attach media")
+         }
+         else {
+            this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+         }
+
+
       }
 
 
@@ -194,7 +192,7 @@ import { createPost } from '../../../actions/post_actions';
 
 
                <div className="form_buttons">
-                  <button className="form_cancel_button"><a href="#/" >Close</a></button>
+                     <button type="link" className="form_cancel_button"><a type="link" href="#/" >Close</a></button>
                   <button className="form_post_button">Post</button>
                </div>
 

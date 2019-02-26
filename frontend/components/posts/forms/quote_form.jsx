@@ -37,9 +37,13 @@ class TextForm extends React.Component {
       formData.append('post[body]', this.state.body);
       formData.append('post[author_id]', this.state.author_id);
       formData.append('post[title]', this.state.title);
-      this.props.processForm(formData)
 
-         .then(this.props.history.push('/dashboard'));
+      if (this.state.body === "" || this.title === "") {
+         alert("needs quote or source")
+      }
+      else {
+         this.props.processForm(formData).then(this.props.history.push('/dashboard'));
+      }
 
 
    }
@@ -76,7 +80,7 @@ class TextForm extends React.Component {
                </textarea>
 
                <div className="form_buttons">
-                  <button className="form_cancel_button"><a href="#/" >Close</a></button>
+                  <button type="link" className="form_cancel_button"><a type="link" href="#/" >Close</a></button>
                   <button className="form_post_button">Post</button>
                </div>
             </form>

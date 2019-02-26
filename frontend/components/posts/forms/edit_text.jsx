@@ -55,7 +55,7 @@ class EditText extends React.Component {
 
             <button className="text_form_post">Post</button>
 
-            <a href="#/" className="create_text_cancel">Cancel</a>
+            <a href="#/" value="link" className="create_text_cancel">Cancel</a>
          </form>
       )
    };
