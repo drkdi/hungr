@@ -51,5 +51,11 @@ export const fetchUserPosts = (postId) => dispatch => (
       dispatch(receivePosts(posts)))
 );
 
+export const fetchLikedPosts = (postId) => dispatch => (
+   PostAPIUtil.fetchLikedPosts(postId).then((posts) => 
+      dispatch(receivePosts(posts)))
+);
+
+
 
 

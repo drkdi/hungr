@@ -1,5 +1,12 @@
+
 - add user implementation for AWS (profile pic)
 - fix comments
+- add page for likes
 - fix css modal for top right create post
 - actually implement email table 
-- empty posts / comments
+
+-add likes to custom routes in controllers
+
+- show just users page
+
+x empty posts / comments

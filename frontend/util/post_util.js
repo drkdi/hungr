@@ -45,3 +45,10 @@ export const fetchUserPosts = (id) => {
     url: `api/user_posts/${id}`,
   });
 };
+
+export const fetchLikedPosts = (id) => {
+   return $.ajax({
+      method: 'get',
+      url: `api/liked_posts/${id}`,
+   });
+};

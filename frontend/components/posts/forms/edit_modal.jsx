@@ -23,9 +23,10 @@ class EditModal extends Component {
       console.log(props.post.id)
     super(props);
     let post = props.post;
-    this.state = {title: post.title, body: post.body, id: post.id};
+    this.state = {title: post.title, body: post.body, id: post.id, hidden: true};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
 
   }
 
@@ -48,7 +49,10 @@ class EditModal extends Component {
   }
 
   handleClick() {
-    debugger
+    // this.state.hidden = true;
+    this.setState({hidden: false});
+    this.props.post.setState({hiddenEdit: false})
+    // debugger
   }
 
 
@@ -57,13 +61,18 @@ class EditModal extends Component {
   render() {
     // debugger
     // console.log(this.state);
-    let edit_modal_thing
-    
-    if (this.props.post.id === this.state.id) { 
-      edit_modal_thing = (<form onSubmit={this.handleSubmit} id={this.props.post.id}>
-      <div className="container" id={this.props.post.id}>
+    let edit_modal_thing;
 
-        <button type="button" className="edit_button" onClick={this.handleClick} data-toggle="modal" data-target="#myModal" data-id={this.props.post.id}><i className="far fa-edit"></i></button>
+
+
+    
+    // if (this.props.post.id === this.state.id) { 
+    if (this.state.hidden) {
+      edit_modal_thing = (<div><button type="button" className="edit_button" onClick={this.handleClick} ><i className="far fa-edit"></i></button></div>)
+    } else {
+      edit_modal_thing = (<form onSubmit={this.handleSubmit} id={this.props.post.id}>
+
+        
         <div className="modal fade" id="myModal" role="dialog">
           <div className="modal-dialog">
 
@@ -107,19 +116,16 @@ class EditModal extends Component {
           </div>
         </div>
 
-      </div>
     </form>)
-    }
 
-    else {
-       edit_modal_thing = []
     }
+// debugger
     return (
       <>
-      {edit_modal_thing}
+        {edit_modal_thing}
       </>
     )
-  }
+    }
 
 }
 

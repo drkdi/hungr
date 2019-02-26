@@ -201,7 +201,7 @@ var removeLike = function removeLike(likeId) {
 /*!******************************************!*\
   !*** ./frontend/actions/post_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_POSTS, RECEIVE_POST, REMOVE_POST, receivePosts, receivePost, removePost, fetchPosts, fetchPost, createPost, updatePost, deletePost, fetchUserPosts */
+/*! exports provided: RECEIVE_POSTS, RECEIVE_POST, REMOVE_POST, receivePosts, receivePost, removePost, fetchPosts, fetchPost, createPost, updatePost, deletePost, fetchUserPosts, fetchLikedPosts */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -218,6 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePost", function() { return updatePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePost", function() { return deletePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserPosts", function() { return fetchUserPosts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLikedPosts", function() { return fetchLikedPosts; });
 /* harmony import */ var _util_post_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/post_util */ "./frontend/util/post_util.js");
 
 var RECEIVE_POSTS = "RECEIVE_POSTS";
@@ -285,6 +286,13 @@ var deletePost = function deletePost(postId) {
 var fetchUserPosts = function fetchUserPosts(postId) {
   return function (dispatch) {
     return _util_post_util__WEBPACK_IMPORTED_MODULE_0__["fetchUserPosts"](postId).then(function (posts) {
+      return dispatch(receivePosts(posts));
+    });
+  };
+};
+var fetchLikedPosts = function fetchLikedPosts(postId) {
+  return function (dispatch) {
+    return _util_post_util__WEBPACK_IMPORTED_MODULE_0__["fetchLikedPosts"](postId).then(function (posts) {
       return dispatch(receivePosts(posts));
     });
   };
@@ -428,6 +436,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/route_util.jsx */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard/dashboard */ "./frontend/components/dashboard/dashboard.jsx");
 /* harmony import */ var _posts_profile__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./posts/profile */ "./frontend/components/posts/profile.jsx");
+/* harmony import */ var _posts_liked__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./posts/liked */ "./frontend/components/posts/liked.jsx");
+
 
 
 
@@ -447,6 +457,12 @@ var App = function App() {
     component: _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
     path: "/profile",
+    component: _posts_profile__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
+    path: "/liked",
+    component: _posts_liked__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
+    path: "/liked",
     component: _posts_profile__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_6__["AuthRoute"], {
     exact: true,
@@ -1148,13 +1164,21 @@ function (_Component) {
 
       // debugger
       // debugger
+      var picBool;
+
+      if (this.props.author.profile_pic_url) {
+        picBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: this.props.author.profile_pic_url,
+          className: "commentAuthorImg",
+          alt: "comment_author"
+        }));
+      } else {
+        picBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ");
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "commentBox"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: this.props.author.profile_pic_url,
-        className: "commentAuthorImg",
-        alt: "comment_author"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      }, picBool, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "commentBoxText"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "commentAuthor"
@@ -1572,7 +1596,8 @@ function (_Component) {
     _this.state = {
       title: post.title,
       body: post.body,
-      id: post.id
+      id: post.id,
+      hidden: true
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -1605,32 +1630,34 @@ function (_Component) {
   }, {
     key: "handleClick",
     value: function handleClick() {
-      debugger;
+      // this.state.hidden = true;
+      this.setState({
+        hidden: false
+      });
+      this.props.post.setState({
+        hiddenEdit: false
+      }); // debugger
     }
   }, {
     key: "render",
     value: function render() {
       // debugger
       // console.log(this.state);
-      var edit_modal_thing;
+      var edit_modal_thing; // if (this.props.post.id === this.state.id) { 
 
-      if (this.props.post.id === this.state.id) {
+      if (this.state.hidden) {
+        edit_modal_thing = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          className: "edit_button",
+          onClick: this.handleClick
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-edit"
+        })));
+      } else {
         edit_modal_thing = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.handleSubmit,
           id: this.props.post.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "container",
-          id: this.props.post.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          type: "button",
-          className: "edit_button",
-          onClick: this.handleClick,
-          "data-toggle": "modal",
-          "data-target": "#myModal",
-          "data-id": this.props.post.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "far fa-edit"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "modal fade",
           id: "myModal",
           role: "dialog"
@@ -1678,10 +1705,9 @@ function (_Component) {
           id: "close-modal",
           className: "form_cancel_button",
           "data-dismiss": "modal"
-        }, "Close"))))))));
-      } else {
-        edit_modal_thing = [];
-      }
+        }, "Close")))))));
+      } // debugger
+
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, edit_modal_thing);
     }
@@ -2499,6 +2525,121 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/posts/liked.jsx":
+/*!*********************************************!*\
+  !*** ./frontend/components/posts/liked.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _post__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./post */ "./frontend/components/posts/post.jsx");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+ //
+
+var msp = function msp(state) {
+  // { entities }
+  // debugger
+  return {
+    state: state,
+    posts: Object.values(state.entities.posts) // .filter(post =>
+    //    state.session.id === post.author_id) || []
+
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    fetchPosts: function fetchPosts() {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPosts"])());
+    },
+    fetchPost: function fetchPost(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["fetchPost"])(id));
+    },
+    fetchLikedPosts: function fetchLikedPosts(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["fetchLikedPosts"])(id));
+    },
+    deletePost: function deletePost(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["deletePost"])(id));
+    }
+  };
+}; // import Card from './card';
+// shows all posts
+
+
+var PostIndex =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PostIndex, _React$Component);
+
+  function PostIndex(props) {
+    _classCallCheck(this, PostIndex);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PostIndex).call(this, props));
+  }
+
+  _createClass(PostIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // this.props.fetchPosts();
+      // debugger
+      this.props.fetchLikedPosts(this.props.state.session.id); // this.props.state.session.id
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var posts = this.props.posts.map(function (post) {
+        return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_post__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          key: post.id,
+          post: post,
+          className: "post"
+        });
+      });
+      return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+        className: "dashboard_general"
+      }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("style", null, 'body { background: #35465C; }'), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+        className: "posts_index"
+      }, posts.reverse()));
+    }
+  }]);
+
+  return PostIndex;
+}(react__WEBPACK_IMPORTED_MODULE_3___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(PostIndex)));
+
+/***/ }),
+
 /***/ "./frontend/components/posts/post.jsx":
 /*!********************************************!*\
   !*** ./frontend/components/posts/post.jsx ***!
@@ -2595,9 +2736,15 @@ function (_Component) {
   _inherits(Post, _Component);
 
   function Post(props) {
+    var _this;
+
     _classCallCheck(this, Post);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Post).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Post).call(this, props));
+    _this.state = {
+      hiddenEdit: true
+    };
+    return _this;
   }
 
   _createClass(Post, [{
@@ -2608,7 +2755,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       var _this$props = this.props,
           like = _this$props.like,
@@ -2647,7 +2794,7 @@ function (_Component) {
 
       this.props.post.author_id === this.props.sessionUser.id ? editForm = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          _this.props.deletePost(_this.props.post.id);
+          _this2.props.deletePost(_this2.props.post.id);
         },
         className: "delete_button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2659,41 +2806,44 @@ function (_Component) {
       var likeBool;
       var found = false;
 
-      for (var i = 0; i < this.props.post.likes.length; i++) {
-        if (this.props.post.likes[i].author_id === this.props.sessionUser.id) {
-          found = true;
-          break;
+      if (this.props.post.likes) {
+        for (var i = 0; i < this.props.post.likes.length; i++) {
+          if (this.props.post.likes[i].author_id === this.props.sessionUser.id) {
+            found = true;
+            break;
+          }
         }
-      }
 
-      found ? // likes refreshing but not unlikes, even though it works, make found, likebool a function called on mount
-      likeBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          unlike(_this.props.post.likes[0].id);
-        },
-        className: "like_button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-heart",
-        style: {
-          color: "red"
-        }
-      })) : likeBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          like(_this.props.post.id);
-        },
-        className: "like_button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-heart",
-        style: {
-          color: "gray"
-        }
-      }));
+        found ? // likes refreshing but not unlikes, even though it works, make found, likebool a function called on mount
+        likeBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            unlike(_this2.props.post.likes[0].id);
+          },
+          className: "like_button"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-heart",
+          style: {
+            color: "red"
+          }
+        })) : likeBool = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            like(_this2.props.post.id);
+          },
+          className: "like_button"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-heart",
+          style: {
+            color: "gray"
+          }
+        }));
+      }
 
       if (!this.props.currentUser.profile_pic_url) {
         this.props.currentUser.profile_pic_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGTjtPQ8LBaJLXxGwFuDi6jPWZQq3nszuKi8HHiRn0yT4xUGoPDw";
       }
 
-      var modalPost = this.props.post;
+      var modalPost = this.props.post; // debugger
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "individual_post"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2938,6 +3088,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // debugger
       // this.forceUpdate()
       // debugger
       // let cards = this.props.posts.map(card => {
@@ -3214,7 +3365,7 @@ function (_React$Component) {
         demoUserButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.demoLogin,
           className: "demo_button"
-        }, "Enter Flavortown without a ticket");
+        }, "Demo Login");
       }
 
       if (this.props.formType === "Sign up") {
@@ -3968,7 +4119,7 @@ var removeLike = function removeLike(likeId) {
 /*!************************************!*\
   !*** ./frontend/util/post_util.js ***!
   \************************************/
-/*! exports provided: fetchPosts, fetchPost, createPost, updatePost, deletePost, fetchUserPosts */
+/*! exports provided: fetchPosts, fetchPost, createPost, updatePost, deletePost, fetchUserPosts, fetchLikedPosts */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3979,6 +4130,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePost", function() { return updatePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePost", function() { return deletePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserPosts", function() { return fetchUserPosts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLikedPosts", function() { return fetchLikedPosts; });
 var fetchPosts = function fetchPosts() {
   return $.ajax({
     url: "api/posts",
@@ -4020,6 +4172,12 @@ var fetchUserPosts = function fetchUserPosts(id) {
   return $.ajax({
     method: 'get',
     url: "api/user_posts/".concat(id)
+  });
+};
+var fetchLikedPosts = function fetchLikedPosts(id) {
+  return $.ajax({
+    method: 'get',
+    url: "api/liked_posts/".concat(id)
   });
 };
 

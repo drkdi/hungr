@@ -27,12 +27,19 @@ class Comment extends Component {
    render() {
       // debugger
       // debugger
+      let picBool;
+      if (this.props.author.profile_pic_url) {
+         picBool = <li> <img src={this.props.author.profile_pic_url} className="commentAuthorImg" alt="comment_author" /></li>
+      }
+      else {
+         picBool = <> </>
+      }
+
       return (
          <>
 
          <ul className="commentBox">
-
-               <li> <img src={this.props.author.profile_pic_url} className="commentAuthorImg" alt="comment_author" /></li>
+            {picBool}
             <li className="commentBoxText">
                <div className="commentAuthor">{this.props.author.username}</div>
                <p className="commentText">{this.props.comment.body}</p>

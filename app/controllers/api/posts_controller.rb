@@ -15,7 +15,11 @@ class Api::PostsController < ApplicationController
       @posts = Post.all.where(author_id: current_user.id)
    end 
 
-   
+   def liked_posts
+      @posts = Post.all.where(author_id: current_user.id)
+
+      debugger
+   end
 
    def create
 

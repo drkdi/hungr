@@ -1,3 +1,4 @@
+
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchPosts, fetchPost, deletePost, fetchUserPosts } from '../../actions/post_actions';
@@ -43,6 +44,7 @@ class PostIndex extends React.Component {
    }
 
    render() {
+      // debugger
       // this.forceUpdate()
       // debugger
       // let cards = this.props.posts.map(card => {

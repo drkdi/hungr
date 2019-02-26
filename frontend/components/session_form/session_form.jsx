@@ -91,7 +91,7 @@ class SessionForm extends React.Component {
    let email_field
    let demoUserButton;
    if (this.props.formType === "Log in") {
-      demoUserButton = <button onClick={this.demoLogin} className="demo_button">Enter Flavortown without a ticket</button>
+      demoUserButton = <button onClick={this.demoLogin} className="demo_button">Demo Login</button>
    }
    if (this.props.formType === "Sign up") {
       email_field = <input type="text" placeholder="Email" className="email_field" />

@@ -38,6 +38,9 @@ const mdp = dispatch => {
 class Post extends Component {
    constructor(props) {
       super(props);
+      this.state = {
+         hiddenEdit: true,
+      };
    }
 
    componentDidMount() {
@@ -94,6 +97,7 @@ class Post extends Component {
    let likeBool 
    let found = false;
    
+   if (this.props.post.likes){
       for (let i = 0; i < this.props.post.likes.length; i++) {
          if (this.props.post.likes[i].author_id === this.props.sessionUser.id) {
             found = true;
@@ -112,6 +116,8 @@ class Post extends Component {
             </button>)
          )
 
+         }
+
 
       if (!this.props.currentUser.profile_pic_url) {
          this.props.currentUser.profile_pic_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGTjtPQ8LBaJLXxGwFuDi6jPWZQq3nszuKi8HHiRn0yT4xUGoPDw";
@@ -120,7 +126,7 @@ class Post extends Component {
 
       let modalPost = this.props.post;
 
-
+      // debugger
       return (
       <> 
          <div className="individual_post" >
