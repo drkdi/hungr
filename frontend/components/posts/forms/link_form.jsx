@@ -71,7 +71,7 @@ class TextForm extends React.Component {
                </textarea>
 
                <div className="form_buttons">
-                  <button type="link" className="form_cancel_button"><a type="link" href="#/" >Close</a></button>
+                  <a type="link" href="#/" className="form_cancel_button">Close</a>
                   <button className="form_post_button">Post</button>
                </div>
             </form>

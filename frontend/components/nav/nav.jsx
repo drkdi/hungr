@@ -34,7 +34,7 @@ class Nav extends React.Component {
                   {/* dropdown */}
                   < Account props={this.props}/>
                   {/* <button className="icons"><i className="fas fa-user-alt"></i></button> */}
-                  < CreateDialog props={this.props}/>
+                  < CreateDialog />
 
                   {/* on click activate modal */}
                   {/* <button className="createPost"><i className="fas fa-pencil-alt"></i></button> */}

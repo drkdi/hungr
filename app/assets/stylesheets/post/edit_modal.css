@@ -8,33 +8,52 @@
 
 .edit_modal_wrapper {
    position: relative;
-   top: 30px;
+   top: 10px;
    border: none;
 
 }
 .modal-content-edit {
-      width: 600px;
+   width: 600px;
    height: 300px;
    background-color: white;
    border-radius: 5px;
 }
+.modal-header {
+   border: none;
+}
+
 .edit_modal_title {
    position: relative;
    font-size: 30px;
    font-weight: 400;
    border: none;
+   width: 100%;
+}
+
+.modal-footer {
+   border: none;
 }
 
 .edit_modal_wrapper-body {
     position: relative;
-   top: 40px;
+   /* top: px; */
+   padding: none;
    border: none;
 }
 
 .edit_modal_body {
     position: relative;
    font-size: 12px;
-   font-weight: 400;
+   padding-left: -10px;
+
+
    border: none;
    color: black;
+   width: 80%;
+   height: 150px;
+}
+
+.edit_modal_body:focus {
+   border: none;
+   outline: none;
 }

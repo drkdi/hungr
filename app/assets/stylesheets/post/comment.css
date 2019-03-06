@@ -7,6 +7,11 @@
    height: auto;
 }
 
+.comment-modal-list {
+   display: flex;
+   flex-direction: column;
+}
+
 
 .commentAuthorImg {
    width: 50px;
@@ -20,20 +25,26 @@
 }
 
 .commentBox {
-   display: inline-flex;
+   display: inline-block;
+   width: 200px;
+   /* align-content: vertical; */
 }
 
 .commentBoxText {
+   display: inline-block;
    padding-left: 20px;
    font-size: 14px;
+   color: black;
 }
 .commentAuthor{ 
    font-family: 'Source Sans Pro', sans-serif;
    font-weight: 600px;
 }
+
 .commentText {
    padding-top: 10px;
 }
+
 .commentDelete {
   position: absolute;
   right: 10%;
@@ -78,4 +89,34 @@
 .comment_form {
       height: 40px;
       width: 400px;
+}
+
+
+
+ /* implement aligator.io react modal-component */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }

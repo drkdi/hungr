@@ -140,6 +140,7 @@ class Post extends Component {
                {editForm}
                {likeBool}
       {/* NEED TO QUERY DB FOR SPECIFIC COMMENTS */}
+
                < CommentModal id={this.props.post_id} post={modalPost} className="comment_modal" post_id={this.props.post_id}/>
                </div>
             </div>

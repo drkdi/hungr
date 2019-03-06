@@ -48,10 +48,11 @@ class CommentModal extends Component {
                return (
                   // <div className="commentText">
                   // {/* <p className="commentText">comment is: {this.props.comments[comment].body}</p> */}
-                  <Comment key={this.props.comments[comment].id} comment={this.props.comments[comment]} author={this.props.entities.users[this.props.comments[comment].author_id]} post_id={this.props.entities.comments[comment].post_id}/>
-                  // </div>
+                  
+                  <Comment key={this.props.comments[comment].id} comment={this.props.comments[comment]} author={this.props.entities.users[this.props.comments[comment].author_id]} post_id={this.props.entities.comments[comment].post_id} />
+                  
                   )
-            }).filter(comment => (comment.props.comment.post_id === this.props.post.id))
+            }).filter(comment => (comment.props.comment.post_id === this.props.post.id)).reverse();
             // not comments post_id , changing with ever different comment
          // debugger            
 }
@@ -66,7 +67,7 @@ class CommentModal extends Component {
       
       let zeroPosts;
       if (commentArr.length !== 0) {
-         zeroPosts = (<button type="button" className="comments_counter_outer" data-toggle="modal" data-target="#myModal1">{commentArr.length} notes</button>)
+         zeroPosts = (<button type="button" className="comments_counter_outer" data-toggle="modal" data-target={`#myModal-comment-${this.props.post.id}`}>{commentArr.length} notes</button>)
       }
       else {
          zeroPosts = []
@@ -79,15 +80,17 @@ class CommentModal extends Component {
          <>
             {zeroPosts}
 
-            <button type="button" className="comment_modal" data-toggle="modal" data-target="#myModal1"><i className="far fa-comment"></i></button>
+            <button type="button" className="comment_modal" data-toggle="modal" data-target={`#myModal-comment-${this.props.post.id}`} ><i className="far fa-comment"></i></button>
 
-            <div className="modal fade" id="myModal1" role="dialog">
+            <div className="modal fade" id={`myModal-comment-${this.props.post.id}`} role="dialog">
                <div className="modal-dialog">
 
                   <div className="modal-content">
                      <div className="modal-header">
                         <p className="comments_counter">{commentArr.length} notes</p>
-                        <h4 className="modal-title">{commentArr.reverse()}</h4>
+
+                        <h4 className="comment-modal-list">{commentArr}</h4>
+                        
                         {/* <h4 className="modal-title">comment header</h4> */}
                            <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                      </div>

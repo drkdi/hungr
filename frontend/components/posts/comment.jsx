@@ -28,6 +28,7 @@ class Comment extends Component {
       // debugger
       // debugger
       let picBool;
+
       if (this.props.author) {
          picBool = (
             <>
@@ -48,7 +49,7 @@ class Comment extends Component {
 
       return (
          <>
-
+            {picBool}
 
             <button className="commentDelete" onClick={() => {
                this.props.deleteComment(this.props.comment.id).then(window.location.reload()) }}><i className="far fa-trash-alt"></i></button>

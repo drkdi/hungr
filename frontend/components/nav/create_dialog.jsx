@@ -1,116 +1,91 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DashLinks from '../dashboard/dashboard_nav'
+import DashLinks from '../dashboard/dashboard_nav';
+import { Modal } from 'semantic-ui-react';
 
-class AlertDialog extends React.Component {
-   state = {
-      open: false,
-   };
+class AlertDialog extends Component {
 
-   handleClickOpen = () => {
-      this.setState({ open: true });
-   };
-
-   handleClose = () => {
-      this.setState({ open: false });
-   };
-
+   
    render() {
-
-      const style2 = {
-         background: 'transparent',
-         top: -7,
-      }
-
-      const style = {
-         backgroundColor: 'transparent',
-         background: 'transparent',
-         height: 140,
-         width: 500,
-      };
-      const style3 = {
-         font: 50,
-      };
+      
 
       return (
-         <div className="nav_div">
-            <Button onClick={this.handleClickOpen}
-               style={style2}>
-               <div className="createPost"><i className="fas fa-utensils"></i></div>
-            </Button>
-
-            <Dialog
-               open={this.state.open}
-               onClose={this.handleClose}
-               aria-labelledby="alert-dialog-title"
-               aria-describedby="alert-dialog-description"
-               style={{ background: 'transparent', backgroundColor: "transparent" }}
-               overlayStyle={{ backgroundColor: 'transparent' }}
-            >
-               <DialogTitle id="alert-dialog-title"
-                  style={{ background: 'transparent', backgroundColor: "transparent" }}
-                  overlayStyle={{ backgroundColor: 'transparent' }}></DialogTitle>
 
 
-               <DialogActions style={style}>
-                  <div className="dashboard_icon_box" onClick={this.handleClose}>
-                     <Link to="/dashboard/new/text" className="dmodalicon">
-                        <span className="dashboard_nav_text" style={{ fontSize: 50 }}>Aa</span>
-                     </Link>
+         <>
 
-                     <label className="dashboard_text_label">Text</label>
+
+            <div className="nav_div">
+            <button type="button" className="createPost" data-toggle="modal" data-target={`#myModal-nav`} ><i className="fas fa-utensils"></i></button>
+
+               <div className="modal fade" id={`myModal-nav`} role="dialog" onClick={function () { document.getElementById(`close-modal`).click() }}>
+                  <div className="modal-dialog">
+
+            <button type="button" id="close-modal" data-dismiss="modal" style={{display: 'none'}}></button>
+
+                     <section className="modal_dashboard_wrapper">
+
+                        <div className="dashboard_icon_box">
+                           <Link to="/dashboard/new/text" className="dashboard_icon">
+                                 <i className="fas fa circle-icon white">Aa</i>
+                              {/* <span className="dashboard_nav_text">Aa</span> */}
+                           </Link>
+
+                           <label className="dashboard_text_label_modal">Text</label>
+                        </div>
+
+                        <div className="dashboard_icon_box">
+                           <Link to="/dashboard/new/image" className="dashboard_icon">
+                              <i className="fas fa-camera-retro modal-color fa circle-icon red"></i>
+                           </Link>
+
+                           <label className="dashboard_text_label_modal">Picture</label>
+                        </div>
+
+                        <div className="dashboard_icon_box">
+                           <Link to="/dashboard/new/quote" className="dashboard_icon">
+                              <i className="fas fa-quote-left modal-color fa circle-icon orange"></i>
+                           </Link>
+                           <label className="dashboard_text_label_modal">Quote</label>
+
+                        </div>
+
+                        <div className="dashboard_icon_box">
+                           <Link to="/dashboard/new/link" className="dashboard_icon">
+                              <i className="fas fa-link modal-color fa circle-icon green"></i>
+                           </Link>
+                           <label className="dashboard_text_label_modal">Link</label>
+                        </div>
+
+                        <div className="dashboard_icon_box">
+                           <Link to="/dashboard/new/audio" className="dashboard_icon">
+                              <i className="fas fa-headphones-alt modal-color fa circle-icon purple"></i>
+                           </Link>
+                           <label className="dashboard_text_label_modal">Audio</label>
+                        </div>
+
+                        <div className="dashboard_icon_box">
+                           <Link to="/dashboard/new/video" className="dashboard_icon">
+                              <i className="fas fa-video modal-color fa circle-icon pink"></i>
+                           </Link>
+                           <label className="dashboard_text_label_modal">Video</label>
+
+                        </div>
+
+                     </section>
+
                   </div>
+               </div>
+            </div>
 
-                  <div className="dashboard_icon_box" onClick={this.handleClose}>
-                     <Link to="/dashboard/new/image" className="modal_icon">
-                        <i className="fas fa-camera-retro"></i>
-                     </Link>
-
-                     <label className="dashboard_text_label">Picture</label>
-                  </div>
-
-                  <div className="dashboard_icon_box" onClick={this.handleClose}>
-                     <Link to="/dashboard/new/quote" className="modal_icon">
-                        <i className="fas fa-quote-left"></i>
-                     </Link>
-                     <label className="dashboard_text_label">Quote</label>
-
-                  </div>
-
-                  <div className="dashboard_icon_box" onClick={this.handleClose}>
-                     <Link to="/dashboard/new/link" className="modal_icon">
-                        <i className="fas fa-link"></i>
-                     </Link>
-                     <label className="dashboard_text_label">Link</label>
-                  </div>
-
-                  <div className="dashboard_icon_box" onClick={this.handleClose}>
-                     <Link to="/dashboard/new/audio" className="modal_icon">
-                        <i className="fas fa-headphones-alt"></i>
-                     </Link>
-                     <label className="dashboard_text_label">Audio</label>
-                  </div>
-
-                  <div className="dashboard_icon_box" onClick={this.handleClose}>
-                     <Link to="/dashboard/new/video" className="modal_icon">
-                        <i className="fas fa-video"></i>
-                     </Link>
-                     <label className="dashboard_text_label">Video</label>
-
-                  </div>
-
-               </DialogActions>
-            </Dialog>
-         </div>
+         </>
       );
    }
 }
 
 export default AlertDialog;
+
+
+
+

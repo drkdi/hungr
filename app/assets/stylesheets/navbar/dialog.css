@@ -1,0 +1,76 @@
+.dialog_modal {
+   background-color: white;
+   width: 500px;
+   height: 200px;
+}
+
+.nav_div {
+    z-index: 1050;
+
+}
+.modal-backdrop {
+  z-index: -1;
+}
+
+.modal_dashboard_wrapper {
+   display: inline-flex;
+   justify-content: space-evenly;
+   position: absolute;
+   top: 250px;
+   left: -30%;
+   width: 900px;
+  font-size: 41px;
+   border-radius: 3px;
+}
+
+.dashboard_icon_box {
+   display: flex;
+   flex-flow: column;
+   /* display: inline-block; */
+   align-items: center;
+   padding-top: 10px;
+   height: 40px;
+   width: 76px;
+}
+
+.dashboard_text_label_modal {
+   color: lightgray;
+   padding-top: 10px;
+   font-size: 20px;
+   font-weight: 300;
+   font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+ 
+.circle-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    /* padding: 30px; */
+}
+
+.white {
+   background: white;
+}
+.red {
+   background:  #DA6A54;
+}
+.orange {
+   background:  #F1A344;
+}
+.green {
+   background:  #6CC595;
+}
+.purple {
+   background: #AF86C8;
+}
+.pink {
+   background: #838C94;
+}
+.modal-color {
+  color: #151c26;
+}

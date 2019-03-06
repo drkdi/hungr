@@ -6,7 +6,8 @@ const postReducer = (state={}, action) => {
    Object.freeze(state);
    switch(action.type) {
       case RECEIVE_POSTS:   
-         // debugger
+         // currently just rerendering all things, need to figure out how to delete items when profile/likes
+         // return merge({}, state, action.posts);
          return assign({}, action.posts);
       case RECEIVE_POST:
          // debugger

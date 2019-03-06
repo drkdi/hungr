@@ -20,13 +20,11 @@ const mdp = dispatch => {
 
 class EditModal extends Component {
   constructor(props) {
-      console.log(props.post.id)
+    console.log(props.post.id)
     super(props);
     let post = props.post;
-    this.state = {title: post.title, body: post.body, id: post.id, hidden: true};
+    this.state = {title: post.title, body: post.body, id: post.id};
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-
 
   }
 
@@ -39,20 +37,15 @@ class EditModal extends Component {
     // debugger
   
     e.preventDefault();
-    this.props.updatePost(merge({}, this.props.post, this.state))
-      .then(this.setState({ body: "", title: ""}))
-      .then(document.getElementById("close-modal").click());
+    this.props.updatePost(merge({}, this.props.post, this.state));
+      // .then(function() {document.getElementById('close-modal').click()});
+      window.location.reload();
+
+
   }
 
   update(field) {
     return (e) => this.setState({ [field]: e.target.value });
-  }
-
-  handleClick() {
-    // this.state.hidden = true;
-    this.setState({hidden: false});
-    this.props.post.setState({hiddenEdit: false})
-    // debugger
   }
 
 
@@ -60,69 +53,67 @@ class EditModal extends Component {
 
   render() {
     // debugger
-    // console.log(this.state);
+    // console.log(this.state); 
     let edit_modal_thing;
+    // if (this.props.post.id === this.state.id) { 
 
-
+  
 
     
-    // if (this.props.post.id === this.state.id) { 
-    if (this.state.hidden) {
-      edit_modal_thing = (<div><button type="button" className="edit_button" onClick={this.handleClick} ><i className="far fa-edit"></i></button></div>)
-    } else {
-      edit_modal_thing = (<form onSubmit={this.handleSubmit} id={this.props.post.id}>
-
-        
-        <div className="modal fade" id="myModal" role="dialog">
-          <div className="modal-dialog">
-
-            <div className="modal-content-edit">
-              <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal">&times;</button>
-                {/* <h4 className="modal-title">{this.props.post.title}</h4> */}
-                {/* <textarea name="" id="title" cols="30" rows="1" defaultValue={this.props.post.title}></textarea> */}
-                <p className="edit_modal_username">Editing as: "{this.props.currentUser.username}"</p>
-
-                <div className="edit_modal_wrapper">
-                  <label htmlFor="title" />
-                  <input onChange={this.update('title')}
-                    type="text"
-                    placeholder="title"
-                    id="title"
-                    value={this.state.title}
-                    className="edit_modal_title"
-                  />
-
-                </div>
-                <div className="edit_modal_wrapper-body">
-                  {/* <textarea name="" id="body" cols="30" rows="5" defaultValue={this.props.post.body}></textarea> */}
-                  <label htmlFor="body" />
-                  <input onChange={this.update('body')}
-                    type="text"
-                    id="body"
-                    placeholder="bodys"
-                    value={this.state.body}
-                    className="edit_modal_body"
-                  />
-                </div>
-                <div className="modal-footer">
-                  <input type="submit" className="form_post_button" />
-                  <button type="button" id="close-modal" className="form_cancel_button" data-dismiss="modal">Close</button>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-    </form>)
-
-    }
 // debugger
     return (
       <>
-        {edit_modal_thing}
+        <button type="button" className="edit_button" data-toggle="modal" data-target={`#myModal${this.props.post.id}`}><i className="far fa-edit"></i></button>
+
+        <form onSubmit={this.handleSubmit} id={this.props.post.id}>
+          <div className="modal fade" id={`myModal${this.props.post.id}`} role="dialog">
+            <div className="modal-dialog">
+
+              <div className="modal-content-edit">
+
+                <div className="modal-header">
+                  <button type="button" className="close" data-dismiss="modal">&times;</button>
+                  {/* <h4 className="modal-title">{this.props.post.title}</h4> */}
+                  {/* <textarea name="" id="title" cols="30" rows="1" defaultValue={this.props.post.title}></textarea> */}
+                  <p className="edit_modal_username">Editing as: "{this.props.currentUser.username}"</p>
+
+                  <div className="edit_modal_wrapper">
+                    <label htmlFor="title" />
+                    <input onChange={this.update('title')}
+                      type="text"
+                      placeholder="title"
+                      id="title"
+                      value={this.state.title}
+                      className="edit_modal_title"
+                    />
+                  </div>
+
+                  <div className="edit_modal_wrapper-body">
+                    {/* <textarea name="" id="body" cols="30" rows="5" defaultValue={this.props.post.body}></textarea> */}
+                    <label htmlFor="body" />
+
+                    <textarea onChange={this.update('body')}
+                      type="text"
+                      id="body"
+                      placeholder="bodys"
+                      value={this.state.body}
+                      className="edit_modal_body"
+                     cols="30" rows="1"></textarea>
+                  
+                  </div>
+
+                  <div className="modal-footer">
+                    <input type="submit" className="form_post_button" />
+                    <button type="button" id="close-modal" className="form_cancel_button" data-dismiss="modal">Close</button>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </form>
       </>
     )
     }
