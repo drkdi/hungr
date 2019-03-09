@@ -30,11 +30,13 @@ class Nav extends React.Component {
 
                <div className="nav_buttons">
                   {/* <button className="icons"><i className="fas fa-home"></i></button> */}
-                  <a href="#/dashboard" className="icons"><i className="fas fa-home"></i></a>
-                  {/* dropdown */}
+                     <a href="#/dashboard"><i className="down icons fas fa-home" title="home"></i></a>
+                     <Link to="/liked"><i className="down icons fas fa-heart" title="liked"></i></Link>
+                     <Link to="/profile"><i className="down icons fas fa-user-alt" title="profile"></i></Link>
                   < Account props={this.props}/>
+
                   {/* <button className="icons"><i className="fas fa-user-alt"></i></button> */}
-                  < CreateDialog />
+                  < CreateDialog props={this.props}/>
 
                   {/* on click activate modal */}
                   {/* <button className="createPost"><i className="fas fa-pencil-alt"></i></button> */}

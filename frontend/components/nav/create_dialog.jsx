@@ -17,7 +17,7 @@ class AlertDialog extends Component {
 
 
             <div className="nav_div">
-            <button type="button" className="createPost" data-toggle="modal" data-target={`#myModal-nav`} ><i className="fas fa-utensils"></i></button>
+            <button type="button" className="createPost" data-toggle="modal" data-target={`#myModal-nav`} ><i className="fas fa-utensils" title="create dialog"></i></button>
 
                <div className="modal fade" id={`myModal-nav`} role="dialog" onClick={function () { document.getElementById(`close-modal`).click() }}>
                   <div className="modal-dialog">

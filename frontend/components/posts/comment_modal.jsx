@@ -80,7 +80,7 @@ class CommentModal extends Component {
          <>
             {zeroPosts}
 
-            <button type="button" className="comment_modal" data-toggle="modal" data-target={`#myModal-comment-${this.props.post.id}`} ><i className="far fa-comment"></i></button>
+            <button type="button" className="comment_modal" data-toggle="modal" data-target={`#myModal-comment-${this.props.post.id}`} ><i className="far fa-comment" title="comment"></i></button>
 
             <div className="modal fade" id={`myModal-comment-${this.props.post.id}`} role="dialog">
                <div className="modal-dialog">

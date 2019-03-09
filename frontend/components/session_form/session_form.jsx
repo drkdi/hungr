@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
          this.setState(
             { username: this.state.username + usernameArr.shift()}, () => {
                window.setTimeout( () =>
-               this.demoLoginHelper(usernameArr, passwordArr, button), 10);
+               this.demoLoginHelper(usernameArr, passwordArr, button), 70);
             }
          );
       }
@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
          this.setState(
             { password: this.state.password + passwordArr.shift()}, () => {
                window.setTimeout( () => 
-               this.demoLoginHelper(usernameArr, passwordArr, button), 10);
+               this.demoLoginHelper(usernameArr, passwordArr, button), 70);
             }
          );
       }
@@ -124,7 +124,7 @@ class SessionForm extends React.Component {
             {this.props.logo}
 
             {/* button opposite of whatever form you're in */}
-            <div className="anti_button">
+            <div>
                {this.props.navLink}
             </div>
 

@@ -63,7 +63,7 @@ class EditModal extends Component {
 // debugger
     return (
       <>
-        <button type="button" className="edit_button" data-toggle="modal" data-target={`#myModal${this.props.post.id}`}><i className="far fa-edit"></i></button>
+        <button type="button" className="edit_button" data-toggle="modal" data-target={`#myModal${this.props.post.id}`}><i className="far fa-edit" title="edit"></i></button>
 
         <form onSubmit={this.handleSubmit} id={this.props.post.id}>
           <div className="modal fade" id={`myModal${this.props.post.id}`} role="dialog">

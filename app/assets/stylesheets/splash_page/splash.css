@@ -144,6 +144,7 @@
    box-sizing: border-box;
    color: #444444;
    background-color: white;
+   border: none;
 
    cursor: pointer;
    /* padding: 70px 32px; */

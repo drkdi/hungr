@@ -52,7 +52,7 @@ class Comment extends Component {
             {picBool}
 
             <button className="commentDelete" onClick={() => {
-               this.props.deleteComment(this.props.comment.id).then(window.location.reload()) }}><i className="far fa-trash-alt"></i></button>
+               this.props.deleteComment(this.props.comment.id).then(window.location.reload()) }}><i className="far fa-trash-alt" title="comment"></i></button>
          {/* need to refresh after deleting */}
          </>
       )
