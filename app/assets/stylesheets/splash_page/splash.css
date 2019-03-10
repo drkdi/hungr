@@ -90,8 +90,8 @@
 .phrase1 {
    color: white;
    margin: -2px 0 0 0;
-
 }
+
 
 .phrase2 {
    color: white;
@@ -210,3 +210,23 @@
    border-radius: 5px;
 }
 
+.splash_anchor_bottom {
+   position: absolute;
+   bottom: 0px;
+   width: 100%;
+   
+   height: 46px;
+   background-color: limegreen;
+   border-top: 3px solid green;
+   
+
+
+}
+.splash_anchor_bottom_text {
+   color: white;
+   font-weight: 600;
+   font-size: 14px;
+   font-family:'Open Sans', sans-serif;
+   position: relative;
+   top: 25%;
+}

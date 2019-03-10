@@ -1,0 +1,20 @@
+.section {
+    /* the important one*/
+    background-attachment: fixed; 
+ 
+    background-size: auto 80%;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+}
+
+#section1 {
+   
+   background-image: url("https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2016/howcuttingdo.jpg");
+}
+#section2 {
+    background-image: url(imgs/h2.jpg);
+}
+#section3 {
+    background-image: url(imgs/h3.jpg);
+}
+
