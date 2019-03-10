@@ -8,7 +8,11 @@
 - change icons on top right
 - show just users page
 -CSS media queries for mobile
+ 
+-recommended need to query for specific users
+   - hide recommended blogs if resize smaller
 
+-icon sets to users
 
 x fix css modal for top right create post
 x add page for likes

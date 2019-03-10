@@ -1,17 +1,3 @@
-/* .main_dashboard {
-   position: absolute;
-   top: 100px;
-   background-color: #36465d;
-   background-image: none;
-   padding: none;
-} */
-
-/* 
-.grid-container {
-   display: grid;
-   grid-column-gap: 10px;
-} */
-
 
 
 
@@ -168,19 +154,19 @@
 }
 
 .fa-camera-retro {
-   color: #DA6A54;
+   color: #ff5e48;
 }
 
 .fa-quote-left {
-   color: #F1A344;
+   color: #ff9632;
 }
 
 .fa-link {
-   color: #6CC595;
+   color: #3dd44f;
 }
 
 .fa-headphones-alt {
-   color: #AF86C8;
+   color: #896dff;
 }
 
 .fa-video {

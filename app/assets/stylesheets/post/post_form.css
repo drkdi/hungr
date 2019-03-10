@@ -64,6 +64,15 @@
    border: none;
 }
 
+/* button :hover {
+   position: relative;
+   top: -3px;
+} */
+.hoverUp :hover {
+   position: relative;
+   top: -2px;
+}
+
 .edit_button {
    background: none;
    border: none;

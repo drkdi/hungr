@@ -49,6 +49,21 @@ body {
   
 }
 
+p :hover {
+  text-decoration: none;
+}
+
+i :hover{
+  text-decoration: none;
+}
+p {
+  text-decoration: none;
+}
+
+i {
+  text-decoration: none;
+}
+
 /* .small_logo {
   height: 32px;
 

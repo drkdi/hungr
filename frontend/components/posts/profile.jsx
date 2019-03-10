@@ -80,7 +80,7 @@ class PostIndex extends React.Component {
       return (
 
          <div className="dashboard_general">
-            <style>{'body { background: #35465C; }'}</style>
+            <style>{'body { background: #001935; }'}</style>
 
             <div className="posts_index">
                {posts.reverse()}

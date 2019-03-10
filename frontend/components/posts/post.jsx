@@ -87,7 +87,7 @@ class Post extends Component {
       (this.props.post.author_id === this.props.sessionUser.id) ? (
       (editForm) = (<>
             {/* <button onClick={() => {}} className="form_cancel_button"><i class="far fa-trash-alt"></i>delete</button> */}
-            <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="delete_button"><i className="far fa-trash-alt" title="delete"></i></button>
+            <button onClick={() => { this.props.deletePost(this.props.post.id) }} className="delete_button hoverUp"><i className="far fa-trash-alt" title="delete"></i></button>
             < EditModal post={this.props.post} post_id={this.props.post_id} title="edit"/>
          </>
       )) : (
@@ -106,12 +106,12 @@ class Post extends Component {
       }
          (found) ? (
             // likes refreshing but not unlikes, even though it works, make found, likebool a function called on mount
-         (likeBool) = (<button onClick={() => { unlike(this.props.post.likes[0].id) }} className="like_button">
+            (likeBool) = (<button onClick={() => { unlike(this.props.post.likes[0].id) }} className="like_button hoverUp">
                   <i className="fas fa-heart" style={{color: "red"}} title="like"></i>
             </button>
             )
          ) : (
-         (likeBool) = (<button onClick={() => { like(this.props.post.id) }} className="like_button">
+               (likeBool) = (<button onClick={() => { like(this.props.post.id) }} className="like_button hoverUp">
                   <i className="far fa-heart" style={{ color: "gray" }} title="like"></i>
             </button>)
          )

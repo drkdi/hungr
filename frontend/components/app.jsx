@@ -13,6 +13,9 @@ const App = () => (
    <>
    <div>
 
+      
+
+
       <ProtectedRoute path="/" component={NavContainer} />
       <Switch>
             <ProtectedRoute path="/dashboard" component={Dashboard} />

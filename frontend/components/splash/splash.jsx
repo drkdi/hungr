@@ -3,8 +3,7 @@ import { login } from "../../actions/session_actions";
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import SignUpFormContainer from '../session_form/signup_form_container';
-import { SectionsContainer, Section } from 'react-fullpage';
-
+import FullPageScroll from './full_page_scroll';
 // import ReactDOM from 'react-dom';
 
 // import ReactFullpage from '@fullpage/react-fullpage';
@@ -36,21 +35,6 @@ class Splash extends React.Component {
 
 
    render() {
-
-      let options = {
-         activeClass: 'active',
-         sectionClassName: 'section',
-         anchors: ['#/', 'sectionTwo', 'sectionThree', 'sectionFour', 'sectionFive', 'sectionSix'],
-         scrollBar: false,
-         className: 'SectionContainer', // the class name for the section container
-         navigation: false,
-         delay: 1000, // the scroll animation speed
-         verticalAlign: false,
-         sectionPaddingTop: '0', // the section top padding
-         sectionPaddingBottom: '0', // the section bottom padding
-         arrowNavigation: true
-         
-      };
 
 
 
@@ -119,52 +103,39 @@ class Splash extends React.Component {
                   <img className="linkedin-img animated fadeIn" src="https://i.imgur.com/aQVis67.png"/>
             </a>
          </div>
-            <Link to="/sectionTwo" className="splash_anchor_bottom twoSecPopup fadeInUp">
-               <div className="splash_anchor_bottom_text">What is Hungr?</div>
-            </Link>
 
-      </div>
+
+            <div className="splash_anchor_bottom twoSecPopup fadeInUp">
+                  
+                  <div className="splash_anchor_bottom_text">
+                  <i className="fas fa-angle-down leftish"></i>
+
+                     What is Hungr?   
+                  <i className="fas fa-angle-down rightish"></i>
+         
+                  </div>
+
+            </div>
+
+
+          </div>
+
+         {/* <FullPageScroll /> */}
+
+
+
+
+
+
+
          <div>
 
-
-            <SectionsContainer className="container" {...options}>
-               <Section color="green">
-                  <h1>Tumblr is so easy to use that it’s hard to explain.</h1>
-                  We made it really, really simple for people to make a blog and put whatever they want on it. Stories, photos, GIFs, TV shows, links, quips, dumb jokes, smart jokes, Spotify tracks, mp3s, videos, fashion, art, deep stuff. Tumblr is 461 million different blogs, filled with literally whatever.
-               </Section>
+            
+      <FullPageScroll />
 
 
-               <Section className="custom-section" verticalAlign="true" color="purple">
-                  <h1>Tumblr is blogs.</h1>
-                  Turns out that when you make it easy to create interesting things, that’s exactly what people do. All those great, random blogs your friends send you, those are Tumblr blogs. We’ll help you find and follow blogs like that, and we’ll help other people find and follow yours.
-               </Section>
-               
-               <Section color="blue">You already know how this works.
-Once you follow a blog, all of its posts show up in your dashboard, just like you’d expect. See something great? Reblog it to your own blog. Add commentary if you like. Make it your own. Other people will do the same to your posts. That’s how you meet people here.
-               </Section>
-
-               <Section color="orange">Seriously, put anything you want here.
-Seven post types to get you started. Your brain can do the rest. This thing is yours. Use it however you like.
-               </Section>
-
-
-               <Section color="yellow">
-               </Section>
-
-            </SectionsContainer>
            
-           
-            {/* <ReactFullpage.Wrapper>
-               <div className="section">
-                  <p>Section 1 (welcome to fullpage.js)</p>
-                  <button onClick={() => fullpageApi.moveSectionDown()}>
-                     Click me to move down
-            </button>
-               </div>
-               <div className="section">
-                  <p>Section 2</p>
-               </div>
-            </ReactFullpage.Wrapper> */}
+
 
          </div>
       </>

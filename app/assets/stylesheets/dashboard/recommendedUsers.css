@@ -1,0 +1,90 @@
+.recommended_users {
+   position: absolute;
+   right: 40%;
+   top: 100px;
+   width: 300px;
+   height: 270px;
+   /* background-color: green; */
+   z-index: 0;
+   color: white;
+}
+.recommended_users_user_pic {
+   width: 40px;
+   height: 40px;
+   border-radius: 3px;
+   object-fit: cover;
+   margin-left: 5px;
+
+   /* position: absolute; */
+}
+
+.recommended_person {
+   display: inline-block;
+   width: 100%;
+   
+   /* display: flex; */
+}
+
+/* .align-left{
+   float: left;
+ }
+
+.align-right{
+   float: right;
+ }  */
+
+.align-left{
+   float: left;
+ }
+
+.align-right{
+   position: absolute;
+   left: 55px;
+ } 
+
+ .recommended_username {
+   color: white;
+   font-weight: 600;
+ }
+
+ .recommended_catchphrase {
+    color: lightgray;
+    position: relative;
+    left: 10px;
+    top: 18px;
+    font-size: 12px;
+ }
+
+ .recommended_blogs {
+    font-weight: 600;
+    font-size: 16px;
+ }
+
+ hr {
+    display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 0;
+  margin-right: 0;
+  border-style: inset;
+  border-width: solid white;
+  opacity: 0.5;
+}
+ 
+.radar_image {
+   width: 300px;
+   height: 380px;
+      border-radius: 3px;
+   object-fit: cover;
+}
+
+.profile_pic {
+      width: 66px;
+   height: 66px;
+   border-radius: 3px;
+     object-fit: cover;
+
+   position: absolute;
+   left: -86px;
+   top: 90px;
+}

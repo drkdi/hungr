@@ -18,6 +18,7 @@ class SessionForm extends React.Component {
    }
 
    demoLogin() {
+      this.refs.btn.setAttribute("disabled", "disabled");
       const usernameArr = "thesecheesefriesarebombdotcom".split("");
       const passwordArr = "password".split("");
       const button = document.getElementById('login_signup_button');
@@ -91,7 +92,7 @@ class SessionForm extends React.Component {
    let email_field
    let demoUserButton;
    if (this.props.formType === "Log in") {
-      demoUserButton = <button onClick={this.demoLogin} className="demo_button">Demo Login</button>
+      demoUserButton = <button ref="btn" onClick={this.demoLogin} className="demo_button">Demo Login</button>
    }
    if (this.props.formType === "Sign up") {
       email_field = <input type="text" placeholder="Email" className="email_field" />

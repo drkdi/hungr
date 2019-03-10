@@ -8,16 +8,19 @@ import MediaForm from '../posts/forms/media_form';
 import LinkForm from '../posts/forms/link_form';
 import EditText from '../posts/forms/edit_text';
 import ProfileIndexContainer from '../posts/profile';
+import CurrUserPic from './currUserPic';
+
 
 const Dashboard = props => { 
       
-  
       let indexType = ( < PostIndexContainer /> )
 
    return (
-
+      
       <div className="dashboard_general">
-  
+
+      < CurrUserPic />
+
          <Switch>
             <Route exact path='/dashboard/' component={DashboardNav} />
             <Route exact path='/dashboard/new/text' component={TextForm} />
@@ -30,13 +33,14 @@ const Dashboard = props => {
             <Route path='/' />
          </Switch>
 
-
-         <style>{'body { background: #35465C; }'}</style>
+         <style>{'body { background: #001935; }'}</style>
 
 
          
          {indexType}
 
+         {/* recommended */}
+         {/* radar */}
 
       </div>
    )

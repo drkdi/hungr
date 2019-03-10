@@ -1,4 +1,4 @@
-@keyframes animate {
+@keyframes animated {
     from {
         opacity: 0;
         transform: scale(.9, .9);
@@ -91,3 +91,30 @@
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
 }
+
+
+.blinking{
+    animation:blinkingText 3s infinite;
+}
+@keyframes blinkingText{
+    0%{         -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: white;    }
+    49%{        -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: transparent; }
+    50%{     -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: white; }
+    99%{     -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: transparent;  }
+    100%{       -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: white;    }
+}
+
+.spin {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
