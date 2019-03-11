@@ -18,7 +18,10 @@
   font-family: "BookmanStd-bold";
   src: url('assets/BookmanStd-bold.otf');
 } */
-
+@font-face {
+  font-family: "Kaushan Script Regular";
+  src: url(/assets/KaushanScript-Regular.otf) format("truetype");
+}
 
 html, div {
    color: black;
@@ -64,6 +67,10 @@ i {
   text-decoration: none;
 }
 
+i :hover{
+  text-decoration: none;
+}
+
 /* .small_logo {
   height: 32px;
 
@@ -95,28 +102,37 @@ ul {
   padding: 0;
 }
 
+.fas :hover {
+   text-decoration: none; 
+
+}
+.fas {
+   text-decoration: none; 
+
+}
+
 
 /*This is coded CSS rainbow*/
 /* small corner logo h */
 .rainbow {
-text-decoration: none; 
+ text-decoration: none; 
+  font-family: 'Bevan', regular;
   color: white;
-  font-size:42.0px;
-  font-family: 'BookmanStd-bold';
+  font-size:41.0px;
   position: fixed;
-  top: 3px;
-  left: 20px;
+  top: -1px;
+  left: 15px;
   z-index: 5;
 }
 
 .rainbow:not(:hover) {
   text-decoration: none; 
+  font-family: 'Bevan', regular;
   color: white;
-  font-size:42.0px;
-  font-family: 'BookmanStd-bold';
+  font-size:41.0px;
   position: fixed;
-  top: 3px;
-  left: 20px;
+  top: -1px;
+  left: 15px;
   z-index: 5;
 }
 

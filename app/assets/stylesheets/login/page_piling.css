@@ -21,8 +21,8 @@ text-decoration: none;
   font-size: 190px;
 
   position: absolute;
-  left: 45%;
-  top: 6%;
+  left: 46%;
+  top: 6.5%;
    z-index: 2;
 }
 
@@ -39,7 +39,7 @@ text-decoration: none;
 
 .circle-container {
     position: relative;
-    top: 20%;
+    top: 19%;
     width: 24em;
     height: 24em;
     /* padding: em; */

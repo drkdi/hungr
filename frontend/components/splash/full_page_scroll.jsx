@@ -46,7 +46,7 @@ class FullPageScroll extends React.Component {
                      <i className="fas fa-font pageScrollIcon  deg315"></i>
                   </div>
 
-                  <button className="backtoTop1"><a href="http://www.hungr.club/#/"><i class="fas fa-angle-double-up"></i></a></button>
+                  <button className="backtoTop1"><a href="http://www.hungr.club/#/dashboard"><i class="fas fa-angle-double-up"></i></a></button>
 
                   <div className="fullPageExplainWrapper">
                      <h1 className="fullPageHeader">Hungr is so easy to use that it’s hard to explain.</h1>
@@ -58,7 +58,7 @@ class FullPageScroll extends React.Component {
 
                <Section className="custom-section" verticalAlign="true" color="#7c5cff">
                      
-                  <button className="backtoTop2"><a href="http://www.hungr.club/#/"><i class="fas fa-angle-double-up"></i></a></button>
+                  <button className="backtoTop2"><a href="http://www.hungr.club/#/dashboard"><i class="fas fa-angle-double-up"></i></a></button>
 
                   <div className="fullPageExplainWrapper">
                      <h1 className="fullPageHeader blinking">Hungr is blogs.</h1>
@@ -86,7 +86,7 @@ class FullPageScroll extends React.Component {
 
 
                <Section color="#001935">
-                  <button className="backtoTop3"><a href="http://www.hungr.club/#/"><i class="fas fa-angle-double-up"></i></a></button>
+                  <button className="backtoTop3"><a href="http://www.hungr.club/#/dashboard"><i class="fas fa-angle-double-up"></i></a></button>
 
                   <img src="https://i.imgur.com/KN4Oo0e.png" className="fullPageFeedImage"/>
                   

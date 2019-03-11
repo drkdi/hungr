@@ -133,10 +133,10 @@
    right: 3px;
 }
 
-/* .fa-utensils {
-   position: relative;
-   bottom: 3px;
-} */
+.fa-utensils {
+color: #001935;
+}
+
 .nav_buttons {
    display: flex;
    position: absolute;
