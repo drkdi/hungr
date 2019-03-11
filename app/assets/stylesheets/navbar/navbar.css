@@ -137,6 +137,11 @@
 color: #001935;
 }
 
+.nav_buttons :hover {
+   text-decoration: none;
+
+}
+
 .nav_buttons {
    display: flex;
    position: absolute;

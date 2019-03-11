@@ -79,7 +79,7 @@ class PostIndex extends React.Component {
 
       return (
 
-         <div className="dashboard_general">
+         <div className="dashboard_general_other">
             <style>{'body { background: #001935; }'}</style>
 
             <div className="posts_index">
