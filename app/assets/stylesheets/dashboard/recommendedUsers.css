@@ -1,11 +1,25 @@
+.right_of_posts_index {
+   position: absolute;
+   top: 11%;
+   left: 63%;
+   z-index: -1;
+}
+
+.DASHBOARD_AND_RECOMMEND {
+   display: inline-block;
+
+}
+
+.post_index_space {
+   display: inline-block;
+}
+
 .recommended_users {
    position: absolute;
-   right: 40%;
-   top: 100px;
+   left: 60%;
+   top: 5%;
    width: 300px;
    height: 270px;
-   /* background-color: green; */
-   z-index: 0;
    color: white;
 }
 .recommended_users_user_pic {
@@ -25,13 +39,6 @@
    /* display: flex; */
 }
 
-/* .align-left{
-   float: left;
- }
-
-.align-right{
-   float: right;
- }  */
 
 .align-left{
    float: left;

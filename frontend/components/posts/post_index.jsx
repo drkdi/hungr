@@ -1,7 +1,6 @@
 import React from 'react';
 import Post from './post';
 
-import Recommended from '../dashboard/recommended';
 
 
 // shows all posts
@@ -25,12 +24,11 @@ class PostIndex extends React.Component {
       
       return (
          <>
+
             <div className="posts_index">
                {posts.reverse()}
             </div>
 
-            
-            < Recommended />
 
          </>
       )

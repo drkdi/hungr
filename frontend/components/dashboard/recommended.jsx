@@ -113,6 +113,7 @@ class Recommended extends React.Component {
       // debugger
       return (
          <>
+         <div className="right_of_posts_index">
             <div className="recommended_users">
                <p className="recommended_blogs">Recommended Blogs</p>
                <hr />
@@ -129,6 +130,7 @@ class Recommended extends React.Component {
                <hr/>
               {radarPost}           
                          
+            </div>
             </div>
          </>
       )

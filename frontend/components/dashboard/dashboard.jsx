@@ -9,16 +9,15 @@ import LinkForm from '../posts/forms/link_form';
 import EditText from '../posts/forms/edit_text';
 import ProfileIndexContainer from '../posts/profile';
 import CurrUserPic from './currUserPic';
-
+import Recommended from './recommended';
 
 const Dashboard = props => { 
       
       let indexType = ( < PostIndexContainer /> )
 
    return (
-      
+      <div className="DASHBOARD_AND_RECOMMEND">
       <div className="dashboard_general">
-
       < CurrUserPic />
 
          <Switch>
@@ -34,14 +33,15 @@ const Dashboard = props => {
          </Switch>
 
          <style>{'body { background: #001935; }'}</style>
-
-
-         
          {indexType}
+
 
          {/* recommended */}
          {/* radar */}
 
+      </div>
+
+      < Recommended className="right_of_posts_index" />
       </div>
    )
 

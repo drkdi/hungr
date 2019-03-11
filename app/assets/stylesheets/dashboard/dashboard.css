@@ -3,19 +3,13 @@
 
 
 .dashboard_general {
+   
    position: relative;
-   left: 24%;
-   max-width: 100vh;
+   left: 60%;
+
 }
 
-/* .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width:100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-} */
+
 
 
 
