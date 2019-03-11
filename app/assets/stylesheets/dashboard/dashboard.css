@@ -135,11 +135,12 @@
    position: absolute;
    top: 0;
    left: -1000px;
-   width: 200%;
+   width: 500%;
    height: 200%;
    z-index: 1;
    /* background: red; */
-   background: rgba(54,70,93,0.9)
+   background:   #001935;
+   opacity: 0.8;
 }
 
 

@@ -38,7 +38,8 @@ class Recommended extends React.Component {
          if (Object.values(this.props.entities.users).length > 3) {
          users = (Object.values(this.props.entities.users).map(user => {
             return user;
-         })).sort((a, b) => 0.5 - Math.random())
+         }));
+         // .sort((a, b) => 0.5 - Math.random())
          //  console.log(users)
          conditionalRendering = (
                      <>
