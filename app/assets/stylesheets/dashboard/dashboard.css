@@ -5,6 +5,7 @@
 .dashboard_general {
    position: relative;
    left: 24%;
+   max-width: 100vh;
 }
 
 /* .modal {
