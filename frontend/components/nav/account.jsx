@@ -57,10 +57,10 @@ class SimpleMenu extends React.Component {
 
                <Link to="/liked"><MenuItem onClick={this.handleClose}>Liked</MenuItem></Link>
                <Link to="/profile"><MenuItem onClick={this.handleClose}>Profile</MenuItem></Link>
+               <MenuItem onClick={() => { location.href = "http://drkdi.github.io" }}>LinkedIn</MenuItem>
+               <MenuItem onClick={() => { location.href = "https://linkedin.com/in/daiderek/" }}>Github</MenuItem>
                <MenuItem onClick={() => { location.href = "https://derekdai.com" }}>derekdai.com</MenuItem>
                <MenuItem onClick={() => { location.href = "https://derekdai.com/LoudTetris/" }}>Loud Tetris</MenuItem>
-               <MenuItem onClick={() => { location.href = "https://linkedin.com/in/daiderek/" }}>Github</MenuItem>
-               <MenuItem onClick={() => { location.href = "http://drkdi.github.io" }}>LinkedIn</MenuItem>
                {/* <MenuItem onClick={this.handleClose}>Following</MenuItem>
                <MenuItem onClick={this.handleClose}>Settings</MenuItem>
                <MenuItem onClick={this.handleClose}>Help</MenuItem> */}
