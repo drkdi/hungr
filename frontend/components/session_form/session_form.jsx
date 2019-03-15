@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
 
    demoLogin() {
       this.refs.btn.setAttribute("disabled", "disabled");
-      const usernameArr = "thesecheesefriesarebombdotcom".split("");
+      const usernameArr = "thesepretzelsaremakingmethirsty".split("");
       const passwordArr = "password".split("");
       const button = document.getElementById('login_signup_button');
       this.setState({username:'', password:''}, () => 
@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
          this.setState(
             { username: this.state.username + usernameArr.shift()}, () => {
                window.setTimeout( () =>
-               this.demoLoginHelper(usernameArr, passwordArr, button), 70);
+               this.demoLoginHelper(usernameArr, passwordArr, button), 60);
             }
          );
       }

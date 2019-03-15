@@ -89,6 +89,7 @@
   font-size: 21px; 
   color: #9AA2AE;
   background-color: transparent;
+  text-decoration: none;
   border: none;
   /* margin: 8px 0 5px 20px; */
   position: relative;
@@ -98,6 +99,7 @@
 
 .icons:hover {
    text-decoration: none; 
+   border: none;
    opacity: 0.5;
 }
 
@@ -144,6 +146,8 @@ color: #001935;
 
 .nav_buttons {
    display: flex;
+      text-decoration: none;
+   border: none;
    position: absolute;
    right: 5px;
    height: 50px;

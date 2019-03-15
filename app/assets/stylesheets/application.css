@@ -64,10 +64,7 @@ p {
 
 i {
   text-decoration: none;
-}
-
-i :hover{
-  text-decoration: none;
+  border: none;
 }
 
 /* .small_logo {

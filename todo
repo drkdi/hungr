@@ -3,11 +3,14 @@
 - actually implement email table 
 - add likes to custom routes in controllers
 
-
+- add poll option like insta
 - add user implementation for AWS (profile pic) (anchor for modal to upload -> aws)
 - change icons on top right
 - show just users page
 -CSS media queries for mobile
+- add food api
+https://github.com/evz/tacofancy-api
+https://rapidapi.com/spoonacular/api/recipe-food-nutrition
  
 -recommended need to query for specific users
    - hide recommended blogs if resize smaller

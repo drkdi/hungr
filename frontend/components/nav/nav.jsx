@@ -25,7 +25,9 @@ class Nav extends React.Component {
          {/* botton line */}
                {/* <p>{console.log(this.props)} nav</p> */}
 
-            <input type="text" className="search_bar"/>
+            {/* <input type="text" className="search_bar"/> */}
+
+            
                {/* <button onClick={this.props.logout}>LOOOG OUT</button> */}
 
                <div className="nav_buttons">
