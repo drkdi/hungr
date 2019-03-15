@@ -8,6 +8,7 @@ import {ProtectedRoute, AuthRoute} from '../util/route_util.jsx';
 import Dashboard from './dashboard/dashboard';
 import Profile from './posts/profile';
 import Liked from './posts/liked';
+import Search from './posts/search';
 
 const App = () => (
    <>
@@ -21,6 +22,7 @@ const App = () => (
             <ProtectedRoute path="/dashboard" component={Dashboard} />
             <ProtectedRoute path="/profile" component={Profile} />
             <ProtectedRoute path="/liked" component={Liked} />
+            <ProtectedRoute path="/search/" component={Search} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute path="/" component={SplashContainer} />
       </Switch>

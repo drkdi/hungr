@@ -15,6 +15,10 @@ class Api::PostsController < ApplicationController
       @posts = Post.all.where(author_id: current_user.id)
    end 
 
+   # def searched_posts
+   #    @posts = Post.search()
+   # end
+
    def liked_posts
 
       # posts where like's author_id = current_user.id

@@ -23,20 +23,49 @@
    border-bottom: 1px solid rgb(255, 255, 255, 0.15); 
 }
 
-.search_bar:active {
-   color: white;
-   background-color: white;
+.search_bar_icon {
+   position: absolute;
+   top: 19px;
+   left: 75px;
+
+   font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+
 }
+
+.search_bar:focus {
+   background-color: white;
+   color: black;
+   
+}
+
+.search_bar::placeholder {
+   color: rgba(255, 255, 255, 0.8);
+}
+
 .search_bar {
    position:absolute;
    top: 10px;
-   width: 30%;
+   width: 540px;
    height: 33px;
-   background-color: #283648;
-   opacity: 0.5;
+   background-color: rgba(255, 255, 255, 0.25);
+   color: rgba(255, 255, 255) ;
    left: 60px;
    vertical-align: middle;
    border: none;
+   border-radius: 3px;
+   padding-left: 40px;
+}
+
+.sorryNoSearch {
+   color: white;
+  z-index: 5;
+
+   font-size: 30px;
+   display: block;
+   position: absolute;
+   top: 100px;
+   left: 0px;
 }
 
 /* .nav_buttons {

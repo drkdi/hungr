@@ -7,7 +7,33 @@ import CreateDialog from './create_dialog';
 class Nav extends React.Component {
    constructor(props) {
       super(props);
+      this.state = { search: ''};
+      this.checkSubmit = this.checkSubmit.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+
    }
+
+   checkSubmit(e) {
+      if (e && e.keyCode == 13) {
+         this.handleSubmit(this.state.search);
+      }
+   }
+
+   handleSubmit(search) {
+      // let q = this.state.search;
+      this.setState({ search: '' });
+      this.props.history.push(`/search/${search}`);
+   }
+
+   handleFocus() {
+      document.addEventListener("keypress", this.checkSubmit);
+   }
+
+   update(field) {
+      return (e) => this.setState({ [field]: e.target.value })
+   }
+
+
 
    render() {
       return (
@@ -15,9 +41,7 @@ class Nav extends React.Component {
          <a href="/#/dashboard" className="rainbow">h</a>
 
          <div className="nav_components">
-                
-            
-         
+               
          {/* search bar */}
 
          {/* icons */}
@@ -25,9 +49,30 @@ class Nav extends React.Component {
          {/* botton line */}
                {/* <p>{console.log(this.props)} nav</p> */}
 
-            {/* <input type="text" className="search_bar"/> */}
-
+            {/* <input type="text" className="search_bar" /> */}
+               {/* <form onsubmit="location.href='facebook.com' + document.getElementById('myInput').value; return false;">
+                  <input type="text" id="myInput" />
+                  <input type="submit" />
+               </form> */}
+               
             
+               <i className="search_bar_icon fas fa-search"></i>
+
+               <input 
+                  value={this.state.search}
+                  onChange={this.update('search')}
+                  onFocus={this.handleFocus.bind(this)}
+                  type="text" 
+                  className="search_bar"
+                  placeholder="Search Hungr"
+                   />
+               
+
+
+
+
+
+
                {/* <button onClick={this.props.logout}>LOOOG OUT</button> */}
 
                <div className="nav_buttons">

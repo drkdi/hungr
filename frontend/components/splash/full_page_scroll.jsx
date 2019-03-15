@@ -9,6 +9,7 @@ class FullPageScroll extends React.Component {
    }
 
 
+
    render() {
 
 
@@ -64,6 +65,7 @@ class FullPageScroll extends React.Component {
                      <h1 className="fullPageHeader blinking">Hungr is blogs.</h1>
                      <p className="fullPageText"> Wow you can blog and stuff! Neat!</p>
                   </div>
+
 
                   <div class="fullPagePostWrapper">
                             <img src="https://i.imgur.com/lVpAF8C.png" className="fullPageImage"/>
