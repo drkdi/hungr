@@ -79,12 +79,14 @@ class Nav extends React.Component {
                   {/* <button className="icons"><i className="fas fa-home"></i></button> */}
                      <a href="#/dashboard"><i className="down icons fas fa-home" title="home"></i></a>
                      <Link to="/liked"><i className="down icons fas fa-heart" title="liked"></i></Link>
-                  <Link to="/profile"><i className="down icons fas fa-address-card" title="profile"></i></Link>
+                  <Link to="/profile"><i className="down icons fas fa-user-alt" title="profile"></i></Link>
                      {/* <Link to="/profile"><i className="down icons fas fa-user-alt" title="profile"></i></Link> */}
 
-                  <a href="https://github.com/drkdi/hungr/"><i class="down fab icons fa-github" style={{ fontSize: '25px', top: '13px' }}></i></a>
-                  <a href="https://linkedin.com/in/daiderek/"><i class="down icons fab fa-linkedin" style={{fontSize: '25px', top: '13px'}}></i></a>
-                  <a href="https://derekdai.com/"><i class="down icons fas fa-user-alt" style={{ fontSize: '25px', top: '13px' }}></i></a>
+                  <a href="https://github.com/drkdi/hungr/"><i className="down fab icons fa-github" style={{ fontSize: '25px', top: '13px' }}></i></a>
+                  <a href="https://linkedin.com/in/daiderek/"><i className="down icons fab fa-linkedin" style={{fontSize: '25px', top: '13px'}}></i></a>
+                  {/* <a href="https://derekdai.com/"><i class="down icons fas fa-globe" style={{ fontSize: '25px', top: '13px' }}></i></a> */}
+                  <a href="https://derekdai.com/"><img className="down" style={{width:'30px', position:'relative', top: '12px', left: '7px',}} src="https://i.imgur.com/9d5Lys8.gif" alt="" />
+</a>
                   
                   < Account props={this.props}/>
 

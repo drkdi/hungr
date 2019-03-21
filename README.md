@@ -1,6 +1,7 @@
 ### Hungr
 
-[Live Link](https://hung3r.herokuapp.com/#/)
+## [Live Link](https://hung3r.herokuapp.com/#/) 
+
 ![gif](app/assets/images/hungrGIF.gif)
 
 
@@ -31,7 +32,7 @@ The user's dashboard has both posts that they made, as well as posts of the peop
 
 ![dashboard image](app/assets/images/dashboard.png)
 
-#Dashboard Nav
+# Dashboard Nav
 Posts are created using different buttons, implementing React to edit the front end state to accomodate the brought up associated form. A preview is then generated.
 
 ![dashboard image](app/assets/images/dashboard_nav.png)
@@ -40,13 +41,27 @@ Posts are created using different buttons, implementing React to edit the front 
 
 ![preview](app/assets/images/preview.png)
 
-#Profile
-The user's profile is rendered to show their personal posts, generated using a custom database query.
+
+# Profile
+
+The user's profile is rendered to show their personal posts, these are all the working parts into a single post
 
 ```rb
-<from posts_controller.rb>
- def user_posts
-      @posts = Post.all.where(author_id: current_user.id)
-   end 
+<from post.jsx>
+      <> 
+         <div className="individual_post" >
+            <p className="post_form_username">{this.props.currentUser.username}</p>
+            <div className="post_wrapper">
+               <img className="user_icon" src={this.props.currentUser.profile_pic_url} alt="user_icon" />
+               {content}
+               <p className="post_body">{this.props.post.body}</p>
+               <div className="form_buttons">
+               {editForm}
+               {likeBool}
+               < CommentModal id={this.props.post_id} post={modalPost} className="comment_modal" post_id={this.props.post_id}/>
+               </div>
+            </div>
+         </div>    
+      </>
 ```
 

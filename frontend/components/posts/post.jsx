@@ -126,7 +126,9 @@ class Post extends Component {
 
       let modalPost = this.props.post;
 
-      // debugger
+
+      {/* NEED TO QUERY DB FOR SPECIFIC COMMENTS */}
+
       return (
       <> 
          <div className="individual_post" >
@@ -134,13 +136,10 @@ class Post extends Component {
             <div className="post_wrapper">
                <img className="user_icon" src={this.props.currentUser.profile_pic_url} alt="user_icon" />
                {content}
-
                <p className="post_body">{this.props.post.body}</p>
                <div className="form_buttons">
                {editForm}
                {likeBool}
-      {/* NEED TO QUERY DB FOR SPECIFIC COMMENTS */}
-
                < CommentModal id={this.props.post_id} post={modalPost} className="comment_modal" post_id={this.props.post_id}/>
                </div>
             </div>
