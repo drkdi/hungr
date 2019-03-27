@@ -4,6 +4,8 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import SignUpFormContainer from '../session_form/signup_form_container';
 import FullPageScroll from './full_page_scroll';
+import ReactFullpage from '@fullpage/react-fullpage';
+
 // import ReactDOM from 'react-dom';
 
 // import ReactFullpage from '@fullpage/react-fullpage';
@@ -111,6 +113,7 @@ class Splash extends React.Component {
                   <i className="fas fa-angle-down leftish"></i>
 
                      What is Hungr?   
+
                   <i className="fas fa-angle-down rightish"></i>
          
                   </div>
