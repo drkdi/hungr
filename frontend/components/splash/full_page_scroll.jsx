@@ -1,7 +1,5 @@
 import React from 'react';
 import { SectionsContainer, Section } from 'react-fullpage';
-import { generateKeyPair } from 'crypto';
-import { relative } from 'path';
 
 class FullPageScroll extends React.Component {
    constructor(props) {
@@ -17,9 +15,9 @@ class FullPageScroll extends React.Component {
          activeClass: 'active',
          sectionClassName: 'section',
          anchors: ['#/', 'sectionTwo', 'sectionThree', 'sectionFour', 'sectionFive', 'sectionSix'],
-         scrollBar: false,
+         scrollBar: true,
          className: 'SectionContainer', // the class name for the section container
-         navigation: false,
+         navigation: true,
          delay: 1000, // the scroll animation speed
          verticalAlign: false,
          sectionPaddingTop: '0', // the section top padding
@@ -31,6 +29,12 @@ class FullPageScroll extends React.Component {
       return (
 
          <>
+            {/* add button to scroll down */}
+
+
+
+
+
 
                <SectionsContainer className="container" {...options}>
                <Section color="#00cf35">
