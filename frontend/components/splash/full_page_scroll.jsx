@@ -108,8 +108,6 @@ class FullPageScroll extends React.Component {
                </Section> */}
 
 
-                  <Section color="yellow">
-                  </Section>
 
                </SectionsContainer>
 
