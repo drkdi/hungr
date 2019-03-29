@@ -1,128 +1,127 @@
+import { runInContext } from "vm";
+import { login } from "../../actions/session_actions";
+import React from "react";
+import { Link, Route } from "react-router-dom";
+import SignUpFormContainer from "../session_form/signup_form_container";
+import FullPageScroll from "./full_page_scroll";
+import ReactFullpage from "@fullpage/react-fullpage";
 
+// import ReactDOM from 'react-dom';
 
-import React from 'react';
-import { SectionsContainer, Section } from 'react-fullpage';
+// import ReactFullpage from '@fullpage/react-fullpage';
 
-class FullPageScroll extends React.Component {
-   constructor(props) {
-      super(props)
-   }
+class Splash extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  handleChange(e, type) {
+    this.setState({
+      [type]: e.target.value
+    });
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.processForm(user);
+  }
 
-   render() {
+  render() {
+    const LoginOrSignup = this.props.location.pathname;
 
+    const wallpaperStyle = {
+      margin: 0,
+      background: `url(${window.splashUrl})`,
+      height: "100vh",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat"
+    };
 
-      let options = {
-         activeClass: 'active',
-         sectionClassName: 'section',
-         anchors: ['#/', 'sectionTwo', 'sectionThree', 'sectionFour', 'sectionFive', 'sectionSix'],
-         scrollBar: true,
-         className: 'SectionContainer', // the class name for the section container
-         navigation: true,
-         delay: 1000, // the scroll animation speed
-         verticalAlign: false,
-         sectionPaddingTop: '0', // the section top padding
-         sectionPaddingBottom: '0', // the section bottom padding
-         arrowNavigation: true
+    return (
+      <>
+        <div
+          className="splash_form"
+          onSubmit={e => this.handleSubmit(e)}
+          style={wallpaperStyle}
+        >
+          <a href="#/" className="rainbow">
+            h
+          </a>
 
-      };
+          <img
+            className="logo animated fadeInDown"
+            src="https://i.imgur.com/RjrJpb7.png"
+            alt="hungr_logo"
+          />
 
-      return (
+          <p className="phrase1 animated fadeInDown">
+            Come for what you crave.
+          </p>
+          <p className="phrase2 animated fadeInDown">
+            Stay because I need a job P L E A S E
+          </p>
 
-         <>
-            {/* add button to scroll down */}
+          <Route path="/signup" component={SignUpFormContainer} />
+          <br />
 
+          {/* dont need cause login redirects to login page */}
+          {/* <Route path='/login' component={LoginFormContainer} /> */}
 
+          {LoginOrSignup === "/" || LoginOrSignup === "/login" ? (
+            <ul>
+              <Link to="/signup">
+                <button className="signup_button animated fadeIn">
+                  Get Started
+                </button>
+              </Link>
+              <br />
 
+              <Link to="/login">
+                <button className="login_button animated fadeIn">Log In</button>
+              </Link>
+            </ul>
+          ) : null}
 
+          {/* show actual components */}
 
+          {/* <button onClick={props.demo} className="demo_login">Demo Login</button> */}
 
-            <SectionsContainer className="container" {...options}>
-               <Section color="#00cf35">
-                  <p className="fullPageScrollH blinking">h</p>
+          <br />
+          <div className="profile_links">
+            <a href="https://github.com/drkdi">
+              <img
+                className="git-img animated fadeIn"
+                src="https://i.imgur.com/vpbjsvX.png"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/daiderek/">
+              <img
+                className="linkedin-img animated fadeIn"
+                src="https://i.imgur.com/aQVis67.png"
+              />
+            </a>
+          </div>
 
-                  <div className='circle-container spin'>
-                     <i className="fas fa-camera pageScrollIcon deg0"></i>
-                     <i className="fas fa-quote-right pageScrollIcon  deg45"></i>
-                     <i className="fas fa-laugh-squint pageScrollIcon deg90"></i>
-                     <i className="fas fa-unlink pageScrollIcon  deg135"></i>
-                     <i className="fas fa-headphones pageScrollIcon  deg180"></i>
-                     <i className="fas fa-video-slash pageScrollIcon  deg225"></i>
-                     <i className="fas fa-poo-storm pageScrollIcon  deg270"></i>
-                     <i className="fas fa-font pageScrollIcon  deg315"></i>
-                  </div>
+          <div className="splash_anchor_bottom twoSecPopup fadeInUp">
+            <div className="splash_anchor_bottom_text">
+              <i className="fas fa-angle-down leftish" />
+              What is Hungr?
+              <i className="fas fa-angle-down rightish" />
+            </div>
+          </div>
+        </div>
 
-                  <button className="backtoTop1"><a href="http://www.hungr.club/#/dashboard"><i class="fas fa-angle-double-up"></i></a></button>
+        {/* <FullPageScroll /> */}
 
-                  <div className="fullPageExplainWrapper">
-                     <h1 className="fullPageHeader">Hungr is so easy to use that it’s hard to explain.</h1>
-                     <p className="fullPageText">If you don't like Hawaiian pizza don't bother continuing</p>
-                  </div>
-
-               </Section>
-
-
-               <Section className="custom-section" verticalAlign="true" color="#7c5cff">
-
-                  <button className="backtoTop2"><a href="http://www.hungr.club/#/dashboard"><i class="fas fa-angle-double-up"></i></a></button>
-
-                  <div className="fullPageExplainWrapper">
-                     <h1 className="fullPageHeader blinking">Hungr is blogs.</h1>
-                     <p className="fullPageText"> Wow you can blog and stuff! Neat!</p>
-                  </div>
-
-
-                  <div class="fullPagePostWrapper">
-                     <img src="https://i.imgur.com/lVpAF8C.png" className="fullPageImage" />
-                     <img src="https://i.imgur.com/NMmJmyI.png" className="fullPageImage" />
-                     <img src="https://i.imgur.com/NKrFEid.gif" className="fullPageImage" />
-                     <img src="https://i.imgur.com/IEPTWy2.png" className="fullPageImage" />
-                     <img src="https://i.imgur.com/9PSm9LK.gif" className="fullPageImage" />
-                  </div>
-
-               </Section>
-
-
-
-
-
-
-
-
-
-
-
-               <Section color="#001935">
-                  <button className="backtoTop3"><a href="http://www.hungr.club/#/dashboard"><i class="fas fa-angle-double-up"></i></a></button>
-
-                  <img src="https://i.imgur.com/KN4Oo0e.png" className="fullPageFeedImage" />
-
-                  <div className="fullPageImageWrapper">
-                     <h1 className="fullPageHeader blinking">You already know how this works.</h1>
-                     {/* <p className="fullPageText">Here's what your feed looks like</p> */}
-                  </div>
-
-               </Section>
-
-               {/* <Section color="orange">Seriously, put anything you want here.
-   Seven post types to get you started. Your brain can do the rest. This thing is yours. Use it however you like.
-               </Section> */}
-
-
-
-            </SectionsContainer>
-
-
-
-
-
-         </>
-      )
-   }
-
-
+        <div>
+          <FullPageScroll />
+        </div>
+      </>
+    );
+  }
 }
 
-export default FullPageScroll;
-
+export default Splash;

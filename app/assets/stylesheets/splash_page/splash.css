@@ -1,22 +1,17 @@
-
 /* .body {
    background-image: url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
    background-repeat: no-repeat;
    background-size: cover;
 } */
 
- 
-
- .logo {
-   position: relative;
-   margin: 12.5% 0 0 0 ;
-   height: 60px;
+.logo {
+  position: relative;
+  margin: 12.5% 0 0 0;
+  height: 60px;
 }
 
-
-
 .email_field {
-   display: flex;
+  display: flex;
   flex-flow: column;
   align-items: center;
   border: none;
@@ -27,7 +22,6 @@
   font-size: 16px;
   padding: 0 10px;
   position: relative;
-
 }
 .username_input {
   display: flex;
@@ -41,11 +35,10 @@
   font-size: 16px;
   padding: 0 10px;
   position: relative;
-  top:
-
+  top: ;
 }
 .password_input {
-   display: flex;
+  display: flex;
   flex-flow: column;
   align-items: center;
   border: none;
@@ -57,176 +50,178 @@
   padding: 0 10px;
 }
 
- .greetingLinks {
-    margin-top: 140px;
- }
+.greetingLinks {
+  margin-top: 140px;
+}
 
- .form {
-    margin-top: 129px;
- }
- 
+.form {
+  margin-top: 129px;
+}
+
 .splash_form {
-   text-align: center;
-   position: relative;
+  text-align: center;
+  position: relative;
   top: 30%;
   display: flex;
   align-items: center;
   flex-flow: column;
-  
 }
 
 /* keep */
 
-
-
 .splash_form p {
-   display: block;
-   font-family: 'Open Sans', sans-serif;
-   font-size: 16px;
-   letter-spacing: 0.5px;
-     /* font-stretch: 'ultra-condensed'; */
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  /* font-stretch: 'ultra-condensed'; */
 }
 
 .phrase1 {
-   color: white;
-   margin: -2px 0 0 0;
+  color: white;
+  margin: -2px 0 0 0;
 }
 
-
 .phrase2 {
-   color: white;
-   margin: 3px 0 0 0;
-
+  color: white;
+  margin: 3px 0 0 0;
 }
 
 /* session */
 
-
 .errors_render {
-   color: white;
-   background-color: rgba(10, 10, 10, 0.7);
-   padding: 10px;
+  color: white;
+  background-color: rgba(10, 10, 10, 0.7);
+  padding: 10px;
 }
 
 /* go back and fix */
 .session_errors {
-   color: white;
-    margin: 32px 0 0 0;
-   width: 300px;
-   height: 46px;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   font-weight: 700;
-   padding-top: 3px;
-   background: rgba(10, 10, 10, 0.3);
-   border: none;
-   border-radius: 2px;
+  color: white;
+  margin: 32px 0 0 0;
+  width: 300px;
+  height: 46px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 3px;
+  background: rgba(10, 10, 10, 0.3);
+  border: none;
+  border-radius: 2px;
 }
 
 .anti_button {
-   position: fixed;
-   top: 10px;
-   right: 20px;
-   font-size: 13px;
-   
-   display: inline-block;
-   height: 29px;
-   text-align: center;
-   font-weight: 700;
-   font-family: Arial, Helvetica, sans-serif;
-   /* padding-bottom: 0px; */
-   padding-top: 6px;
-   padding-left: 13px;
-   padding-right: 13px;
-   border-radius: 2px; 
-   /* border-bottom-color: #686868;
-   border-top-color: #686868; */
-   box-sizing: border-box;
-   color: #444444;
-   background-color: white;
-   border: none;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  font-size: 13px;
 
-   cursor: pointer;
-   /* padding: 70px 32px; */
-   /* width: 75px;
+  display: inline-block;
+  height: 29px;
+  text-align: center;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  /* padding-bottom: 0px; */
+  padding-top: 6px;
+  padding-left: 13px;
+  padding-right: 13px;
+  border-radius: 2px;
+  /* border-bottom-color: #686868;
+   border-top-color: #686868; */
+  box-sizing: border-box;
+  color: #444444;
+  background-color: white;
+  border: none;
+
+  cursor: pointer;
+  /* padding: 70px 32px; */
+  /* width: 75px;
    height: 33px; */
 }
 
 /* in splash */
 .signup_button {
-   margin: 32px 0 0 0;
-   width: 300px;
-   height: 46px;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   font-weight: 700;
-   padding-top: 3px;
-   color: white;
-   background-color: #349ecf;
-   border: none;
-   border-radius: 2px;
+  margin: 32px 0 0 0;
+  width: 300px;
+  height: 46px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 3px;
+  color: white;
+  background-color: #349ecf;
+  border: none;
+  border-radius: 2px;
 }
 
 .login_button {
-     margin: 12px 0 0 0;
-   width: 300px;
-   height: 43px;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   font-weight: 700;
-   padding-top: 5px;
-   color: #444444;
-   background-color: #white;
-   border: none;
-   border-radius: 2px;
+  margin: 12px 0 0 0;
+  width: 300px;
+  height: 43px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 5px;
+  color: #444444;
+  background-color: #white;
+  border: none;
+  border-radius: 2px;
 }
 
-.login_signup_button {    
-   margin: 12px 0 0 0;
-   width: 300px;
-   height: 43px;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   font-weight: 700;
-   padding-top: 5px;
-   color: white;
-   background-color: #349ecf;
-   border: none;
-   border-radius: 2px;
+.login_signup_button {
+  margin: 12px 0 0 0;
+  width: 300px;
+  height: 43px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 5px;
+  color: white;
+  background-color: #349ecf;
+  border: none;
+  border-radius: 2px;
 }
 
 .profile_links {
-   display: flex;
-   width: 280px;
-   justify-content: space-evenly;
+  display: flex;
+  width: 280px;
+  justify-content: space-evenly;
 }
 
 .git-img {
-   width: 40px;
+  width: 40px;
 }
 
 .linkedin-img {
-   width: 40px;
-   border-radius: 5px;
+  width: 40px;
+  border-radius: 5px;
 }
 
 .splash_anchor_bottom {
-   position: absolute;
-   bottom: 0px;
-   width: 100%;
-   
-   height: 46px;
-   background-color: limegreen;
-   border-top: 3px solid green;
-   
-
-
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 46px;
+  background-color: #00cf35;
+  border-top: 3px solid green;
 }
+
 .splash_anchor_bottom_text {
-   color: white;
-   font-weight: 600;
-   font-size: 14px;
-   font-family:'Open Sans', sans-serif;
-   position: relative;
-   top: 0%;
+  width: 40%;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  top: -50%;
+}
+
+.fp-tableCell {
+  height: 100% !important;
 }
