@@ -1,12 +1,12 @@
-import {connect} from 'react-redux';
-import { logout } from '../../actions/session_actions';
-import Nav from './nav';
-
+import { connect } from "react-redux";
+import { logout } from "../../actions/session_actions";
+import Nav from "./nav";
 
 const mdp = dispatch => ({
-   logout: () => dispatch(logout())
-})
+  logout: () => dispatch(logout())
+});
 
-export default connect(null, mdp)(Nav);
-// export default App_bar;
-// export default connect(msp, mdp)(nav);
+export default connect(
+  null,
+  mdp
+)(Nav);

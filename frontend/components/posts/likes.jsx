@@ -1,9 +1,7 @@
 import React from 'react';
 
 export const Likes = ({post, currentUserId, like, unlike}) => {
-   
    const likeAction;
-
    const currentUsersLike = post.likes.map(
       like => {
          if (like.author_id === currentUserId) {
@@ -11,7 +9,6 @@ export const Likes = ({post, currentUserId, like, unlike}) => {
          }
       }
    )
-
    if (currentUsersLike) {
       likeAction = () => unlike(currentUsersLike.id)
    }

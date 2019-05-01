@@ -10,7 +10,7 @@ class ImageForm extends React.Component {
                      title: '', 
                      author_id: this.props.currentUser.id, 
                      photoFile: null, 
-                     photoUrl: null, // for image preview
+                     photoUrl: null,
                   };
       this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -19,12 +19,8 @@ class ImageForm extends React.Component {
 
    handleSubmit(e) {
       e.preventDefault();
-      // const formData = new FormData();
-      // formData.append("post[title]", this.state.title);
 
       if (this.state.photoFile){
-
-      // formData.append("post[photo]", this.state.photoFile);
    }
       $.ajax({
          url: '/api/posts',
@@ -34,15 +30,11 @@ class ImageForm extends React.Component {
          processData: false
       }).then((response) => console.log(response.message));
 
-
-
-
       let post = merge({}, this.state);
       this.props.processForm(post)
          // .then(this.setState({ body: '', title: '', tag: '' }))
          .then(this.props.history.push('/dashboard'));
    }
-
    update(field) {
       return (e) => this.setState({ [field]: e.target.value })
    }

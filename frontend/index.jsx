@@ -1,50 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import configureStore from './store/store';
-import Root from './components/root';
-import { login, receiveCurrentUser, signup } from './actions/session_actions'; ///for testing
+import React from "react";
+import ReactDOM from "react-dom";
+import configureStore from "./store/store";
+import Root from "./components/root";
+import { login, receiveCurrentUser, signup } from "./actions/session_actions"; ///for testing
 
+document.addEventListener("DOMContentLoaded", () => {
+  let store = configureStore();
 
-// document.addEventListener('DOMContentLoaded', () => {
-//    const root = document.getElementById('root');
-//    let preloadedState = undefined;
-//    if (window.currentUser) {
-//       preloadedState = {
-//          session: {
-//             currentUser: window.currentUser
-//          }
-//       };
-//    }
-//    const store = createStore(preloadedState);
+  if (window.currentUser) {
+    const preloadedState = {
+      entities: {
+        users: { [window.currentUser.id]: window.currentUser }
+      },
+      session: { id: window.currentUser.id }
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
 
-//    ReactDOM.render(<Root store={store} />, root);
-// })
+  window.getState = store.getState;
 
-document.addEventListener('DOMContentLoaded', () => {
-   let store = configureStore();
+  // window.dispatch = store.dispatch; // just for testing!
+  // window.login = login;
+  // window.signup = signup;
+  // window.receiveCurrentUser = receiveCurrentUser;
 
-   if (window.currentUser) {
-      const preloadedState = {
-         entities: {
-            users: { [window.currentUser.id]: window.currentUser }
-         },
-         session: { id: window.currentUser.id }
-      };
-      store = configureStore(preloadedState);
-      delete window.currentUser;
-   } else {
-      store = configureStore();
-   }
-
-   window.getState = store.getState;
- 
-   // window.dispatch = store.dispatch; // just for testing!
-   // window.login = login;
-   // window.signup = signup;
-   // window.receiveCurrentUser = receiveCurrentUser;
-   
-   const root = document.getElementById('root');
-   // ReactDOM.render(<h1>Welcome to hungr</h1>, root);
-   ReactDOM.render(<Root store={store} />, root);
-   // alert("hi")
+  const root = document.getElementById("root");
+  // ReactDOM.render(<h1>Welcome to hungr</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
+  // alert("hi")
 });

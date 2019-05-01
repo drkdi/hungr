@@ -1,84 +1,82 @@
-import React from 'react';
-import { Component } from 'react';
-import { merge } from 'lodash';
-import { connect } from 'react-redux';
-import { createPost } from '../../../actions/post_actions';
+import React from "react";
+import { Component } from "react";
+import { merge } from "lodash";
+import { connect } from "react-redux";
+import { createPost } from "../../../actions/post_actions";
 
 const mapStateToProps = ({ entities, session }) => {
-   const currentUserID = session[Object.keys(session)[0]];
-   const currentUser = entities.users[currentUserID];
-   return { currentUser };
+  const currentUserID = session[Object.keys(session)[0]];
+  const currentUser = entities.users[currentUserID];
+  return { currentUser };
 };
 
-
 const mapDispatchToProps = dispatch => ({
-   processForm: post => dispatch(createPost(post)),
+  processForm: post => dispatch(createPost(post))
 });
 
-
 class TextForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      body: "",
+      title: "link",
+      author_id: this.props.currentUser.id
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-   constructor(props) {
-      super(props);
-      this.state = { body: '', title: 'link', author_id: this.props.currentUser.id };
-      this.handleSubmit = this.handleSubmit.bind(this);
+  handleSubmit(e) {
+    e.preventDefault();
 
-   }
+    const formData = new FormData();
 
-   handleSubmit(e) {
-      e.preventDefault();
-      // let post = merge({}, this.state);
-      // this.props.processForm(post)
-      // // this.props.processForm(this.state)
-      // // .then(this.setState({ body: '', title: '', tag: '' }))
-      // .then(this.props.history.push('/dashboard'));
+    formData.append("post[body]", this.state.body);
+    formData.append("post[author_id]", this.state.author_id);
+    formData.append("post[title]", this.state.title);
 
-      const formData = new FormData();
-      
-      formData.append('post[body]', this.state.body);
-      formData.append('post[author_id]', this.state.author_id);
-      formData.append('post[title]', this.state.title);
-   
-      if (this.state.body === "") {
-         alert("needs link")
-      }
-      else {
-         this.props.processForm(formData).then(this.props.history.push('/dashboard'));
-      }
+    if (this.state.body === "") {
+      alert("needs link");
+    } else {
+      this.props
+        .processForm(formData)
+        .then(this.props.history.push("/dashboard"));
+    }
+  }
 
-   }
+  update(field) {
+    return e => this.setState({ [field]: e.target.value });
+  }
 
-   update(field) {
-      return (e) => this.setState({ [field]: e.target.value })
-   }
+  render() {
+    return (
+      <div>
+        <div className="glass_active" />
+        <form className="create_text" onSubmit={this.handleSubmit}>
+          <p className="post_form_username">
+            {this.props.currentUser.username}
+          </p>
 
-   render() {
+          <textarea
+            className="body_input"
+            onChange={this.update("body")}
+            value={this.state.body}
+            id="body"
+            placeholder={"Enter Link"}
+          />
 
-
-      return (
-         <div>
-            <div className="glass_active"></div>
-            <form className="create_text" onSubmit={this.handleSubmit}>
-
-               <p className="post_form_username">{this.props.currentUser.username}</p>
-
-               <textarea
-                  className="body_input"
-                  onChange={this.update('body')}
-                  value={this.state.body}
-                  id="body"
-                  placeholder={"Enter Link"}>
-               </textarea>
-
-               <div className="form_buttons">
-                  <a type="link" href="#/" className="form_cancel_button">Close</a>
-                  <button className="form_post_button">Post</button>
-               </div>
-            </form>
-         </div>
-      )
-   };
+          <div className="form_buttons">
+            <a type="link" href="#/" className="form_cancel_button">
+              Close
+            </a>
+            <button className="form_post_button">Post</button>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TextForm);
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TextForm);

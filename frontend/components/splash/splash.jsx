@@ -5,10 +5,6 @@ import SignUpFormContainer from "../session_form/signup_form_container";
 import ReactFullpage from "@fullpage/react-fullpage";
 import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
 
-// import ReactDOM from 'react-dom';
-
-// import ReactFullpage from '@fullpage/react-fullpage';
-
 class Splash extends React.Component {
   constructor(props) {
     super(props);
@@ -202,7 +198,6 @@ class Splash extends React.Component {
                   <h1 className="fullPageHeader blinking">
                     You already know how this works.
                   </h1>
-                  {/* <p className="fullPageText">Here's what your feed looks like</p> */}
                 </div>
 
                 <button

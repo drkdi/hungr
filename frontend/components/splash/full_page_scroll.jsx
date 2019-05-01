@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ReactFullpage from "@fullpage/react-fullpage";
 
-import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
+import "fullpage.js/vendors/scrolloverflow";
 
 class MySection extends React.Component {
   render() {
@@ -33,12 +33,7 @@ class FullPageScroll extends React.Component {
               <MySection
                 content={
                   <>
-                    {/* <button onClick={() => fullpageApi.moveSectionDown()}>
-                              Click me to move down
-            </button> */}
-
                     <p className="fullPageScrollH blinking">h</p>
-
                     <div className="sk-fading-circle circle-container">
                       <i className="fas fa-beer sk-circle1 sk-circle" />
                       <i className="fa-angle-double-right sk-circle2 sk-circle" />
